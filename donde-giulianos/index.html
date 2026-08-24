@@ -109,7 +109,7 @@ h2{font-size:clamp(30px,5.4vw,50px);letter-spacing:-.025em}
 .it .p{font-family:var(--fh);color:var(--ac2);font-size:17px;white-space:nowrap}
 
 /* pasos */
-.pasos{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.pasos{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr))}
 .paso{position:relative;background:var(--cd);border:1px solid var(--bd);border-radius:16px;
  padding:30px 26px 26px;overflow:hidden;transition:border-color .2s,transform .2s}
 .paso:hover{border-color:var(--ac);transform:translateY(-3px)}
@@ -119,7 +119,7 @@ h2{font-size:clamp(30px,5.4vw,50px);letter-spacing:-.025em}
 .paso p{color:var(--mut);font-size:14.5px;position:relative}
 
 /* info */
-.info{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(265px,1fr))}
+.info{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(265px,100%),1fr))}
 .box{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:28px}
 .box h4{font-size:11.5px;text-transform:uppercase;letter-spacing:.18em;color:var(--ac2);
  margin-bottom:14px;font-weight:700}

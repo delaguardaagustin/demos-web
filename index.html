@@ -57,7 +57,7 @@ h2{font-size:clamp(27px,4.6vw,42px)}
 .sub{color:var(--mut);font-size:15.5px;margin-bottom:clamp(30px,4vw,46px);max-width:56ch}
 
 /* tarjetas */
-.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(268px,1fr))}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(268px,100%),1fr))}
 a.card{position:relative;overflow:hidden;background:var(--cd);border:1px solid var(--bd);border-radius:18px;
  padding:28px 26px 24px;text-decoration:none;display:flex;flex-direction:column;min-height:212px;
  transition:border-color .2s,transform .2s,background .2s}
