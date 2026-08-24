@@ -85,6 +85,28 @@ a.card:hover .go span{transform:translateX(4px)}
 .lista b{font-weight:650}
 .lista p{color:var(--mut);font-size:14.5px;margin-top:2px}
 
+/* contacto */
+.cta{position:relative;overflow:hidden;background:var(--cd);border:1px solid var(--bd);border-radius:22px;
+ padding:clamp(32px,5vw,52px);display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(26px,4vw,48px);
+ align-items:center}
+.cta::before{content:"";position:absolute;inset:0;pointer-events:none;
+ background:radial-gradient(70% 90% at 20% 0%,#25d3661f,transparent 70%)}
+.cta>*{position:relative}
+.cta .shead{margin-bottom:12px}
+.cta p{color:var(--mut);font-size:15.5px;max-width:44ch}
+.ctabtns{display:grid;gap:12px}
+.ctabtns a{display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:14px;
+ text-decoration:none;font-weight:650;font-size:15px;transition:transform .16s,box-shadow .16s,border-color .16s}
+.ctabtns a:hover{transform:translateY(-2px)}
+.ctabtns svg{width:24px;height:24px;flex:none;fill:currentColor}
+.ctabtns span{display:flex;flex-direction:column;line-height:1.3;min-width:0;overflow-wrap:anywhere}
+.ctabtns small{font-size:11px;text-transform:uppercase;letter-spacing:.14em;opacity:.72;font-weight:700}
+.bwa{background:var(--ac);color:#04301a;box-shadow:0 6px 22px -8px var(--ac)}
+.bwa:hover{box-shadow:0 12px 30px -10px var(--ac)}
+.bml{background:transparent;color:var(--tx);border:1px solid var(--bd)}
+.bml:hover{border-color:var(--ac2)}
+@media(max-width:760px){.cta{grid-template-columns:1fr}}
+
 footer{border-top:1px solid var(--bd);padding:40px 0 52px;color:var(--mut);font-size:14px;line-height:1.9}
 footer b{color:var(--tx);font-family:var(--fh);font-size:16px;display:block;margin-bottom:6px}
 
@@ -174,10 +196,27 @@ El nombre, la dirección y la calificación provienen de sus fichas públicas de
 </ul>
 </div></section>
 
+<section id="contacto"><div class="wrap">
+<div class="cta rv">
+<div class="ctatxt">
+<div class="shead"><span class="snum">03</span><h2>¿Armamos el tuyo?</h2></div>
+<p>Escríbeme y en la semana tienes tu demo lista, con tu carta real y tu número.
+Si no te convence, no pagas nada.</p>
+</div>
+<div class="ctabtns">
+<a class="bwa" href="https://wa.me/56974479565?text=Hola%20Agust%C3%ADn%2C%20vi%20tus%20demos%20y%20quiero%20una%20p%C3%A1gina%20para%20mi%20local" target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.1c-.25.69-1.43 1.32-2 1.41-.51.07-1.16.1-1.87-.12-.43-.14-.98-.33-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.15-.2-1.21-1.6-1.21-3.06s.77-2.17 1.04-2.47c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.33-.3.5-.15.17-.32.39-.45.52-.15.14-.3.3-.13.6.18.3.77 1.27 1.65 2.05 1.13 1.01 2.08 1.32 2.38 1.47.29.15.47.13.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.72-.17 1.41z"/></svg>
+<span><small>WhatsApp</small>+56 9 7447 9565</span></a>
+<a class="bml" href="mailto:delaguardaagustin@gmail.com?subject=Quiero%20una%20p%C3%A1gina%20para%20mi%20local">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4.24l-8 4.76-8-4.76V6l8 4.76L20 6v2.24z"/></svg>
+<span><small>Correo</small>delaguardaagustin@gmail.com</span></a>
+</div>
+</div>
+</div></section>
+
 <footer><div class="wrap">
 <b>Agustín de la Guarda</b>
-Desarrollo web · Santiago, Chile<br>
-¿Tienes un local y quieres el tuyo? Escríbeme y lo armamos.
+Desarrollo web · Santiago, Chile
 </div></footer>
 
 <script>
