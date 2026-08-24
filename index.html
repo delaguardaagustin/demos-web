@@ -1,100 +1,204 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Demos de sitios web — Agustín de la Guarda</title>
+<title>Sitios web para locales de barrio — Agustín de la Guarda</title>
 <meta name="description" content="Propuestas de sitio web para locales de Santiago sur. Pedidos directos por WhatsApp, sin comisiones de delivery.">
+<meta name="theme-color" content="#0b0b0d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0d0d10;--cd:#17171c;--tx:#f0eff4;--mut:#94939e;--ac:#25d366;--ac2:#e8c547;--bd:#28282f}
+:root{--bg:#0b0b0d;--cd:#151519;--cd2:#1c1c22;--tx:#f1f0f4;--mut:#918f9c;--ac:#25d366;--ac2:#e8c547;
+ --bd:#26262e;--pad:clamp(20px,5vw,40px);--fh:'Space Grotesk',system-ui;--fb:'Inter',system-ui}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--tx);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
-.wrap{max-width:900px;margin:0 auto;padding:0 22px}
-header{padding:80px 0 12px;text-align:center}
-.kick{color:var(--ac2);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.16em;margin-bottom:16px}
-h1{font-size:clamp(34px,6.5vw,54px);line-height:1.05;letter-spacing:-.035em;font-weight:850}
-header p{color:var(--mut);font-size:clamp(16px,2.4vw,19px);max-width:580px;margin:20px auto 0}
-.aviso{background:var(--cd);border:1px solid var(--bd);border-left:3px solid var(--ac2);border-radius:10px;padding:16px 18px;margin:40px 0 44px;color:var(--mut);font-size:14.5px}
-.aviso b{color:var(--tx)}
-.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));padding-bottom:56px}
-a.card{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:26px;text-decoration:none;color:var(--tx);display:block;transition:border-color .15s,transform .15s}
-a.card:hover{border-color:var(--ac);transform:translateY(-2px)}
-.card .rubro{color:var(--mut);font-size:12.5px;text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:10px}
-.card h2{font-size:22px;letter-spacing:-.02em;margin-bottom:8px;font-weight:800}
-.card .st{color:var(--ac2);font-size:14px;font-weight:650}
-.card .zn{color:var(--mut);font-size:13.5px;margin-top:12px}
-.card .go{color:var(--ac);font-size:14px;font-weight:700;margin-top:16px}
-.que{border-top:1px solid var(--bd);padding:48px 0 20px}
-.que h3{font-size:22px;margin-bottom:20px;letter-spacing:-.02em;font-weight:800}
-.que ul{list-style:none;display:grid;gap:12px}
-.que li{color:var(--mut);font-size:15px;padding-left:26px;position:relative}
-.que li::before{content:"→";position:absolute;left:0;color:var(--ac)}
-.que li b{color:var(--tx)}
-footer{border-top:1px solid var(--bd);margin-top:44px;padding:32px 0 48px;color:var(--mut);font-size:13.5px;line-height:1.8}
-footer a{color:var(--tx)}
-</style></head><body>
-<div class="wrap">
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--tx);font-family:var(--fb);font-size:16px;line-height:1.65;
+ -webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.fh{font-family:var(--fh);letter-spacing:-.03em;line-height:1.05;font-weight:700}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 var(--pad)}
 
-<header>
-<div class="kick">Santiago sur</div>
-<h1>Sitios web para locales de barrio</h1>
-<p>Propuestas de diseño para negocios de la zona que hoy solo existen en Google Maps.
-Pedidos directos por WhatsApp, sin pagarle comisión a las apps de delivery.</p>
-</header>
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.15;mix-blend-mode:overlay;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:clamp(70px,12vw,130px) 0 clamp(40px,6vw,64px)}
+.hero::before{content:"";position:absolute;inset:-40% -10% auto -10%;height:130%;pointer-events:none;
+ background:radial-gradient(55% 50% at 20% 15%,#25d3662e,transparent 70%),
+            radial-gradient(50% 45% at 85% 5%,#e8c5471f,transparent 72%)}
+.hero .pat{position:absolute;inset:0;width:100%;height:100%;color:var(--tx);opacity:.05;pointer-events:none}
+.hero>*{position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--ac2);font-size:12px;font-weight:700;
+ text-transform:uppercase;letter-spacing:.2em;border:1px solid var(--bd);border-radius:999px;
+ padding:7px 16px;margin-bottom:26px;background:#151519b3}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--ac);font-style:normal}
+h1{font-size:clamp(38px,7.6vw,76px);max-width:15ch;text-wrap:balance}
+h1 em{font-style:normal;color:var(--ac2)}
+.lead{color:var(--mut);font-size:clamp(16.5px,2.1vw,20px);max-width:56ch;margin-top:24px}
+
+.aviso{display:flex;gap:16px;background:var(--cd);border:1px solid var(--bd);border-radius:14px;
+ padding:20px 22px;margin-top:40px;color:var(--mut);font-size:14.5px;max-width:70ch}
+.aviso .ic{flex:none;width:26px;height:26px;border-radius:50%;background:var(--ac2);color:#14120a;
+ display:grid;place-items:center;font-weight:800;font-size:15px;font-family:var(--fh)}
+.aviso b{color:var(--tx);font-weight:650}
+
+/* marquesina */
+.mq{border-block:1px solid var(--bd);background:var(--cd);overflow:hidden;padding:14px 0;
+ margin-top:clamp(46px,7vw,76px)}
+.mq .track{display:flex;width:max-content;animation:slide 30s linear infinite}
+.mq span{font-family:var(--fh);font-size:clamp(15px,2vw,20px);opacity:.45;padding:0 26px;white-space:nowrap;
+ display:inline-flex;align-items:center;gap:26px}
+.mq span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--ac)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+section{padding:clamp(56px,8vw,100px) 0}
+.shead{display:flex;align-items:baseline;gap:16px;margin-bottom:10px;flex-wrap:wrap}
+.snum{font-family:var(--fh);font-size:13px;color:var(--ac);letter-spacing:.16em}
+h2{font-size:clamp(27px,4.6vw,42px)}
+.sub{color:var(--mut);font-size:15.5px;margin-bottom:clamp(30px,4vw,46px);max-width:56ch}
+
+/* tarjetas */
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(268px,1fr))}
+a.card{position:relative;overflow:hidden;background:var(--cd);border:1px solid var(--bd);border-radius:18px;
+ padding:28px 26px 24px;text-decoration:none;display:flex;flex-direction:column;min-height:212px;
+ transition:border-color .2s,transform .2s,background .2s}
+a.card::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .25s;
+ background:radial-gradient(80% 70% at 50% 0%,var(--gl),transparent 70%)}
+a.card:hover{border-color:var(--gl2);transform:translateY(-4px);background:var(--cd2)}
+a.card:hover::before{opacity:1}
+a.card>*{position:relative}
+.card .rubro{color:var(--mut);font-size:11.5px;text-transform:uppercase;letter-spacing:.16em;
+ font-weight:700;margin-bottom:12px}
+.card h3{font-size:23px;margin-bottom:10px}
+.card .st{color:var(--ac2);font-size:14px;font-weight:650;font-family:var(--fh)}
+.card .zn{color:var(--mut);font-size:13.5px;margin-top:6px}
+.card .go{color:var(--ac);font-size:14px;font-weight:700;margin-top:auto;padding-top:18px;
+ display:flex;align-items:center;gap:7px}
+.card .go span{transition:transform .2s}
+a.card:hover .go span{transform:translateX(4px)}
+
+/* lista */
+.lista{display:grid;gap:2px;max-width:78ch}
+.lista li{list-style:none;display:flex;gap:16px;align-items:flex-start;padding:16px 18px;border-radius:11px;
+ transition:background .18s}
+.lista li:hover{background:var(--cd)}
+.lista .k{font-family:var(--fh);color:var(--ac);font-size:13px;flex:none;width:26px;padding-top:2px}
+.lista b{font-weight:650}
+.lista p{color:var(--mut);font-size:14.5px;margin-top:2px}
+
+footer{border-top:1px solid var(--bd);padding:40px 0 52px;color:var(--mut);font-size:14px;line-height:1.9}
+footer b{color:var(--tx);font-family:var(--fh);font-size:16px;display:block;margin-bottom:6px}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+ *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+ html{scroll-behavior:auto}}
+</style>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+</head><body>
+
+<div class="hero">
+<svg class="pat" aria-hidden="true"><defs>
+<pattern id="g" width="32" height="32" patternUnits="userSpaceOnUse">
+<path d="M32 0H0v32" fill="none" stroke="currentColor" stroke-width="1"/>
+</pattern></defs><rect width="100%" height="100%" fill="url(#g)"/></svg>
+<div class="wrap">
+<div class="eyebrow"><i></i>Santiago sur</div>
+<h1>Sitios web para <em>locales de barrio</em></h1>
+<p class="lead">Propuestas de diseño para negocios que hoy solo existen en Google Maps.
+Menú propio, pedidos directos al WhatsApp del local y cero comisiones de intermediarios.</p>
 
 <div class="aviso">
-<b>Estas páginas son demostraciones.</b> No son los sitios oficiales de los locales y no tengo
-relación comercial con ellos. Los menús, precios y horarios son inventados como ejemplo.
-El nombre, la dirección y la calificación provienen de sus fichas públicas de Google Maps.
+<span class="ic">!</span>
+<span><b>Estas páginas son demostraciones.</b> No son los sitios oficiales de los locales y no
+existe relación comercial con ellos. Los menús, precios y horarios son inventados como ejemplo.
+El nombre, la dirección y la calificación provienen de sus fichas públicas de Google Maps.</span>
+</div>
+</div>
 </div>
 
+<div class="mq"><div class="track">
+<span>Hamburguesas</span><span>Sushi</span><span>Shawarma</span><span>Churrascos</span><span>Pedidos por WhatsApp</span><span>Sin comisiones</span>
+<span>Hamburguesas</span><span>Sushi</span><span>Shawarma</span><span>Churrascos</span><span>Pedidos por WhatsApp</span><span>Sin comisiones</span>
+</div></div>
+
+<section><div class="wrap">
+<div class="shead rv"><span class="snum">01</span><h2>Las demos</h2></div>
+<p class="sub rv">Cuatro locales reales de la zona, elegidos por volumen de reseñas en Google.</p>
 <div class="grid">
 
-<a class="card" href="comic-lon/">
+<a class="card rv" href="comic-lon/" style="--gl:#e6394626;--gl2:#e63946">
 <div class="rubro">Hamburguesería</div>
-<h2>COMIC-LON</h2>
+<h3>COMIC-LON</h3>
 <div class="st">4.7 ★ · 1.835 reseñas</div>
 <div class="zn">La Cisterna</div>
-<div class="go">Ver la demo →</div>
+<div class="go">Ver la demo <span>→</span></div>
 </a>
 
-<a class="card" href="donde-giulianos/">
+<a class="card rv" href="donde-giulianos/" style="--gl:#f9731626;--gl2:#f97316">
 <div class="rubro">Comida rápida</div>
-<h2>Donde Giuliano's</h2>
+<h3>Donde Giuliano's</h3>
 <div class="st">4.2 ★ · 1.140 reseñas</div>
 <div class="zn">Macul</div>
-<div class="go">Ver la demo →</div>
+<div class="go">Ver la demo <span>→</span></div>
 </a>
 
-<a class="card" href="arabito-deluxe/">
+<a class="card rv" href="arabito-deluxe/" style="--gl:#c9a22726;--gl2:#c9a227">
 <div class="rubro">Comida árabe</div>
-<h2>Arabito Deluxe</h2>
+<h3>Arabito Deluxe</h3>
 <div class="st">4.9 ★ · 1.092 reseñas</div>
 <div class="zn">Macul</div>
-<div class="go">Ver la demo →</div>
+<div class="go">Ver la demo <span>→</span></div>
 </a>
 
-<a class="card" href="kami-sushi/">
+<a class="card rv" href="kami-sushi/" style="--gl:#d7263d26;--gl2:#d7263d">
 <div class="rubro">Sushi · 6 locales</div>
-<h2>Kami Sushi</h2>
+<h3>Kami Sushi</h3>
 <div class="st">4.9 ★ · 862 reseñas</div>
 <div class="zn">La Granja · Puente Alto · San Ramón</div>
-<div class="go">Ver la demo →</div>
+<div class="go">Ver la demo <span>→</span></div>
 </a>
 
 </div>
+</div></section>
 
-<div class="que">
-<h3>Qué incluye cada sitio</h3>
-<ul>
-<li><b>Menú propio</b>, editable sin depender de nadie.</li>
-<li><b>Pedidos al WhatsApp del local</b>, escritos y listos para confirmar.</li>
-<li><b>Cero comisiones.</b> Las apps de delivery cobran entre 25% y 30% de cada venta.</li>
-<li><b>Hecho para el celular</b>, que es desde donde entra casi todo el tráfico.</li>
-<li><b>Carga instantánea</b>: un solo archivo, sin plantillas pesadas ni plugins.</li>
+<section><div class="wrap">
+<div class="shead rv"><span class="snum">02</span><h2>Qué incluye cada sitio</h2></div>
+<p class="sub rv">Sin plantillas pesadas, sin plugins, sin mensualidad de plataforma.</p>
+<ul class="lista">
+<li class="rv"><span class="k">01</span><span><b>Menú propio y editable</b><p>Cambiar un precio no depende de nadie ni cuesta una llamada.</p></span></li>
+<li class="rv"><span class="k">02</span><span><b>Pedidos al WhatsApp del local</b><p>Llegan escritos y ordenados, listos para confirmar.</p></span></li>
+<li class="rv"><span class="k">03</span><span><b>Cero comisiones</b><p>Las apps de delivery se llevan entre 25% y 30% de cada venta. Acá, nada.</p></span></li>
+<li class="rv"><span class="k">04</span><span><b>Hecho para el celular</b><p>Es desde donde entra casi todo el tráfico de estos negocios.</p></span></li>
+<li class="rv"><span class="k">05</span><span><b>Carga instantánea</b><p>Un solo archivo de ~18 KB. Abre al toque incluso con señal mala.</p></span></li>
 </ul>
-</div>
+</div></section>
 
-<footer>
-Agustín de la Guarda · Santiago, Chile<br>
+<footer><div class="wrap">
+<b>Agustín de la Guarda</b>
+Desarrollo web · Santiago, Chile<br>
 ¿Tienes un local y quieres el tuyo? Escríbeme y lo armamos.
-</footer>
+</div></footer>
 
-</div></body></html>
+<script>
+(function(){
+  var pend=[].slice.call(document.querySelectorAll('.rv')),tick=false;
+  function sweep(){
+    tick=false;
+    var lim=innerHeight*0.92,n=0;
+    for(var i=0;i<pend.length;i++){
+      if(pend[i].getBoundingClientRect().top<lim){
+        (function(el,d){setTimeout(function(){el.classList.add('in')},d)})(pend[i],(n++)*70);
+        pend[i]=null;
+      }
+    }
+    pend=pend.filter(Boolean);
+    if(!pend.length)removeEventListener('scroll',onS);
+  }
+  function onS(){if(!tick){tick=true;setTimeout(sweep,60)}}
+  addEventListener('scroll',onS,{passive:true});
+  addEventListener('resize',onS,{passive:true});
+  sweep();
+})();
+</script>
+</body></html>

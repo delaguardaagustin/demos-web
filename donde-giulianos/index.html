@@ -2,117 +2,280 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Donde Giuliano&#x27;s — Comida rápida en Macul</title>
 <meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#13100c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#14110d;--cd:#1f1a14;--tx:#fff8ee;--mut:#a89b8a;--ac:#f97316;--ac2:#fbbf24;--bd:#332b21}
+:root{
+ --bg:#13100c;--cd:#1e1913;--tx:#fff8ee;--mut:#a89b8a;--ac:#f97316;--ac2:#fbbf24;--bd:#302921;
+ --g1:#f9731633;--g2:#fbbf2422;--fh:'Anton', system-ui;--fb:'Inter', system-ui;--fw:400;
+ --pad:clamp(20px,5vw,40px);
+}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--tx);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
-.demo{background:var(--ac2);color:#17140a;text-align:center;font-size:12.5px;font-weight:700;padding:7px 12px;letter-spacing:.02em}
-header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.72);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd)}
-.nav{max-width:1080px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px}
-.logo{font-weight:800;font-size:19px;letter-spacing:-.02em}
-.nav a.lk{color:var(--mut);text-decoration:none;font-size:14px;font-weight:500}
-.nav a.lk:hover{color:var(--tx)}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--tx);font-family:var(--fb);font-size:16px;line-height:1.65;
+ -webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.fh{font-family:var(--fh);font-weight:var(--fw);letter-spacing:-.01em;line-height:1.05}
+.logo,.pill .rt,.it .p,.paso .gh,.snum,.mq span,.sello .core b{font-weight:var(--fw)}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 var(--pad)}
+
+/* grano */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.16;mix-blend-mode:overlay;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+
+/* patron de fondo */
+.pat{position:absolute;inset:0;width:100%;height:100%;color:var(--tx);opacity:.05;pointer-events:none}
+
+.demo{position:relative;z-index:80;background:var(--ac2);color:#14120a;text-align:center;
+ font-size:12px;font-weight:700;padding:8px 14px;letter-spacing:.03em}
+
+header{position:sticky;top:0;z-index:70;transition:background .25s,border-color .25s,backdrop-filter .25s;
+ border-bottom:1px solid transparent}
+header.on{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);border-color:var(--bd)}
+.nav{max-width:1120px;margin:0 auto;padding:14px var(--pad);display:flex;align-items:center;gap:22px}
+.logo{font-family:var(--fh);font-size:20px;letter-spacing:.01em}
 .nav .sp{margin-left:auto}
-.btn{display:inline-block;background:var(--ac);color:#fff;padding:11px 20px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14.5px;cursor:pointer;transition:transform .12s}
-.btn:hover{transform:translateY(-1px)}
-.btn.g{background:#25d366;color:#062d17}
-.hero{max-width:1080px;margin:0 auto;padding:72px 20px 56px;text-align:center}
-.hero h1{font-size:clamp(38px,8vw,68px);line-height:1.02;letter-spacing:-.035em;font-weight:850}
-.hero .tag{color:var(--ac2);font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.14em;margin-bottom:18px}
-.hero p.claim{color:var(--mut);font-size:clamp(17px,2.6vw,21px);margin:20px auto 30px;max-width:560px}
-.stars{display:inline-flex;align-items:center;gap:9px;background:var(--cd);border:1px solid var(--bd);border-radius:30px;padding:9px 18px;font-size:14px;margin-bottom:30px}
-.stars b{color:var(--ac2);font-size:16px}
-.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-section{max-width:1080px;margin:0 auto;padding:56px 20px}
-h2{font-size:clamp(26px,4.5vw,36px);letter-spacing:-.025em;margin-bottom:8px;font-weight:800}
-.sub{color:var(--mut);margin-bottom:32px;font-size:15px}
-.cat{margin-bottom:38px}
-.cat h3{font-size:13px;text-transform:uppercase;letter-spacing:.14em;color:var(--ac2);margin-bottom:16px;font-weight:700}
-.items{display:grid;gap:10px}
-.it{background:var(--cd);border:1px solid var(--bd);border-radius:10px;padding:15px 17px;display:flex;gap:16px;align-items:flex-start}
-.it .n{font-weight:650;font-size:15.5px}
-.it .d{color:var(--mut);font-size:13.5px;margin-top:3px}
-.it .p{margin-left:auto;font-weight:750;white-space:nowrap;color:var(--ac2);font-size:15.5px}
-.pasos{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.paso{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:24px}
-.paso .num{width:32px;height:32px;border-radius:50%;background:var(--ac);color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px;margin-bottom:14px}
-.paso h4{font-size:16.5px;margin-bottom:6px;font-weight:700}
-.paso p{color:var(--mut);font-size:14px}
-.info{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.box{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:24px}
-.box h4{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--ac2);margin-bottom:12px;font-weight:700}
+.nav a.lk{color:var(--mut);text-decoration:none;font-size:14px;font-weight:500;transition:color .15s}
+.nav a.lk:hover{color:var(--tx)}
+
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--ac);color:#fff;padding:13px 24px;
+ border-radius:999px;font-weight:700;text-decoration:none;font-size:14.5px;transition:transform .16s,box-shadow .16s;
+ box-shadow:0 4px 18px -6px var(--ac)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px -8px var(--ac)}
+.btn.g{background:#25d366;color:#04301a;box-shadow:0 4px 18px -6px #25d36688}
+.btn.g:hover{box-shadow:0 10px 26px -8px #25d366aa}
+.btn.gh{background:transparent;color:var(--tx);border:1px solid var(--bd);box-shadow:none}
+.btn.gh:hover{border-color:var(--ac2);box-shadow:none}
+.btn svg{width:17px;height:17px;fill:currentColor}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:clamp(56px,10vw,104px) 0 clamp(48px,8vw,88px)}
+.hero::before{content:"";position:absolute;inset:-30% -10% auto -10%;height:120%;pointer-events:none;
+ background:radial-gradient(60% 55% at 22% 18%,var(--g1),transparent 70%),
+            radial-gradient(50% 50% at 88% 8%,var(--g2),transparent 72%)}
+.hgrid{position:relative;display:grid;grid-template-columns:1.35fr .65fr;gap:clamp(28px,5vw,64px);align-items:center}
+.eyebrow{display:inline-block;color:var(--ac2);font-size:12px;font-weight:700;text-transform:uppercase;
+ letter-spacing:.2em;border:1px solid var(--bd);border-radius:999px;padding:6px 15px;margin-bottom:22px;
+ background:color-mix(in srgb,var(--cd) 70%,transparent)}
+h1{font-size:clamp(44px,9.5vw,92px);letter-spacing:-.03em;text-wrap:balance}
+.claim{color:var(--mut);font-size:clamp(16.5px,2.1vw,20px);max-width:44ch;margin:22px 0 28px}
+.pill{display:inline-flex;align-items:center;gap:11px;background:var(--cd);border:1px solid var(--bd);
+ border-radius:999px;padding:9px 18px;font-size:14px;margin-bottom:30px}
+.pill .rt{font-family:var(--fh);color:var(--ac2);font-size:17px}
+.pill .dv{width:1px;height:16px;background:var(--bd)}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+
+/* sello giratorio */
+.sello{position:relative;width:min(240px,58vw);aspect-ratio:1;margin-inline:auto}
+.sello .ring{position:absolute;inset:0;animation:spin 22s linear infinite}
+.sello text{font-family:var(--fb);font-size:9.4px;font-weight:700;letter-spacing:.22em;fill:var(--mut);
+ text-transform:uppercase}
+.sello .core{position:absolute;inset:20%;border:1px solid var(--bd);border-radius:50%;display:grid;
+ place-content:center;text-align:center;background:color-mix(in srgb,var(--cd) 75%,transparent)}
+.sello .core b{font-family:var(--fh);font-size:clamp(28px,7vw,40px);color:var(--ac2);display:block;line-height:1}
+.sello .core span{font-size:10.5px;color:var(--mut);letter-spacing:.14em;text-transform:uppercase}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* marquesina */
+.mq{position:relative;border-block:1px solid var(--bd);background:var(--cd);overflow:hidden;
+ padding:15px 0;margin-top:clamp(40px,6vw,72px)}
+.mq .track{display:flex;gap:0;width:max-content;animation:slide 34s linear infinite}
+.mq span{font-family:var(--fh);font-size:clamp(17px,2.4vw,24px);color:var(--tx);opacity:.5;
+ padding:0 28px;white-space:nowrap;display:inline-flex;align-items:center;gap:28px}
+.mq span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--ac)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* secciones */
+section{position:relative;padding:clamp(60px,9vw,110px) 0}
+.shead{display:flex;align-items:baseline;gap:18px;margin-bottom:12px;flex-wrap:wrap}
+.snum{font-family:var(--fh);font-size:13px;color:var(--ac);letter-spacing:.16em}
+h2{font-size:clamp(30px,5.4vw,50px);letter-spacing:-.025em}
+.sub{color:var(--mut);font-size:15.5px;margin-bottom:clamp(34px,5vw,54px);max-width:56ch}
+
+/* menu */
+.cat{margin-bottom:clamp(34px,5vw,52px)}
+.cat h3{font-size:12.5px;text-transform:uppercase;letter-spacing:.2em;color:var(--ac2);
+ font-family:var(--fb);font-weight:700;display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.cat h3::after{content:"";flex:1;height:1px;background:var(--bd)}
+.items{display:grid;gap:2px}
+.it{display:flex;align-items:baseline;gap:14px;padding:15px 18px;border-radius:10px;
+ transition:background .18s,transform .18s}
+.it:hover{background:var(--cd);transform:translateX(4px)}
+.it .n{font-weight:650;font-size:16px;white-space:nowrap}
+.it .d{color:var(--mut);font-size:13.5px;flex-shrink:1;min-width:0}
+.it .ln{flex:1;min-width:18px;border-bottom:1px dotted var(--bd);transform:translateY(-4px)}
+.it .p{font-family:var(--fh);color:var(--ac2);font-size:17px;white-space:nowrap}
+
+/* pasos */
+.pasos{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.paso{position:relative;background:var(--cd);border:1px solid var(--bd);border-radius:16px;
+ padding:30px 26px 26px;overflow:hidden;transition:border-color .2s,transform .2s}
+.paso:hover{border-color:var(--ac);transform:translateY(-3px)}
+.paso .gh{position:absolute;top:-14px;right:8px;font-family:var(--fh);font-size:92px;color:var(--tx);
+ opacity:.05;line-height:1}
+.paso h4{font-size:17.5px;margin-bottom:8px;font-weight:700;position:relative}
+.paso p{color:var(--mut);font-size:14.5px;position:relative}
+
+/* info */
+.info{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(265px,1fr))}
+.box{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:28px}
+.box h4{font-size:11.5px;text-transform:uppercase;letter-spacing:.18em;color:var(--ac2);
+ margin-bottom:14px;font-weight:700}
 .box p,.box li{color:var(--mut);font-size:14.5px;list-style:none}
-.box a{color:var(--tx)}
-.cierre{text-align:center;background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:48px 24px;margin:0 auto 56px;max-width:1040px}
-.cierre h2{margin-bottom:12px}
-.cierre p{color:var(--mut);margin-bottom:26px}
-footer{border-top:1px solid var(--bd);padding:32px 20px;text-align:center;color:var(--mut);font-size:13px;line-height:1.7}
-.float{position:fixed;right:18px;bottom:18px;z-index:60;background:#25d366;color:#062d17;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;box-shadow:0 6px 24px rgba(0,0,0,.45);text-decoration:none}
-.float svg{width:29px;height:29px}
-@media(max-width:640px){.nav a.lk{display:none}.hero{padding:48px 20px 40px}.it{flex-wrap:wrap}.it .p{margin-left:0}}
-</style></head><body>
+.box .lnk{color:var(--tx);font-weight:650;text-decoration:none;border-bottom:1px solid var(--ac);
+ padding-bottom:1px;display:inline-block;margin-top:12px;font-size:14px}
+
+/* cierre */
+.cierre{position:relative;overflow:hidden;text-align:center;border:1px solid var(--bd);border-radius:24px;
+ padding:clamp(48px,8vw,84px) 26px;background:var(--cd)}
+.cierre::before{content:"";position:absolute;inset:0;
+ background:radial-gradient(60% 90% at 50% 0%,var(--g1),transparent 70%)}
+.cierre>*{position:relative}
+.cierre h2{margin-bottom:14px}
+.cierre p{color:var(--mut);margin:0 auto 30px;max-width:44ch}
+
+footer{border-top:1px solid var(--bd);margin-top:clamp(60px,9vw,110px);padding:36px 0 46px;
+ color:var(--mut);font-size:13.5px;line-height:1.85;text-align:center}
+
+/* boton flotante */
+.float{position:fixed;right:18px;bottom:18px;z-index:75;background:#25d366;color:#04301a;width:58px;height:58px;
+ border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 28px rgba(0,0,0,.5);text-decoration:none;
+ transition:transform .18s}
+.float:hover{transform:scale(1.07)}
+.float svg{width:30px;height:30px;fill:currentColor}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:860px){
+ .hgrid{grid-template-columns:1fr;gap:34px}
+ .sello{order:-1;width:min(190px,48vw)}
+ .nav a.lk{display:none}
+}
+@media(max-width:560px){
+ .it{flex-wrap:wrap;gap:6px 12px}
+ .it .ln{display:none}
+ .it .d{width:100%;order:3}
+ .it .p{margin-left:auto}
+}
+@media(prefers-reduced-motion:reduce){
+ *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+ html{scroll-behavior:auto}
+}
+</style>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+</head><body>
 
 <div class="demo">SITIO DE DEMOSTRACIÓN · propuesta de diseño, no es el sitio oficial de Donde Giuliano&#x27;s</div>
 
-<header><nav class="nav">
+<header id="hd"><nav class="nav">
 <span class="logo">Donde Giuliano&#x27;s</span>
 <span class="sp"></span>
 <a class="lk" href="#menu">Menú</a>
 <a class="lk" href="#pedir">Cómo pedir</a>
-<a class="lk" href="#info">Ubicación</a>
+<a class="lk" href="#info">Dónde</a>
 <a class="btn g" href="https://wa.me/56955288252?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Pedir</a>
 </nav></header>
 
 <div class="hero">
-<div class="tag">Comida rápida en Macul</div>
+<svg class="pat" aria-hidden="true"><defs>
+<pattern id="p" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+<rect width="5" height="14" fill="currentColor"/>
+</pattern></defs><rect width="100%" height="100%" fill="url(#p)"/></svg>
+<div class="wrap hgrid">
+<div>
+<div class="eyebrow">Comida rápida en Macul</div>
 <h1>Donde Giuliano&#x27;s</h1>
-<p class="claim">El clásico de Escuela Agrícola</p>
-<div class="stars"><b>4.2 ★</b> <span>1.140 reseñas en Google</span></div>
+<p class="claim">El clásico de Escuela Agrícola. Mil ciento cuarenta reseñas lo respaldan.</p>
+<div class="pill"><span class="rt">4.2 ★</span><span class="dv"></span><span>1.140 reseñas en Google</span></div>
 <div class="cta">
-<a class="btn g" href="https://wa.me/56955288252?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-<a class="btn" href="#menu" style="background:transparent;border:1px solid var(--bd);color:var(--tx)">Ver el menú</a>
+<a class="btn g" href="https://wa.me/56955288252?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.1c-.25.69-1.43 1.32-2 1.41-.51.07-1.16.1-1.87-.12-.43-.14-.98-.33-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.15-.2-1.21-1.6-1.21-3.06s.77-2.17 1.04-2.47c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.33-.3.5-.15.17-.32.39-.45.52-.15.14-.3.3-.13.6.18.3.77 1.27 1.65 2.05 1.13 1.01 2.08 1.32 2.38 1.47.29.15.47.13.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.72-.17 1.41z"/></svg>
+Pedir por WhatsApp</a>
+<a class="btn gh" href="#menu">Ver el menú</a>
+</div>
+</div>
+<div class="sello">
+<svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+<defs><path id="c" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+<text><textPath href="#c">ABIERTO HASTA TARDE · PIDE DIRECTO · ABIERTO HASTA TARDE · PIDE DIRECTO · </textPath></text>
+</svg>
+<div class="core"><b>4.2</b><span>en Google</span></div>
+</div>
 </div>
 </div>
 
-<section id="menu">
-<h2>Menú</h2>
-<p class="sub">Precios y productos de ejemplo — se reemplazan por los suyos reales.</p>
-<div class="cat"><h3>Sándwiches</h3><div class="items"><div class="it"><div><div class="n">Italiano de lomo</div><div class="d">Lomo, palta, tomate, mayo</div></div><div class="p">$6.900</div></div><div class="it"><div><div class="n">Chacarero de carne</div><div class="d">Carne mechada, porotos verdes, ají</div></div><div class="p">$7.200</div></div><div class="it"><div><div class="n">Luco XL</div><div class="d">Doble lomo, doble queso</div></div><div class="p">$8.500</div></div><div class="it"><div><div class="n">Pollo palta</div><div class="d">Pollo desmenuzado, palta, mayo</div></div><div class="p">$6.400</div></div></div></div><div class="cat"><h3>Hamburguesas</h3><div class="items"><div class="it"><div><div class="n">Giuliano&#x27;s Clásica</div><div class="d">Carne, queso, lechuga, tomate</div></div><div class="p">$6.500</div></div><div class="it"><div><div class="n">Doble tocino</div><div class="d">Doble carne, cheddar, tocino</div></div><div class="p">$9.200</div></div><div class="it"><div><div class="n">Pollo crispy</div><div class="d">Pollo apanado, salsa de la casa</div></div><div class="p">$7.100</div></div></div></div><div class="cat"><h3>Fritos y bebidas</h3><div class="items"><div class="it"><div><div class="n">Papas fritas grandes</div><div class="d">Porción familiar</div></div><div class="p">$4.900</div></div><div class="it"><div><div class="n">Empanada de queso</div><div class="d">Unidad</div></div><div class="p">$2.200</div></div><div class="it"><div><div class="n">Bebida en lata</div><div class="d">350 cc</div></div><div class="p">$1.500</div></div></div></div>
-</section>
+<div class="mq"><div class="track"><span>Italiano de lomo</span><span>Chacarero</span><span>Luco XL</span><span>Papas grandes</span><span>Pollo crispy</span><span>Empanadas</span><span>Italiano de lomo</span><span>Chacarero</span><span>Luco XL</span><span>Papas grandes</span><span>Pollo crispy</span><span>Empanadas</span></div></div>
 
-<section id="pedir">
-<h2>Cómo pedir</h2>
-<p class="sub">Sin apps, sin comisiones, sin intermediarios.</p>
+<section id="menu"><div class="wrap">
+<div class="shead rv"><span class="snum">01</span><h2>La carta</h2></div>
+<p class="sub rv">Precios y productos de ejemplo — se reemplazan por los suyos reales.</p>
+<div class="cat"><h3 class="rv">Sándwiches</h3><div class="items"><div class="it rv"><span class="n">Italiano de lomo</span><span class="d">Lomo, palta, tomate, mayo</span><span class="ln"></span><span class="p">$6.900</span></div><div class="it rv"><span class="n">Chacarero de carne</span><span class="d">Carne mechada, porotos verdes, ají</span><span class="ln"></span><span class="p">$7.200</span></div><div class="it rv"><span class="n">Luco XL</span><span class="d">Doble lomo, doble queso</span><span class="ln"></span><span class="p">$8.500</span></div><div class="it rv"><span class="n">Pollo palta</span><span class="d">Pollo desmenuzado, palta, mayo</span><span class="ln"></span><span class="p">$6.400</span></div></div></div><div class="cat"><h3 class="rv">Hamburguesas</h3><div class="items"><div class="it rv"><span class="n">Giuliano&#x27;s Clásica</span><span class="d">Carne, queso, lechuga, tomate</span><span class="ln"></span><span class="p">$6.500</span></div><div class="it rv"><span class="n">Doble tocino</span><span class="d">Doble carne, cheddar, tocino</span><span class="ln"></span><span class="p">$9.200</span></div><div class="it rv"><span class="n">Pollo crispy</span><span class="d">Pollo apanado, salsa de la casa</span><span class="ln"></span><span class="p">$7.100</span></div></div></div><div class="cat"><h3 class="rv">Fritos y bebidas</h3><div class="items"><div class="it rv"><span class="n">Papas fritas grandes</span><span class="d">Porción familiar</span><span class="ln"></span><span class="p">$4.900</span></div><div class="it rv"><span class="n">Empanada de queso</span><span class="d">Unidad</span><span class="ln"></span><span class="p">$2.200</span></div><div class="it rv"><span class="n">Bebida en lata</span><span class="d">350 cc</span><span class="ln"></span><span class="p">$1.500</span></div></div></div>
+</div></section>
+
+<section id="pedir"><div class="wrap">
+<div class="shead rv"><span class="snum">02</span><h2>Cómo pedir</h2></div>
+<p class="sub rv">Sin apps, sin intermediarios, sin comisiones.</p>
 <div class="pasos">
-<div class="paso"><div class="num">1</div><h4>Elige del menú</h4><p>Arma tu pedido directamente en la página, sin descargar nada.</p></div>
-<div class="paso"><div class="num">2</div><h4>Aprieta pedir</h4><p>El pedido llega escrito a su WhatsApp, listo para confirmar.</p></div>
-<div class="paso"><div class="num">3</div><h4>Confirman y listo</h4><p>Ustedes coordinan retiro o reparto. El 100% de la venta queda en casa.</p></div>
+<div class="paso rv"><span class="gh">1</span><h4>Elige del menú</h4><p>El cliente arma su pedido en la página, sin descargar ninguna aplicación.</p></div>
+<div class="paso rv"><span class="gh">2</span><h4>Aprieta pedir</h4><p>El pedido llega escrito a su WhatsApp, ordenado y listo para confirmar.</p></div>
+<div class="paso rv"><span class="gh">3</span><h4>Confirman y listo</h4><p>Ustedes coordinan retiro o reparto. El 100% de la venta queda en casa.</p></div>
 </div>
-</section>
+</div></section>
 
-<section id="info">
-<h2>Dónde y cuándo</h2>
-<p class="sub">Horario de ejemplo — se ajusta al real.</p>
+<section id="info"><div class="wrap">
+<div class="shead rv"><span class="snum">03</span><h2>Dónde y cuándo</h2></div>
+<p class="sub rv">Horario de ejemplo — se ajusta al real.</p>
 <div class="info">
-<div class="box"><h4>Dirección</h4><p>Av. Escuela Agrícola 2212, Macul</p><p style="margin-top:10px"><a href="https://www.google.com/maps/search/Av.+Escuela+Agrícola+2212,+Macul" target="_blank" rel="noopener">Ver en Google Maps &rarr;</a></p></div>
-<div class="box"><h4>Horario</h4><ul><li>Lunes a domingo 11:30 - 00:30</li><li>Delivery hasta las 23:30</li></ul></div>
-<div class="box"><h4>Pedidos</h4><p>WhatsApp +56 9 5528 8252</p><p style="margin-top:10px"><a href="https://wa.me/56955288252?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Escribir ahora &rarr;</a></p></div>
+<div class="box rv"><h4>Dirección</h4><p>Av. Escuela Agrícola 2212, Macul</p><a class="lnk" href="https://www.google.com/maps/search/Av.+Escuela+Agrícola+2212,+Macul" target="_blank" rel="noopener">Ver en Google Maps &rarr;</a></div>
+<div class="box rv"><h4>Horario</h4><ul><li>Lunes a domingo 11:30 - 00:30</li><li>Delivery hasta las 23:30</li></ul></div>
+<div class="box rv"><h4>Pedidos</h4><p>WhatsApp +56 9 5528 8252</p><a class="lnk" href="https://wa.me/56955288252?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Escribir ahora &rarr;</a></div>
 </div>
-</section>
+</div></section>
 
-<div class="cierre">
-<h2>¿Con hambre?</h2>
+<div class="wrap"><div class="cierre rv">
+<h2>¿Te tinca uno?</h2>
 <p>Pide directo y sin comisiones de por medio.</p>
 <a class="btn g" href="https://wa.me/56955288252?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-</div>
+</div></div>
 
-<footer>
+<footer><div class="wrap">
 Sitio de demostración creado por Agustín de la Guarda como propuesta para Donde Giuliano&#x27;s.<br>
-No es el sitio oficial del local. Los datos de contacto son públicos de Google Maps.
-</footer>
+No es el sitio oficial del local. Nombre, dirección y calificación provienen de su ficha pública de Google Maps.
+</div></footer>
 
 <a class="float" href="https://wa.me/56955288252?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp">
-<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.86 1.21 3.06c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.4 9.4 0 01-4.79-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.37 9.37 0 01-1.44-5.01c0-5.18 4.23-9.4 9.42-9.4a9.36 9.36 0 016.65 2.76 9.3 9.3 0 012.75 6.65c0 5.18-4.23 9.41-9.41 9.41zM20.5 3.49A11.8 11.8 0 0012.04 0C5.46 0 .1 5.35.1 11.92c0 2.1.55 4.15 1.6 5.96L0 24l6.27-1.64a11.9 11.9 0 005.76 1.47h.01c6.58 0 11.93-5.35 11.93-11.92 0-3.19-1.24-6.18-3.5-8.43z"/></svg>
+<svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.1c-.25.69-1.43 1.32-2 1.41-.51.07-1.16.1-1.87-.12-.43-.14-.98-.33-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.15-.2-1.21-1.6-1.21-3.06s.77-2.17 1.04-2.47c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.33-.3.5-.15.17-.32.39-.45.52-.15.14-.3.3-.13.6.18.3.77 1.27 1.65 2.05 1.13 1.01 2.08 1.32 2.38 1.47.29.15.47.13.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.72-.17 1.41z"/></svg>
 </a>
+
+<script>
+(function(){
+  var hd=document.getElementById('hd');
+  var onScroll=function(){hd.classList.toggle('on',window.scrollY>12)};
+  onScroll();addEventListener('scroll',onScroll,{passive:true});
+
+  /* Barrido propio en vez de IntersectionObserver: si el usuario salta de golpe
+     (ancla, teclado, scroll rapido) igual revela todo lo que quedo por encima. */
+  var pend=[].slice.call(document.querySelectorAll('.rv')),tick=false;
+  function sweep(){
+    tick=false;
+    var lim=innerHeight*0.92,n=0;
+    for(var i=0;i<pend.length;i++){
+      if(pend[i].getBoundingClientRect().top<lim){
+        (function(el,d){setTimeout(function(){el.classList.add('in')},d)})(pend[i],(n++)*70);
+        pend[i]=null;
+      }
+    }
+    pend=pend.filter(Boolean);
+    if(!pend.length)removeEventListener('scroll',onS);
+  }
+  function onS(){if(!tick){tick=true;setTimeout(sweep,60)}}
+  addEventListener('scroll',onS,{passive:true});
+  addEventListener('resize',onS,{passive:true});
+  sweep();
+})();
+</script>
 </body></html>
