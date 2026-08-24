@@ -1,0 +1,118 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>COMIC-LON — Hamburguesas, churrascos y completos</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+:root{--bg:#12100f;--cd:#1c1917;--tx:#fdf6e8;--mut:#a8a09a;--ac:#e63946;--ac2:#f4b942;--bd:#312a26}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.demo{background:var(--ac2);color:#17140a;text-align:center;font-size:12.5px;font-weight:700;padding:7px 12px;letter-spacing:.02em}
+header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.72);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd)}
+.nav{max-width:1080px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px}
+.logo{font-weight:800;font-size:19px;letter-spacing:-.02em}
+.nav a.lk{color:var(--mut);text-decoration:none;font-size:14px;font-weight:500}
+.nav a.lk:hover{color:var(--tx)}
+.nav .sp{margin-left:auto}
+.btn{display:inline-block;background:var(--ac);color:#fff;padding:11px 20px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14.5px;cursor:pointer;transition:transform .12s}
+.btn:hover{transform:translateY(-1px)}
+.btn.g{background:#25d366;color:#062d17}
+.hero{max-width:1080px;margin:0 auto;padding:72px 20px 56px;text-align:center}
+.hero h1{font-size:clamp(38px,8vw,68px);line-height:1.02;letter-spacing:-.035em;font-weight:850}
+.hero .tag{color:var(--ac2);font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.14em;margin-bottom:18px}
+.hero p.claim{color:var(--mut);font-size:clamp(17px,2.6vw,21px);margin:20px auto 30px;max-width:560px}
+.stars{display:inline-flex;align-items:center;gap:9px;background:var(--cd);border:1px solid var(--bd);border-radius:30px;padding:9px 18px;font-size:14px;margin-bottom:30px}
+.stars b{color:var(--ac2);font-size:16px}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+section{max-width:1080px;margin:0 auto;padding:56px 20px}
+h2{font-size:clamp(26px,4.5vw,36px);letter-spacing:-.025em;margin-bottom:8px;font-weight:800}
+.sub{color:var(--mut);margin-bottom:32px;font-size:15px}
+.cat{margin-bottom:38px}
+.cat h3{font-size:13px;text-transform:uppercase;letter-spacing:.14em;color:var(--ac2);margin-bottom:16px;font-weight:700}
+.items{display:grid;gap:10px}
+.it{background:var(--cd);border:1px solid var(--bd);border-radius:10px;padding:15px 17px;display:flex;gap:16px;align-items:flex-start}
+.it .n{font-weight:650;font-size:15.5px}
+.it .d{color:var(--mut);font-size:13.5px;margin-top:3px}
+.it .p{margin-left:auto;font-weight:750;white-space:nowrap;color:var(--ac2);font-size:15.5px}
+.pasos{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.paso{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:24px}
+.paso .num{width:32px;height:32px;border-radius:50%;background:var(--ac);color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px;margin-bottom:14px}
+.paso h4{font-size:16.5px;margin-bottom:6px;font-weight:700}
+.paso p{color:var(--mut);font-size:14px}
+.info{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.box{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:24px}
+.box h4{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--ac2);margin-bottom:12px;font-weight:700}
+.box p,.box li{color:var(--mut);font-size:14.5px;list-style:none}
+.box a{color:var(--tx)}
+.cierre{text-align:center;background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:48px 24px;margin:0 auto 56px;max-width:1040px}
+.cierre h2{margin-bottom:12px}
+.cierre p{color:var(--mut);margin-bottom:26px}
+footer{border-top:1px solid var(--bd);padding:32px 20px;text-align:center;color:var(--mut);font-size:13px;line-height:1.7}
+.float{position:fixed;right:18px;bottom:18px;z-index:60;background:#25d366;color:#062d17;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;box-shadow:0 6px 24px rgba(0,0,0,.45);text-decoration:none}
+.float svg{width:29px;height:29px}
+@media(max-width:640px){.nav a.lk{display:none}.hero{padding:48px 20px 40px}.it{flex-wrap:wrap}.it .p{margin-left:0}}
+</style></head><body>
+
+<div class="demo">SITIO DE DEMOSTRACIÓN · propuesta de diseño, no es el sitio oficial de COMIC-LON</div>
+
+<header><nav class="nav">
+<span class="logo">COMIC-LON</span>
+<span class="sp"></span>
+<a class="lk" href="#menu">Menú</a>
+<a class="lk" href="#pedir">Cómo pedir</a>
+<a class="lk" href="#info">Ubicación</a>
+<a class="btn g" href="https://wa.me/56954505074?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Pedir</a>
+</nav></header>
+
+<div class="hero">
+<div class="tag">Hamburguesas, churrascos y completos</div>
+<h1>COMIC-LON</h1>
+<p class="claim">El bajón que se ganó 1.835 reseñas</p>
+<div class="stars"><b>4.7 ★</b> <span>1.835 reseñas en Google</span></div>
+<div class="cta">
+<a class="btn g" href="https://wa.me/56954505074?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+<a class="btn" href="#menu" style="background:transparent;border:1px solid var(--bd);color:var(--tx)">Ver el menú</a>
+</div>
+</div>
+
+<section id="menu">
+<h2>Menú</h2>
+<p class="sub">Precios y productos de ejemplo — se reemplazan por los suyos reales.</p>
+<div class="cat"><h3>Hamburguesas</h3><div class="items"><div class="it"><div><div class="n">Italiana doble</div><div class="d">Doble carne, palta, tomate, mayo</div></div><div class="p">$7.900</div></div><div class="it"><div><div class="n">Chacarero</div><div class="d">Carne, porotos verdes, ají verde, tomate</div></div><div class="p">$7.500</div></div><div class="it"><div><div class="n">Comic-Lon Especial</div><div class="d">Triple carne, cheddar, tocino, cebolla crispy</div></div><div class="p">$10.900</div></div><div class="it"><div><div class="n">Vegetariana</div><div class="d">Medallón de lentejas, palta, rúcula</div></div><div class="p">$6.900</div></div></div></div><div class="cat"><h3>Churrascos y completos</h3><div class="items"><div class="it"><div><div class="n">Churrasco italiano</div><div class="d">Lomito, palta, tomate, mayo casera</div></div><div class="p">$6.500</div></div><div class="it"><div><div class="n">Barros Luco</div><div class="d">Lomito y queso derretido</div></div><div class="p">$6.200</div></div><div class="it"><div><div class="n">Completo italiano</div><div class="d">Vienesa, palta, tomate, mayo</div></div><div class="p">$3.900</div></div><div class="it"><div><div class="n">As de lomo</div><div class="d">Lomo, queso, tomate, mayo</div></div><div class="p">$7.800</div></div></div></div><div class="cat"><h3>Para compartir</h3><div class="items"><div class="it"><div><div class="n">Papas Comic-Lon</div><div class="d">Papas, cheddar, tocino, cebollín</div></div><div class="p">$8.900</div></div><div class="it"><div><div class="n">Salchipapas</div><div class="d">Papas, vienesas, salsas de la casa</div></div><div class="p">$6.900</div></div><div class="it"><div><div class="n">Aros de cebolla</div><div class="d">Porción de 10 unidades</div></div><div class="p">$4.500</div></div></div></div>
+</section>
+
+<section id="pedir">
+<h2>Cómo pedir</h2>
+<p class="sub">Sin apps, sin comisiones, sin intermediarios.</p>
+<div class="pasos">
+<div class="paso"><div class="num">1</div><h4>Elige del menú</h4><p>Arma tu pedido directamente en la página, sin descargar nada.</p></div>
+<div class="paso"><div class="num">2</div><h4>Aprieta pedir</h4><p>El pedido llega escrito a su WhatsApp, listo para confirmar.</p></div>
+<div class="paso"><div class="num">3</div><h4>Confirman y listo</h4><p>Ustedes coordinan retiro o reparto. El 100% de la venta queda en casa.</p></div>
+</div>
+</section>
+
+<section id="info">
+<h2>Dónde y cuándo</h2>
+<p class="sub">Horario de ejemplo — se ajusta al real.</p>
+<div class="info">
+<div class="box"><h4>Dirección</h4><p>Av. Américo Vespucio 0300, La Cisterna</p><p style="margin-top:10px"><a href="https://www.google.com/maps/search/Av.+Américo+Vespucio+0300,+La+Cisterna" target="_blank" rel="noopener">Ver en Google Maps &rarr;</a></p></div>
+<div class="box"><h4>Horario</h4><ul><li>Lunes a jueves 12:00 - 23:00</li><li>Viernes y sábado 12:00 - 01:00</li><li>Domingo 13:00 - 22:00</li></ul></div>
+<div class="box"><h4>Pedidos</h4><p>WhatsApp +56 9 5450 5074</p><p style="margin-top:10px"><a href="https://wa.me/56954505074?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Escribir ahora &rarr;</a></p></div>
+</div>
+</section>
+
+<div class="cierre">
+<h2>¿Con hambre?</h2>
+<p>Pide directo y sin comisiones de por medio.</p>
+<a class="btn g" href="https://wa.me/56954505074?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+</div>
+
+<footer>
+Sitio de demostración creado por Agustín de la Guarda como propuesta para COMIC-LON.<br>
+No es el sitio oficial del local. Los datos de contacto son públicos de Google Maps.
+</footer>
+
+<a class="float" href="https://wa.me/56954505074?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp">
+<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.86 1.21 3.06c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.4 9.4 0 01-4.79-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.37 9.37 0 01-1.44-5.01c0-5.18 4.23-9.4 9.42-9.4a9.36 9.36 0 016.65 2.76 9.3 9.3 0 012.75 6.65c0 5.18-4.23 9.41-9.41 9.41zM20.5 3.49A11.8 11.8 0 0012.04 0C5.46 0 .1 5.35.1 11.92c0 2.1.55 4.15 1.6 5.96L0 24l6.27-1.64a11.9 11.9 0 005.76 1.47h.01c6.58 0 11.93-5.35 11.93-11.92 0-3.19-1.24-6.18-3.5-8.43z"/></svg>
+</a>
+</body></html>

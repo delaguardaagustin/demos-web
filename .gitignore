@@ -1,0 +1,4 @@
+# nunca publicar la lista de prospeccion
+*.csv
+mensajes-whatsapp.json
+panel-whatsapp.html
