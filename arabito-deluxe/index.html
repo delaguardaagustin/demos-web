@@ -1,206 +1,265 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Arabito Deluxe — Comida árabe en Macul</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Arabito Deluxe — Shawarmas y comida árabe en Macul y Providencia</title>
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#0f0e0b">
+<meta name="description" content="Shawarmas, falafel y comida árabe en Macul y Providencia. Pide directo por WhatsApp, sin comisiones.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
- --bg:#0f0e0b;--cd:#1a1914;--tx:#f7f2e4;--mut:#a49d88;--ac:#c9a227;--ac2:#8fae64;--bd:#2b2921;
- --g1:#c9a22730;--g2:#8fae6422;--fh:'Marcellus', Georgia, serif;--fb:'Inter', system-ui;--fw:400;
- --pad:clamp(20px,5vw,40px);
+ --bg:#0f0e0b;--cd:#1a1914;--cd2:#221f18;--tx:#f7f2e4;--mut:#a49d88;
+ --ac:#c9a227;--ac2:#8fae64;--wa:#25d366;--bd:#2b2921;
+ --pad:clamp(16px,4.5vw,40px);--fh:'Marcellus',Georgia,serif;--fb:'Inter',system-ui;
+ --barra:0px;
 }
-*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--tx);font-family:var(--fb);font-size:16px;line-height:1.65;
- -webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2,h3,.fh{font-family:var(--fh);font-weight:var(--fw);letter-spacing:-.01em;line-height:1.05}
-.logo,.pill .rt,.it .p,.paso .gh,.snum,.mq span,.sello .core b{font-weight:var(--fw)}
+body{background:var(--bg);color:var(--tx);font-family:var(--fb);font-size:16px;line-height:1.6;
+ -webkit-font-smoothing:antialiased;overflow-x:hidden;padding-bottom:var(--barra)}
+h1,h2,h3,.fh{font-family:var(--fh);font-weight:400;letter-spacing:-.01em;line-height:1.08}
 a{color:inherit}
 .wrap{max-width:1120px;margin:0 auto;padding:0 var(--pad)}
+img{max-width:100%}
 
-/* grano */
-body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.16;mix-blend-mode:overlay;
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:98;opacity:.14;mix-blend-mode:overlay;
  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
 
-/* patron de fondo */
-.pat{position:absolute;inset:0;width:100%;height:100%;color:var(--tx);opacity:.08;pointer-events:none}
+.pat{position:absolute;inset:0;width:100%;height:100%;color:var(--tx);opacity:.075;pointer-events:none}
 
-.demo{position:relative;z-index:80;background:var(--ac2);color:#14120a;text-align:center;
- font-size:12px;font-weight:700;padding:8px 14px;letter-spacing:.03em}
+/* aviso de propuesta */
+.demo{position:relative;z-index:70;background:var(--ac);color:#1a1405;text-align:center;
+ font-size:12px;font-weight:700;padding:8px 14px;letter-spacing:.02em}
 
-header{position:sticky;top:0;z-index:70;transition:background .25s,border-color .25s,backdrop-filter .25s;
- border-bottom:1px solid transparent}
-header.on{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);border-color:var(--bd)}
-.nav{max-width:1120px;margin:0 auto;padding:14px var(--pad);display:flex;align-items:center;gap:22px}
-.logo{font-family:var(--fh);font-size:20px;letter-spacing:.01em}
+/* cabecera */
+header{position:sticky;top:0;z-index:60;transition:background .25s,border-color .25s;border-bottom:1px solid transparent}
+header.on{background:#0f0e0bee;backdrop-filter:blur(14px);border-color:var(--bd)}
+.nav{max-width:1120px;margin:0 auto;padding:12px var(--pad);display:flex;align-items:center;gap:16px}
+.logo{font-family:var(--fh);font-size:21px;white-space:nowrap}
+.logo b{color:var(--ac);font-weight:400}
 .nav .sp{margin-left:auto}
 .nav a.lk{color:var(--mut);text-decoration:none;font-size:14px;font-weight:500;transition:color .15s}
 .nav a.lk:hover{color:var(--tx)}
+.suc{display:flex;gap:4px;background:var(--cd);border:1px solid var(--bd);border-radius:999px;padding:3px}
+.suc button{border:0;background:none;color:var(--mut);font:inherit;font-size:12.5px;font-weight:600;
+ padding:6px 13px;border-radius:999px;cursor:pointer;white-space:nowrap;min-height:32px}
+.suc button.on{background:var(--ac);color:#1a1405}
 
-.btn{display:inline-flex;align-items:center;gap:9px;background:var(--ac);color:#fff;padding:13px 24px;
- border-radius:999px;font-weight:700;text-decoration:none;font-size:14.5px;transition:transform .16s,box-shadow .16s;
- box-shadow:0 4px 18px -6px var(--ac)}
-.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px -8px var(--ac)}
-.btn.g{background:#25d366;color:#04301a;box-shadow:0 4px 18px -6px #25d36688}
-.btn.g:hover{box-shadow:0 10px 26px -8px #25d366aa}
-.btn.gh{background:transparent;color:var(--tx);border:1px solid var(--bd);box-shadow:none}
-.btn.gh:hover{border-color:var(--ac2);box-shadow:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--ac);color:#1a1405;
+ padding:13px 24px;border-radius:999px;font-weight:700;text-decoration:none;font-size:14.5px;border:0;
+ cursor:pointer;font-family:var(--fb);transition:transform .16s,box-shadow .16s}
+.btn:hover{transform:translateY(-2px)}
+.btn.g{background:var(--wa);color:#04301a;box-shadow:0 4px 18px -6px #25d36688}
+.btn.gh{background:transparent;color:var(--tx);border:1px solid var(--bd)}
+.btn.gh:hover{border-color:var(--ac)}
 .btn svg{width:17px;height:17px;fill:currentColor}
 
 /* hero */
-.hero{position:relative;overflow:hidden;padding:clamp(56px,10vw,104px) 0 clamp(48px,8vw,88px)}
-.hero::before{content:"";position:absolute;inset:-30% -10% auto -10%;height:120%;pointer-events:none;
- background:radial-gradient(60% 55% at 22% 18%,var(--g1),transparent 70%),
-            radial-gradient(50% 50% at 88% 8%,var(--g2),transparent 72%)}
-.hgrid{position:relative;display:grid;grid-template-columns:1.35fr .65fr;gap:clamp(28px,5vw,64px);align-items:center}
+.hero{position:relative;overflow:hidden;padding:clamp(50px,9vw,96px) 0 clamp(40px,7vw,72px)}
+.hero::before{content:"";position:absolute;inset:-30% -10% auto -10%;height:130%;pointer-events:none;
+ background:radial-gradient(58% 52% at 22% 16%,#c9a22733,transparent 70%),
+            radial-gradient(48% 46% at 86% 6%,#8fae6422,transparent 72%)}
+.hgrid{position:relative;display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(28px,5vw,64px);align-items:center}
 .eyebrow{display:inline-block;color:var(--ac2);font-size:12px;font-weight:700;text-transform:uppercase;
- letter-spacing:.2em;border:1px solid var(--bd);border-radius:999px;padding:6px 15px;margin-bottom:22px;
- background:color-mix(in srgb,var(--cd) 70%,transparent)}
-h1{font-size:clamp(44px,9.5vw,92px);letter-spacing:-.03em;text-wrap:balance}
-.claim{color:var(--mut);font-size:clamp(16.5px,2.1vw,20px);max-width:44ch;margin:22px 0 28px}
+ letter-spacing:.2em;border:1px solid var(--bd);border-radius:999px;padding:6px 15px;margin-bottom:20px;
+ background:#1a1914b3}
+h1{font-size:clamp(42px,9vw,86px);letter-spacing:-.03em}
+h1 span{color:var(--ac);display:block}
+.claim{color:var(--mut);font-size:clamp(16.5px,2.1vw,20px);max-width:44ch;margin:20px 0 26px}
 .pill{display:inline-flex;align-items:center;gap:11px;background:var(--cd);border:1px solid var(--bd);
- border-radius:999px;padding:9px 18px;font-size:14px;margin-bottom:30px}
-.pill .rt{font-family:var(--fh);color:var(--ac2);font-size:17px}
+ border-radius:999px;padding:9px 18px;font-size:14px;margin-bottom:28px}
+.pill .rt{font-family:var(--fh);color:var(--ac);font-size:18px}
 .pill .dv{width:1px;height:16px;background:var(--bd)}
 .cta{display:flex;gap:12px;flex-wrap:wrap}
 
-/* sello giratorio */
-.sello{position:relative;width:min(240px,58vw);aspect-ratio:1;margin-inline:auto}
-.sello .ring{position:absolute;inset:0;animation:spin 22s linear infinite}
-.sello text{font-family:var(--fb);font-size:9.4px;font-weight:700;letter-spacing:.22em;fill:var(--mut);
+.sello{position:relative;width:min(230px,56vw);aspect-ratio:1;margin-inline:auto}
+.sello .ring{position:absolute;inset:0;animation:spin 24s linear infinite}
+.sello text{font-family:var(--fb);font-size:9.2px;font-weight:700;letter-spacing:.22em;fill:var(--mut);
  text-transform:uppercase}
 .sello .core{position:absolute;inset:20%;border:1px solid var(--bd);border-radius:50%;display:grid;
- place-content:center;text-align:center;background:color-mix(in srgb,var(--cd) 75%,transparent)}
-.sello .core b{font-family:var(--fh);font-size:clamp(28px,7vw,40px);color:var(--ac2);display:block;line-height:1}
-.sello .core span{font-size:10.5px;color:var(--mut);letter-spacing:.14em;text-transform:uppercase}
+ place-content:center;text-align:center;background:#1a1914bf}
+.sello .core b{font-family:var(--fh);font-size:clamp(28px,7vw,40px);color:var(--ac);display:block;line-height:1}
+.sello .core span{font-size:10px;color:var(--mut);letter-spacing:.14em;text-transform:uppercase}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* marquesina */
-.mq{position:relative;border-block:1px solid var(--bd);background:var(--cd);overflow:hidden;
- padding:15px 0;margin-top:clamp(40px,6vw,72px)}
-.mq .track{display:flex;gap:0;width:max-content;animation:slide 34s linear infinite}
-.mq span{font-family:var(--fh);font-size:clamp(17px,2.4vw,24px);color:var(--tx);opacity:.5;
- padding:0 28px;white-space:nowrap;display:inline-flex;align-items:center;gap:28px}
+.mq{position:relative;border-block:1px solid var(--bd);background:var(--cd);overflow:hidden;padding:14px 0}
+.mq .track{display:flex;width:max-content;animation:slide 32s linear infinite}
+.mq span{font-family:var(--fh);font-size:clamp(17px,2.4vw,24px);opacity:.5;padding:0 26px;white-space:nowrap;
+ display:inline-flex;align-items:center;gap:26px}
 .mq span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--ac)}
 @keyframes slide{to{transform:translateX(-50%)}}
 
-/* secciones */
-section{position:relative;padding:clamp(60px,9vw,110px) 0}
-.shead{display:flex;align-items:baseline;gap:18px;margin-bottom:12px;flex-wrap:wrap}
-.snum{font-family:var(--fh);font-size:13px;color:var(--ac);letter-spacing:.16em}
-h2{font-size:clamp(30px,5.4vw,50px);letter-spacing:-.025em}
-.sub{color:var(--mut);font-size:15.5px;margin-bottom:clamp(34px,5vw,54px);max-width:56ch}
+section{position:relative;padding:clamp(52px,8vw,96px) 0}
+.shead{display:flex;align-items:baseline;gap:18px;margin-bottom:10px;flex-wrap:wrap}
+.snum{font-family:var(--fh);font-size:13px;color:var(--ac2);letter-spacing:.16em}
+h2{font-size:clamp(30px,5.2vw,48px);letter-spacing:-.025em}
+.sub{color:var(--mut);font-size:15.5px;margin-bottom:clamp(28px,4vw,44px);max-width:58ch}
+
+/* navegacion de categorias */
+.cats{position:sticky;top:58px;z-index:40;background:#0f0e0bee;backdrop-filter:blur(12px);
+ border-block:1px solid var(--bd);margin-bottom:28px}
+.cats .in{max-width:1120px;margin:0 auto;padding:11px var(--pad);display:flex;gap:8px;overflow-x:auto;
+ scrollbar-width:none}
+.cats .in::-webkit-scrollbar{display:none}
+.cats button{flex:none;border:1px solid var(--bd);background:var(--cd);color:var(--mut);font:inherit;
+ font-size:13px;font-weight:600;padding:8px 15px;border-radius:999px;cursor:pointer;white-space:nowrap;
+ min-height:36px;transition:all .15s}
+.cats button.on{background:var(--ac);border-color:var(--ac);color:#1a1405}
 
 /* menu */
-.cat{margin-bottom:clamp(34px,5vw,52px)}
+.cat{margin-bottom:clamp(32px,5vw,48px);scroll-margin-top:120px}
 .cat h3{font-size:12.5px;text-transform:uppercase;letter-spacing:.2em;color:var(--ac2);
- font-family:var(--fb);font-weight:700;display:flex;align-items:center;gap:16px;margin-bottom:18px}
+ font-family:var(--fb);font-weight:700;display:flex;align-items:center;gap:16px;margin-bottom:16px}
 .cat h3::after{content:"";flex:1;height:1px;background:var(--bd)}
-.items{display:grid;gap:2px}
-.it{display:flex;align-items:baseline;gap:14px;padding:15px 18px;border-radius:10px;
- transition:background .18s,transform .18s}
-.it:hover{background:var(--cd);transform:translateX(4px)}
-.it .n{font-weight:650;font-size:16px;white-space:nowrap}
-.it .d{color:var(--mut);font-size:13.5px;flex-shrink:1;min-width:0}
-.it .ln{flex:1;min-width:18px;border-bottom:1px dotted var(--bd);transform:translateY(-4px)}
-.it .p{font-family:var(--fh);color:var(--ac2);font-size:17px;white-space:nowrap}
+.items{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))}
+.it{display:flex;gap:14px;align-items:flex-start;padding:16px 17px;border:1px solid var(--bd);
+ border-radius:14px;background:var(--cd);transition:border-color .18s,transform .18s}
+.it:hover{border-color:var(--ac);transform:translateY(-2px)}
+.it .info{flex:1;min-width:0}
+.it .n{font-weight:650;font-size:15.5px;line-height:1.3}
+.it .d{color:var(--mut);font-size:13px;margin-top:5px;line-height:1.5}
+.it .der{display:flex;flex-direction:column;align-items:flex-end;gap:9px;flex:none}
+.it .p{font-family:var(--fh);color:var(--ac);font-size:17.5px;white-space:nowrap}
+.add{width:38px;height:38px;border-radius:50%;border:1px solid var(--bd);background:var(--cd2);
+ color:var(--tx);font-size:21px;line-height:1;cursor:pointer;display:grid;place-items:center;
+ transition:all .15s;font-family:var(--fb)}
+.add:hover{background:var(--ac);border-color:var(--ac);color:#1a1405}
+.qty{display:flex;align-items:center;gap:10px}
+.qty button{width:30px;height:30px;border-radius:50%;border:1px solid var(--bd);background:var(--cd2);
+ color:var(--tx);cursor:pointer;font-size:17px;line-height:1;display:grid;place-items:center}
+.qty b{font-family:var(--fh);font-size:16px;min-width:16px;text-align:center;color:var(--ac)}
 
-/* pasos */
-.pasos{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr))}
-.paso{position:relative;background:var(--cd);border:1px solid var(--bd);border-radius:16px;
- padding:30px 26px 26px;overflow:hidden;transition:border-color .2s,transform .2s}
-.paso:hover{border-color:var(--ac);transform:translateY(-3px)}
-.paso .gh{position:absolute;top:-14px;right:8px;font-family:var(--fh);font-size:92px;color:var(--tx);
- opacity:.05;line-height:1}
-.paso h4{font-size:17.5px;margin-bottom:8px;font-weight:700;position:relative}
-.paso p{color:var(--mut);font-size:14.5px;position:relative}
+/* sucursales */
+.locs{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))}
+.loc{background:var(--cd);border:1px solid var(--bd);border-radius:18px;padding:26px;position:relative;
+ overflow:hidden}
+.loc.act{border-color:var(--ac)}
+.loc .tag{position:absolute;top:16px;right:16px;font-size:10.5px;font-weight:700;letter-spacing:.12em;
+ text-transform:uppercase;color:var(--ac);border:1px solid var(--ac);border-radius:999px;padding:3px 10px}
+.loc h3{font-size:24px;margin-bottom:6px}
+.loc .est{color:var(--ac);font-size:13.5px;font-weight:650;margin-bottom:14px}
+.loc p{color:var(--mut);font-size:14.5px}
+.loc .lnk{color:var(--tx);font-weight:650;text-decoration:none;border-bottom:1px solid var(--ac);
+ padding-bottom:1px;display:inline-block;margin-top:14px;font-size:14px}
 
-/* info */
-.info{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(265px,100%),1fr))}
-.box{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:28px}
-.box h4{font-size:11.5px;text-transform:uppercase;letter-spacing:.18em;color:var(--ac2);
- margin-bottom:14px;font-weight:700}
-.box p,.box li{color:var(--mut);font-size:14.5px;list-style:none}
-.box .lnk{color:var(--tx);font-weight:650;text-decoration:none;border-bottom:1px solid var(--ac);
- padding-bottom:1px;display:inline-block;margin-top:12px;font-size:14px}
+/* apps */
+.apps{margin-top:34px;padding:22px;border:1px dashed var(--bd);border-radius:16px;text-align:center}
+.apps p{color:var(--mut);font-size:13.5px;margin-bottom:14px}
+.apps .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.apps a{border:1px solid var(--bd);border-radius:999px;padding:10px 20px;text-decoration:none;
+ font-size:13.5px;font-weight:600;color:var(--mut);background:var(--cd);transition:all .15s;min-height:42px;
+ display:inline-flex;align-items:center}
+.apps a:hover{color:var(--tx);border-color:var(--ac2)}
 
-/* cierre */
-.cierre{position:relative;overflow:hidden;text-align:center;border:1px solid var(--bd);border-radius:24px;
- padding:clamp(48px,8vw,84px) 26px;background:var(--cd)}
-.cierre::before{content:"";position:absolute;inset:0;
- background:radial-gradient(60% 90% at 50% 0%,var(--g1),transparent 70%)}
-.cierre>*{position:relative}
-.cierre h2{margin-bottom:14px}
-.cierre p{color:var(--mut);margin:0 auto 30px;max-width:44ch}
+/* barra del carrito */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:65;background:#151309f2;backdrop-filter:blur(16px);
+ border-top:1px solid var(--bd);padding:12px var(--pad) calc(12px + env(safe-area-inset-bottom));
+ transform:translateY(120%);transition:transform .28s cubic-bezier(.2,.8,.3,1)}
+.barra.on{transform:none}
+.barra .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:14px}
+.barra .res{flex:1;min-width:0}
+.barra .res b{display:block;font-family:var(--fh);font-size:20px;color:var(--ac);line-height:1.2}
+.barra .res span{color:var(--mut);font-size:12.5px}
+.barra .btn{flex:none}
 
-footer{border-top:1px solid var(--bd);margin-top:clamp(60px,9vw,110px);padding:40px 0 50px;
- color:var(--mut);font-size:13.5px;line-height:1.85;text-align:center}
-footer .autor b{color:var(--tx);font-weight:650}
-footer .mio{margin-top:20px;font-size:13.5px;padding:11px 20px}
+/* panel del carrito */
+.velo{position:fixed;inset:0;background:#000a;z-index:80;opacity:0;pointer-events:none;transition:opacity .25s}
+.velo.on{opacity:1;pointer-events:auto}
+.panel{position:fixed;right:0;top:0;bottom:0;width:min(430px,100%);z-index:85;background:var(--bg);
+ border-left:1px solid var(--bd);transform:translateX(101%);transition:transform .3s cubic-bezier(.2,.8,.3,1);
+ display:flex;flex-direction:column}
+.panel.on{transform:none}
+.ptop{display:flex;align-items:center;gap:14px;padding:18px 20px;border-bottom:1px solid var(--bd)}
+.ptop h3{font-size:21px;flex:1}
+.cerrar{width:38px;height:38px;border-radius:50%;border:1px solid var(--bd);background:var(--cd);
+ color:var(--tx);font-size:19px;cursor:pointer;flex:none;line-height:1}
+.pbody{flex:1;overflow-y:auto;padding:18px 20px}
+.linea{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--bd)}
+.linea .n{flex:1;min-width:0;font-size:14.5px;font-weight:600}
+.linea .sub{color:var(--mut);font-size:12.5px;margin-top:3px}
+.linea .p{font-family:var(--fh);color:var(--ac);font-size:15.5px;white-space:nowrap}
+.vacio{text-align:center;color:var(--mut);padding:50px 16px;font-size:15px}
+.campo{margin-top:18px}
+.campo label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--ac2);
+ font-weight:700;margin-bottom:8px}
+.campo input,.campo textarea{width:100%;background:var(--cd);border:1px solid var(--bd);color:var(--tx);
+ border-radius:11px;padding:12px 14px;font:inherit;font-size:15px;min-height:46px}
+.campo textarea{min-height:70px;resize:vertical}
+.opts{display:flex;gap:8px}
+.opts button{flex:1;border:1px solid var(--bd);background:var(--cd);color:var(--mut);font:inherit;
+ font-size:14px;font-weight:600;padding:12px;border-radius:11px;cursor:pointer;min-height:46px}
+.opts button.on{background:var(--ac);border-color:var(--ac);color:#1a1405}
+.pfoot{border-top:1px solid var(--bd);padding:18px 20px calc(18px + env(safe-area-inset-bottom))}
+.tot{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.tot span{color:var(--mut);font-size:14px}
+.tot b{font-family:var(--fh);font-size:27px;color:var(--ac)}
+.pfoot .btn{width:100%}
+.nota{color:var(--mut);font-size:11.5px;text-align:center;margin-top:11px;line-height:1.5}
 
-/* boton flotante */
-.float{position:fixed;right:18px;bottom:18px;z-index:75;background:#25d366;color:#04301a;width:58px;height:58px;
- border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 28px rgba(0,0,0,.5);text-decoration:none;
- transition:transform .18s}
-.float:hover{transform:scale(1.07)}
-.float svg{width:30px;height:30px;fill:currentColor}
+footer{border-top:1px solid var(--bd);padding:34px 0 44px;color:var(--mut);font-size:13.5px;
+ line-height:1.85;text-align:center}
 
-/* reveal */
-.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
 .rv.in{opacity:1;transform:none}
 
 @media(max-width:860px){
- .hgrid{grid-template-columns:1fr;gap:34px}
- .sello{order:-1;width:min(190px,48vw)}
+ .hgrid{grid-template-columns:1fr;gap:32px}
+ .sello{order:-1;width:min(180px,46vw)}
  .nav a.lk{display:none}
+ .logo{font-size:18px}
 }
-@media(max-width:560px){
- .it{flex-wrap:wrap;gap:6px 12px}
- .it .ln{display:none}
- .it .d{width:100%;order:3}
- .it .p{margin-left:auto}
+@media(max-width:520px){
+ .nav{gap:10px}
+ .suc button{padding:6px 10px;font-size:12px}
+}
+@media(max-width:400px){
+ .nav{flex-wrap:wrap;row-gap:9px;padding-bottom:11px}
+ .logo{font-size:17px}
+ .suc{width:100%}
+ .suc button{flex:1;font-size:12.5px}
 }
 @media(prefers-reduced-motion:reduce){
  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
- html{scroll-behavior:auto}
-}
+ html{scroll-behavior:auto}}
 </style>
 <noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 </head><body>
 
-<div class="demo">SITIO DE DEMOSTRACIÓN · propuesta de diseño, no es el sitio oficial de Arabito Deluxe</div>
+<div class="demo">PROPUESTA DE SITIO PARA ARABITO DELUXE · versión de demostración, no es el sitio oficial</div>
 
 <header id="hd"><nav class="nav">
-<span class="logo">Arabito Deluxe</span>
+<span class="logo">Arabito <b>Deluxe</b></span>
 <span class="sp"></span>
 <a class="lk" href="#menu">Menú</a>
-<a class="lk" href="#pedir">Cómo pedir</a>
-<a class="lk" href="#info">Dónde</a>
-<a class="btn g" href="https://wa.me/56962543099?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Pedir</a>
+<a class="lk" href="#locales">Locales</a>
+<div class="suc" id="suc">
+  <button data-s="0" class="on">Macul</button>
+  <button data-s="1">Providencia</button>
+</div>
 </nav></header>
 
 <div class="hero">
 <svg class="pat" aria-hidden="true"><defs>
-<pattern id="p" width="44" height="44" patternUnits="userSpaceOnUse">
+<pattern id="ar" width="44" height="44" patternUnits="userSpaceOnUse">
 <g fill="none" stroke="currentColor" stroke-width="1.1">
 <rect x="11" y="11" width="22" height="22"/>
 <rect x="11" y="11" width="22" height="22" transform="rotate(45 22 22)"/>
 <circle cx="22" cy="22" r="3.2"/></g>
-</pattern></defs><rect width="100%" height="100%" fill="url(#p)"/></svg>
+</pattern></defs><rect width="100%" height="100%" fill="url(#ar)"/></svg>
 <div class="wrap hgrid">
 <div>
-<div class="eyebrow">Comida árabe en Macul</div>
-<h1>Arabito Deluxe</h1>
-<p class="claim">4.9 de promedio con 1.092 reseñas. De los mejores evaluados de la comuna.</p>
-<div class="pill"><span class="rt">4.9 ★</span><span class="dv"></span><span>1.092 reseñas en Google</span></div>
+<div class="eyebrow">Shawarmas · Comida árabe</div>
+<h1>Arabito <span>Deluxe</span></h1>
+<p class="claim">Shawarmas de verdad en Macul y Providencia. Pide directo acá y págale al
+local, no a la app.</p>
+<div class="pill"><span class="rt">4.9 ★</span><span class="dv"></span><span>1.558 reseñas en Google</span></div>
 <div class="cta">
-<a class="btn g" href="https://wa.me/56962543099?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">
+<button class="btn g" onclick="document.getElementById('menu').scrollIntoView()">
 <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.1c-.25.69-1.43 1.32-2 1.41-.51.07-1.16.1-1.87-.12-.43-.14-.98-.33-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.15-.2-1.21-1.6-1.21-3.06s.77-2.17 1.04-2.47c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.33-.3.5-.15.17-.32.39-.45.52-.15.14-.3.3-.13.6.18.3.77 1.27 1.65 2.05 1.13 1.01 2.08 1.32 2.38 1.47.29.15.47.13.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.72-.17 1.41z"/></svg>
-Pedir por WhatsApp</a>
-<a class="btn gh" href="#menu">Ver el menú</a>
+Armar mi pedido</button>
+<a class="btn gh" href="#locales">Ver los locales</a>
 </div>
 </div>
 <div class="sello">
@@ -213,75 +272,294 @@ Pedir por WhatsApp</a>
 </div>
 </div>
 
-<div class="mq"><div class="track"><span>Shawarma</span><span>Falafel</span><span>Hummus</span><span>Kibbe</span><span>Tabulé</span><span>Baklava</span><span>Shawarma</span><span>Falafel</span><span>Hummus</span><span>Kibbe</span><span>Tabulé</span><span>Baklava</span></div></div>
+<div class="mq"><div class="track" id="mqt"></div></div>
 
 <section id="menu"><div class="wrap">
 <div class="shead rv"><span class="snum">01</span><h2>La carta</h2></div>
-<p class="sub rv">Precios y productos de ejemplo — se reemplazan por los suyos reales.</p>
-<div class="cat"><h3 class="rv">Especialidades</h3><div class="items"><div class="it rv"><span class="n">Shawarma de carne</span><span class="d">Pan pita, carne, tahine, verduras</span><span class="ln"></span><span class="p">$7.900</span></div><div class="it rv"><span class="n">Shawarma de pollo</span><span class="d">Pan pita, pollo marinado, ajo</span><span class="ln"></span><span class="p">$7.500</span></div><div class="it rv"><span class="n">Plato árabe Deluxe</span><span class="d">Kebab, hummus, tabulé, arroz</span><span class="ln"></span><span class="p">$12.900</span></div><div class="it rv"><span class="n">Falafel</span><span class="d">6 unidades con salsa tahine</span><span class="ln"></span><span class="p">$6.900</span></div></div></div><div class="cat"><h3 class="rv">Entradas</h3><div class="items"><div class="it rv"><span class="n">Hummus</span><span class="d">Con pan pita tostado</span><span class="ln"></span><span class="p">$5.500</span></div><div class="it rv"><span class="n">Tabulé</span><span class="d">Ensalada de perejil y bulgur</span><span class="ln"></span><span class="p">$5.200</span></div><div class="it rv"><span class="n">Kibbe frito</span><span class="d">4 unidades</span><span class="ln"></span><span class="p">$6.400</span></div><div class="it rv"><span class="n">Berenjena ahumada</span><span class="d">Con aceite de oliva</span><span class="ln"></span><span class="p">$5.800</span></div></div></div><div class="cat"><h3 class="rv">Dulces</h3><div class="items"><div class="it rv"><span class="n">Baklava</span><span class="d">3 unidades</span><span class="ln"></span><span class="p">$4.500</span></div><div class="it rv"><span class="n">Mamoul</span><span class="d">Dátil o nuez, 3 unidades</span><span class="ln"></span><span class="p">$4.200</span></div></div></div>
-</div></section>
+<p class="sub rv">Toca el <b>+</b> para armar tu pedido. Al terminar te lo mandamos escrito por WhatsApp.</p>
+</div>
+<div class="cats"><div class="in" id="cats"></div></div>
+<div class="wrap"><div id="carta"></div></div>
+</section>
 
-<section id="pedir"><div class="wrap">
-<div class="shead rv"><span class="snum">02</span><h2>Cómo pedir</h2></div>
-<p class="sub rv">Sin apps, sin intermediarios, sin comisiones.</p>
-<div class="pasos">
-<div class="paso rv"><span class="gh">1</span><h4>Elige del menú</h4><p>El cliente arma su pedido en la página, sin descargar ninguna aplicación.</p></div>
-<div class="paso rv"><span class="gh">2</span><h4>Aprieta pedir</h4><p>El pedido llega escrito a su WhatsApp, ordenado y listo para confirmar.</p></div>
-<div class="paso rv"><span class="gh">3</span><h4>Confirman y listo</h4><p>Ustedes coordinan retiro o reparto. El 100% de la venta queda en casa.</p></div>
+<section id="locales"><div class="wrap">
+<div class="shead rv"><span class="snum">02</span><h2>Dónde estamos</h2></div>
+<p class="sub rv">Dos locales, un solo WhatsApp. Elige arriba desde cuál quieres pedir.</p>
+<div class="locs" id="locs"></div>
+
+<div class="apps rv">
+<p>También nos encuentras en las apps de delivery</p>
+<div class="row">
+<a href="#" data-app="pedidosya" target="_blank" rel="noopener">PedidosYa</a>
+<a href="#" data-app="ubereats" target="_blank" rel="noopener">Uber Eats</a>
+<a href="#" data-app="rappi" target="_blank" rel="noopener">Rappi</a>
+</div>
 </div>
 </div></section>
-
-<section id="info"><div class="wrap">
-<div class="shead rv"><span class="snum">03</span><h2>Dónde y cuándo</h2></div>
-<p class="sub rv">Horario de ejemplo — se ajusta al real.</p>
-<div class="info">
-<div class="box rv"><h4>Dirección</h4><p>Exequiel Fernández 2692, Macul</p><a class="lnk" href="https://www.google.com/maps/search/Exequiel+Fernández+2692,+Macul" target="_blank" rel="noopener">Ver en Google Maps &rarr;</a></div>
-<div class="box rv"><h4>Horario</h4><ul><li>Martes a domingo 12:30 - 23:00</li><li>Lunes cerrado</li></ul></div>
-<div class="box rv"><h4>Pedidos</h4><p>WhatsApp +56 9 6254 3099</p><a class="lnk" href="https://wa.me/56962543099?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Escribir ahora &rarr;</a></div>
-</div>
-</div></section>
-
-<div class="wrap"><div class="cierre rv">
-<h2>¿Lo probamos?</h2>
-<p>Pide directo y sin comisiones de por medio.</p>
-<a class="btn g" href="https://wa.me/56962543099?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-</div></div>
 
 <footer><div class="wrap">
-<p class="autor">Sitio de demostración creado por <b>Agustín de la Guarda</b> como propuesta para Arabito Deluxe.<br>
-No es el sitio oficial del local. Nombre, dirección y calificación provienen de su ficha pública de Google Maps.</p>
-<a class="btn gh mio" href="https://wa.me/56974479565?text=Hola%20Agust%C3%ADn%2C%20vi%20la%20demo%20de%20Arabito%20Deluxe%20y%20quiero%20una%20p%C3%A1gina%20para%20mi%20local" target="_blank" rel="noopener">¿Quieres una para tu local? Escríbeme</a>
+Propuesta de sitio creada por <b>Agustín de la Guarda</b> para Arabito Deluxe.<br>
+No es el sitio oficial. Los datos provienen de sus fichas públicas.
 </div></footer>
 
-<a class="float" href="https://wa.me/56962543099?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp">
-<svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.1c-.25.69-1.43 1.32-2 1.41-.51.07-1.16.1-1.87-.12-.43-.14-.98-.33-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.15-.2-1.21-1.6-1.21-3.06s.77-2.17 1.04-2.47c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.33-.3.5-.15.17-.32.39-.45.52-.15.14-.3.3-.13.6.18.3.77 1.27 1.65 2.05 1.13 1.01 2.08 1.32 2.38 1.47.29.15.47.13.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.72-.17 1.41z"/></svg>
-</a>
+<div class="barra" id="barra"><div class="in">
+<div class="res"><b id="btot">$0</b><span id="bcnt">0 productos</span></div>
+<button class="btn g" onclick="abrir()">Ver pedido</button>
+</div></div>
+
+<div class="velo" id="velo" onclick="cerrar()"></div>
+<aside class="panel" id="panel" aria-label="Tu pedido">
+<div class="ptop"><h3>Tu pedido</h3><button class="cerrar" onclick="cerrar()" aria-label="Cerrar">&times;</button></div>
+<div class="pbody" id="pbody"></div>
+<div class="pfoot">
+<div class="tot"><span>Total</span><b id="ptot">$0</b></div>
+<button class="btn g" onclick="enviar()" style="width:100%">Enviar pedido por WhatsApp</button>
+<p class="nota">Se abre WhatsApp con tu pedido escrito. Confirmas ahí con el local.</p>
+</div>
+</aside>
 
 <script>
-(function(){
-  var hd=document.getElementById('hd');
-  var onScroll=function(){hd.classList.toggle('on',window.scrollY>12)};
-  onScroll();addEventListener('scroll',onScroll,{passive:true});
+/* ------------------------------------------------------------------
+   DATOS — esto es lo unico que hay que editar cuando cambien la carta
+------------------------------------------------------------------ */
+var TEL = '56962543099';   // mismo numero para las dos sucursales
 
-  /* Barrido propio en vez de IntersectionObserver: si el usuario salta de golpe
-     (ancla, teclado, scroll rapido) igual revela todo lo que quedo por encima. */
-  var pend=[].slice.call(document.querySelectorAll('.rv')),tick=false;
-  function sweep(){
-    tick=false;
-    var lim=innerHeight*0.92,n=0;
-    for(var i=0;i<pend.length;i++){
-      if(pend[i].getBoundingClientRect().top<lim){
-        (function(el,d){setTimeout(function(){el.classList.add('in')},d)})(pend[i],(n++)*70);
-        pend[i]=null;
-      }
-    }
-    pend=pend.filter(Boolean);
-    if(!pend.length)removeEventListener('scroll',onS);
-  }
-  function onS(){if(!tick){tick=true;setTimeout(sweep,60)}}
-  addEventListener('scroll',onS,{passive:true});
-  addEventListener('resize',onS,{passive:true});
-  sweep();
+var LOCALES = [
+  {n:'Macul', dir:'Exequiel Fernández 2692, Macul',
+   hor:'Lunes a domingo · 13:00 a 22:00', rev:'1.092 reseñas · 4.9 ★',
+   maps:'https://www.google.com/maps/search/Arabito+Deluxe+Exequiel+Fernandez+2692+Macul'},
+  {n:'Providencia', dir:'José Manuel Infante 1373, Providencia',
+   hor:'Lunes a domingo · 13:00 a 22:00', rev:'466 reseñas · 4.9 ★',
+   maps:'https://www.google.com/maps/search/Arabito+Deluxe+Jose+Manuel+Infante+1373+Providencia'}
+];
+
+var DESTACADOS = ['Shawarma mixto','Mi deluxe','Duo especial','Falafel','Hummus','Papas deluxe'];
+
+var CARTA = [
+ {c:'Shawarmas especiales', i:[
+   {n:'Shawarma mixto', p:12120, d:'200 gr de carne de vacuno y pollo, lechuga, tomate, cebolla, perejil, salsa de ajo y hummus. Incluye 1 ajo adicional.'},
+   {n:'Shawarma de pollo', p:11520, d:'200 gr de pollo, lechuga, tomate, cebolla, perejil, salsa de ajo y hummus. Incluye 1 ajo adicional.'},
+   {n:'Shawarma vegetariano y vegano', p:10200, d:'5 croquetas de falafel, lechuga, tomate, cebolla, perejil, salsa de ajo y hummus. Incluye 1 ajo adicional.'}
+ ]},
+ {c:'Shawarmas exclusivos', i:[
+   {n:'Shawarma Arabito', p:15000, d:'200 gr de carne y pollo, lechuga, tomate, cebolla, perejil, 3 croquetas de falafel, tabulé, salsa de ajo y hummus.'},
+   {n:'Shawarma gran Arabito', p:22790, d:'300 gr de carne y pollo, lechuga, tomate, cebolla, perejil, 6 croquetas de falafel, tabulé, salsa de ajo y hummus.'},
+   {n:'Shawarma Americano', p:13800, d:'160 gr de carne y pollo, tocino, huevo, queso, lechuga, tomate, cebolla, perejil, salsa de ajo, kétchup y BBQ.'}
+ ]},
+ {c:'Shawarmas premium', i:[
+   {n:'Shawarma carne', p:13080, d:'200 gr de carne, lechuga, tomate, cebolla, perejil, salsa de ajo y hummus. Incluye 1 ajo adicional.'},
+   {n:'Shawarma pollo falafel', p:12600, d:'200 gr de pollo, lechuga, tomate, cebolla, perejil, 3 croquetas de falafel, salsa de ajo y hummus.'},
+   {n:'Shawarma carne falafel', p:15000, d:'200 gr de carne, lechuga, tomate, cebolla, perejil, 3 croquetas de falafel, salsa de ajo y hummus.'},
+   {n:'Shawarma kafta de vacuno', p:14040, d:'200 gr de kafta (carne magra), lechuga, tomate, cebolla, perejil, salsa de ajo, hummus y tabulé.'}
+ ]},
+ {c:'Combos', i:[
+   {n:'Mi deluxe', p:14000, d:'1 shawarma a elección, 1 ración de papas fritas pequeñas o 2 falafels, 1 salsa de ajo y bebida.'},
+   {n:'Duo especial', p:27000, d:'2 shawarmas a elección, 2 falafel o 2 raciones de papas fritas y 2 salsas de ajo.'},
+   {n:'Duo deluxe', p:31190, d:'2 shawarmas a elección, 4 falafel, 2 raciones de papas fritas, 2 salsas de ajo y 2 bebidas.'},
+   {n:'Trio especial', p:40990, d:'3 shawarmas a elección, 6 falafels o 3 raciones de papas fritas y 3 salsas de ajo.'},
+   {n:'Trio deluxe', p:45990, d:'3 shawarmas a elección, papas fritas para 3 personas, 6 falafels, 3 salsas de ajo y bebida de 1.5 lt.'}
+ ]},
+ {c:'Papas fusión deluxe', i:[
+   {n:'Papas con tabulé, hummus y ajo', p:6000, d:'Ración mediana de papas fritas, hummus, salsa de ajo y tabulé.'},
+   {n:'Papas con queso fundido', p:6000, d:'Ración mediana de papas fritas, queso fundido y salsa de ajo (opcional).'},
+   {n:'Papas con falafel, tabulé, hummus y ajo', p:7200, d:'Ración mediana de papas fritas, falafels, hummus, salsa de ajo y tabulé.'},
+   {n:'Papas con pollo, tabulé, hummus y ajo', p:7200, d:'Ración mediana de papas fritas, pollo árabe, hummus, salsa de ajo y tabulé.'},
+   {n:'Papas con pollo y queso fundido', p:7200, d:'Ración mediana de papas fritas, pollo árabe, queso fundido y salsa de ajo.'},
+   {n:'Papas fritas grandes', p:6000, d:'Ración grande, ideal para compartir.'},
+   {n:'Papas fritas medianas', p:3600, d:'Ración mediana, ideal como acompañamiento.'},
+   {n:'Papas fritas individuales', p:1800, d:'Ración individual de papas fritas sazonadas.'}
+ ]},
+ {c:'Hamburguesas y perros calientes', i:[
+   {n:'Hamburguesa americana', p:9990, d:'Pan artesano, carne, tocino, cheddar, pepinillos, cebolla caramelizada y lechuga. Incluye papas fritas.'},
+   {n:'Hamburguesa americana mixta', p:10990, d:'Pan artesano, carne, chuleta ahumada, tocino, cheddar, pepinillos, cebolla caramelizada y lechuga. Incluye papas fritas.'},
+   {n:'Hamburguesa especial', p:10990, d:'Pan artesano, carne, queso gauda gratinado, papas hilo, huevo frito, lechuga y tomate. Incluye papas fritas.'},
+   {n:'Hamburguesa hawaiana', p:10990, d:'Pan artesano, pollo, chuleta ahumada, queso gauda gratinado, lechuga, tomate y cebolla caramelizada. Incluye papas fritas.'},
+   {n:'Hamburguesa mixta BBQ', p:10990, d:'Pan artesano, carne y pollo, queso cheddar, lechuga y tomate. Salsas mostaza dulce y BBQ.'},
+   {n:'Perro caliente', p:3500, d:'Pan artesano con vienesa, papas hilo, lechuga y gauda rallado.'}
+ ]},
+ {c:'Extras árabes', i:[
+   {n:'Falafel ración', p:7800, d:'6 croquetas de garbanzo, perejil y especias. Incluye 1 ajo pequeño.'},
+   {n:'Tabulé ración grande', p:3000, d:'Ensalada árabe con perejil, tomate, cebolla, sésamo y aderezos.'},
+   {n:'Ración de pan árabe', p:1080, d:'1 pan porcionado en 4 trozos.'},
+   {n:'Hummus de garbanzo', p:500, d:'La porción pequeña no lleva pan.'},
+   {n:'Ajo taratore', p:300, d:'Salsa de ajo taratore, clásica de la cocina árabe. Porción individual.'}
+ ]}
+];
+
+/* ------------------------------------------------------------------ */
+
+var suc = 0, carro = {}, modo = 'retiro';
+
+function clp(n){ return '$' + n.toLocaleString('es-CL'); }
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+/* marquesina */
+(function(){
+  var una = DESTACADOS.map(function(x){ return '<span>'+esc(x)+'</span>'; }).join('');
+  document.getElementById('mqt').innerHTML = una + una;
 })();
+
+/* carta */
+(function(){
+  var cats = '', carta = '';
+  CARTA.forEach(function(g, gi){
+    cats += '<button data-g="'+gi+'"'+(gi===0?' class="on"':'')+'>'+esc(g.c)+'</button>';
+    var its = g.i.map(function(it, ii){
+      var id = gi+'-'+ii;
+      return '<div class="it rv" data-id="'+id+'">'
+        +'<div class="info"><div class="n">'+esc(it.n)+'</div><div class="d">'+esc(it.d)+'</div></div>'
+        +'<div class="der"><div class="p">'+clp(it.p)+'</div>'
+        +'<div class="ctl" data-ctl="'+id+'"><button class="add" data-add="'+id+'" aria-label="Agregar">+</button></div>'
+        +'</div></div>';
+    }).join('');
+    carta += '<div class="cat" id="g'+gi+'"><h3 class="rv">'+esc(g.c)+'</h3><div class="items">'+its+'</div></div>';
+  });
+  document.getElementById('cats').innerHTML = cats;
+  document.getElementById('carta').innerHTML = carta;
+})();
+
+/* locales */
+function pintaLocales(){
+  document.getElementById('locs').innerHTML = LOCALES.map(function(l, i){
+    return '<div class="loc rv'+(i===suc?' act':'')+'">'
+      +(i===suc?'<span class="tag">seleccionado</span>':'')
+      +'<h3>'+esc(l.n)+'</h3><div class="est">'+esc(l.rev)+'</div>'
+      +'<p>'+esc(l.dir)+'</p><p>'+esc(l.hor)+'</p>'
+      +'<a class="lnk" href="'+l.maps+'" target="_blank" rel="noopener">Ver en Google Maps &rarr;</a></div>';
+  }).join('');
+}
+pintaLocales();
+
+/* categorias */
+document.getElementById('cats').addEventListener('click', function(e){
+  var b = e.target.closest('button'); if(!b) return;
+  [].forEach.call(this.querySelectorAll('button'), function(x){ x.classList.toggle('on', x===b); });
+  document.getElementById('g'+b.dataset.g).scrollIntoView({behavior:'smooth', block:'start'});
+});
+
+/* sucursal */
+document.getElementById('suc').addEventListener('click', function(e){
+  var b = e.target.closest('button'); if(!b) return;
+  suc = +b.dataset.s;
+  [].forEach.call(this.querySelectorAll('button'), function(x){ x.classList.toggle('on', x===b); });
+  pintaLocales(); revelar();
+});
+
+/* carrito */
+function item(id){ var p = id.split('-'); return CARTA[+p[0]].i[+p[1]]; }
+function total(){ var t=0; for(var k in carro) t += item(k).p * carro[k]; return t; }
+function cuenta(){ var c=0; for(var k in carro) c += carro[k]; return c; }
+
+function ctl(id){
+  var q = carro[id] || 0;
+  return q === 0
+    ? '<button class="add" data-add="'+id+'" aria-label="Agregar">+</button>'
+    : '<div class="qty"><button data-menos="'+id+'" aria-label="Quitar uno">&minus;</button>'
+      +'<b>'+q+'</b><button data-add="'+id+'" aria-label="Agregar uno">+</button></div>';
+}
+
+function refresca(id){
+  if(id){ var c = document.querySelector('[data-ctl="'+id+'"]'); if(c) c.innerHTML = ctl(id); }
+  var n = cuenta(), t = total();
+  document.getElementById('btot').textContent = clp(t);
+  document.getElementById('bcnt').textContent = n + (n === 1 ? ' producto' : ' productos');
+  document.getElementById('ptot').textContent = clp(t);
+  document.getElementById('barra').classList.toggle('on', n > 0);
+  pintaPanel();
+}
+
+document.addEventListener('click', function(e){
+  var a = e.target.closest('[data-add]'), m = e.target.closest('[data-menos]');
+  if(a){ var id = a.dataset.add; carro[id] = (carro[id]||0) + 1; refresca(id); }
+  if(m){ var id2 = m.dataset.menos; carro[id2] = (carro[id2]||0) - 1;
+         if(carro[id2] <= 0) delete carro[id2]; refresca(id2); }
+});
+
+function pintaPanel(){
+  var b = document.getElementById('pbody'), h = '';
+  var ks = Object.keys(carro);
+  if(!ks.length){
+    b.innerHTML = '<div class="vacio">Todavía no has agregado nada.<br>Toca el + en la carta.</div>';
+    return;
+  }
+  ks.forEach(function(k){
+    var it = item(k);
+    h += '<div class="linea"><div class="n">'+esc(it.n)
+      +'<div class="sub">'+carro[k]+' × '+clp(it.p)+'</div></div>'
+      +'<div class="p">'+clp(it.p * carro[k])+'</div>'
+      +'<div class="ctl" data-ctl2="'+k+'">'+ctl(k)+'</div></div>';
+  });
+  h += '<div class="campo"><label>¿Cómo lo quieres?</label><div class="opts">'
+    +'<button data-modo="retiro"'+(modo==='retiro'?' class="on"':'')+'>Retiro en local</button>'
+    +'<button data-modo="despacho"'+(modo==='despacho'?' class="on"':'')+'>Despacho</button></div></div>';
+  h += '<div class="campo"><label>Tu nombre</label><input id="nom" placeholder="Para saber de quién es el pedido"></div>';
+  if(modo === 'despacho')
+    h += '<div class="campo"><label>Dirección de despacho</label><input id="dir" placeholder="Calle, número, depto"></div>';
+  h += '<div class="campo"><label>Algo más</label><textarea id="obs" placeholder="Sin cebolla, ajo aparte, etc."></textarea></div>';
+  b.innerHTML = h;
+}
+
+document.getElementById('pbody').addEventListener('click', function(e){
+  var m = e.target.closest('[data-modo]'); if(!m) return;
+  modo = m.dataset.modo; pintaPanel();
+});
+/* los +/- dentro del panel los toma el listener global; hay que repintar todo */
+document.getElementById('pbody').addEventListener('click', function(e){
+  if(e.target.closest('[data-add]') || e.target.closest('[data-menos]')) setTimeout(function(){ refresca(); }, 0);
+});
+
+function abrir(){ document.getElementById('panel').classList.add('on');
+  document.getElementById('velo').classList.add('on'); document.body.style.overflow='hidden'; }
+function cerrar(){ document.getElementById('panel').classList.remove('on');
+  document.getElementById('velo').classList.remove('on'); document.body.style.overflow=''; }
+
+function enviar(){
+  var ks = Object.keys(carro);
+  if(!ks.length){ abrir(); return; }
+  var nom = (document.getElementById('nom')||{}).value || '';
+  var dir = (document.getElementById('dir')||{}).value || '';
+  var obs = (document.getElementById('obs')||{}).value || '';
+
+  var t = '*Pedido desde la página*\n\n';
+  t += 'Local: ' + LOCALES[suc].n + '\n\n';
+  ks.forEach(function(k){
+    var it = item(k);
+    t += carro[k] + ' × ' + it.n + '  ' + clp(it.p * carro[k]) + '\n';
+  });
+  t += '\n*Total: ' + clp(total()) + '*\n\n';
+  t += (modo === 'retiro' ? 'Retiro en local' : 'Despacho a domicilio') + '\n';
+  if(nom) t += 'Nombre: ' + nom + '\n';
+  if(modo === 'despacho' && dir) t += 'Dirección: ' + dir + '\n';
+  if(obs) t += 'Observaciones: ' + obs + '\n';
+
+  window.open('https://wa.me/' + TEL + '?text=' + encodeURIComponent(t), '_blank', 'noopener');
+}
+
+/* cabecera y revelado */
+(function(){
+  var hd = document.getElementById('hd');
+  var onScroll = function(){ hd.classList.toggle('on', window.scrollY > 12); };
+  onScroll(); addEventListener('scroll', onScroll, {passive:true});
+})();
+
+var pend = [], tick = false;
+function revelar(){ pend = [].slice.call(document.querySelectorAll('.rv:not(.in)')); barrido(); }
+function barrido(){
+  tick = false;
+  var lim = innerHeight * 0.92, n = 0;
+  for(var i=0;i<pend.length;i++){
+    if(pend[i] && pend[i].getBoundingClientRect().top < lim){
+      (function(el,d){ setTimeout(function(){ el.classList.add('in'); }, d); })(pend[i], (n++)*60);
+      pend[i] = null;
+    }
+  }
+  pend = pend.filter(Boolean);
+}
+function onS(){ if(!tick){ tick = true; setTimeout(barrido, 60); } }
+addEventListener('scroll', onS, {passive:true});
+addEventListener('resize', onS, {passive:true});
+revelar();
+refresca();
 </script>
 </body></html>
