@@ -13,6 +13,9 @@ sin página web propia, dependiendo de apps de delivery que se llevan entre 25% 
 | [`kami-sushi/`](kami-sushi/) | Sushi, 6 locales | La Granja · Puente Alto · San Ramón |
 | [`bajon-tio-coco/`](bajon-tio-coco/) | Comida rápida | La Florida |
 | [`santo-sabor/`](santo-sabor/) | Comida rápida | La Florida |
+| [`la-capital-restobar/`](la-capital-restobar/) | Restobar | Macul |
+| [`big-george/`](big-george/) | Hamburguesas | Puente Alto |
+| [`the-gustapoco/`](the-gustapoco/) | Comida rápida | San Joaquín |
 
 ## Aviso
 
