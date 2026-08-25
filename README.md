@@ -11,6 +11,8 @@ sin página web propia, dependiendo de apps de delivery que se llevan entre 25% 
 | [`donde-giulianos/`](donde-giulianos/) | Comida rápida | Macul |
 | [`arabito-deluxe/`](arabito-deluxe/) | Comida árabe | Macul |
 | [`kami-sushi/`](kami-sushi/) | Sushi, 6 locales | La Granja · Puente Alto · San Ramón |
+| [`bajon-tio-coco/`](bajon-tio-coco/) | Comida rápida | La Florida |
+| [`santo-sabor/`](santo-sabor/) | Comida rápida | La Florida |
 
 ## Aviso
 
