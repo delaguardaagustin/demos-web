@@ -138,9 +138,10 @@ h2{font-size:clamp(30px,5.2vw,48px);letter-spacing:-.025em}
 .qty b{font-family:var(--fh);font-size:16px;min-width:16px;text-align:center;color:var(--ac)}
 
 /* mandala del hero */
+/* estatico a proposito: un SVG de este tamano animando en bucle castiga
+   a los telefonos de gama baja, que es justo el publico de este local */
 .mandala{position:absolute;right:-8%;top:-14%;width:min(620px,78vw);aspect-ratio:1;opacity:.14;
- pointer-events:none;color:var(--ac);animation:girar 90s linear infinite}
-@keyframes girar{to{transform:rotate(360deg)}}
+ pointer-events:none;color:var(--ac);transform:rotate(-8deg)}
 
 /* banda de cifras */
 .cifras{border-block:1px solid var(--bd);background:linear-gradient(180deg,#1a1914,#151410)}
@@ -175,6 +176,32 @@ h2{font-size:clamp(30px,5.2vw,48px);letter-spacing:-.025em}
 @media(max-width:350px){.bdg{white-space:normal;letter-spacing:.05em}}
 .bdg.top{background:var(--ac);color:#1a1405}
 .bdg.rec{background:#8fae641f;color:var(--ac2);border:1px solid #8fae6440}
+
+/* ilustraciones */
+.ilu{flex:none;width:58px;height:58px;border-radius:14px;background:#221f18;border:1px solid var(--bd);
+ display:grid;place-items:center;overflow:hidden}
+.ilu svg{width:44px;height:44px}
+.it:hover .ilu{border-color:#c9a22766}
+.it .n,.it .d{overflow-wrap:anywhere}
+/* bajo 380px la ilustracion estorba: el nombre del producto manda */
+@media(max-width:380px){.ilu{display:none}}
+
+/* destacados */
+.destacados{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(270px,100%),1fr))}
+.dest{position:relative;overflow:hidden;border:1px solid var(--bd);border-radius:20px;
+ background:linear-gradient(158deg,#1c1a14,#141309);padding:26px;display:flex;flex-direction:column;
+ transition:border-color .2s,transform .2s,box-shadow .2s}
+.dest:hover{border-color:var(--ac);transform:translateY(-4px);box-shadow:0 20px 40px -24px #000}
+.dest .art{position:relative;height:130px;display:grid;place-items:center;margin-bottom:18px;
+ border-radius:16px;background:radial-gradient(70% 70% at 50% 40%,#c9a2271f,transparent 70%)}
+.dest .art svg{width:104px;height:104px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.45))}
+.dest .rank{position:absolute;top:14px;left:14px;font-family:var(--fh);font-size:13px;color:#1a1405;
+ background:var(--ac);border-radius:999px;padding:4px 12px;letter-spacing:.04em}
+.dest h4{font-family:var(--fh);font-size:22px;margin-bottom:6px;line-height:1.15}
+.dest p{color:var(--mut);font-size:13.5px;flex:1;margin-bottom:16px}
+.dest .fila{display:flex;align-items:center;gap:12px}
+.dest .pr{font-family:var(--fh);font-size:24px;color:var(--ac);flex:1}
+.dest .add{width:44px;height:44px;font-size:24px}
 
 /* sucursales */
 .locs{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))}
@@ -271,6 +298,72 @@ footer{border-top:1px solid var(--bd);padding:34px 0 44px;color:var(--mut);font-
 </style>
 <noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
 </head><body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+
+<symbol id="i-shawarma" viewBox="0 0 64 64">
+ <path d="M17 33h30l-6 25q-9 3-18 0z" fill="#f2ecdb"/>
+ <path d="M17 33h30l-1.6 6.5H18.6z" fill="#e2dac2"/>
+ <path d="M21 8q11-3.4 22 0l-3 27H24z" fill="#e3c98f"/>
+ <path d="M24.5 12.5q7.5-2.2 15 0l-.7 6h-13.6z" fill="#9c5230"/>
+ <path d="M24.9 21h14.2l-.5 4.4H25.4z" fill="#8fae64"/>
+ <path d="M25.4 27.6h13.2l-.4 3.4H25.8z" fill="#c0452f"/>
+ <path d="M32 5.4v29.6" stroke="#cbb079" stroke-width="1.1" fill="none" opacity=".7"/>
+</symbol>
+
+<symbol id="i-combo" viewBox="0 0 64 64">
+ <path d="M24 22v-4a8 8 0 0 1 16 0v4" fill="none" stroke="#c9a227" stroke-width="3"/>
+ <path d="M13 22h38l-3.4 34q-14.6 3.4-31.2 0z" fill="#e3c98f"/>
+ <path d="M13 22h38l-.9 8.6H13.9z" fill="#d3b876"/>
+ <rect x="23" y="35" width="18" height="13" rx="2.6" fill="#f2ecdb"/>
+ <path d="M26.5 39.4h11M26.5 43.4h7.5" stroke="#c9a227" stroke-width="1.9" stroke-linecap="round"/>
+</symbol>
+
+<symbol id="i-papas" viewBox="0 0 64 64">
+ <g fill="#e8b64c">
+  <rect x="20" y="12" width="5.4" height="26" rx="2.6" transform="rotate(-13 22.7 25)"/>
+  <rect x="29.3" y="8" width="5.4" height="30" rx="2.6"/>
+  <rect x="38" y="12" width="5.4" height="26" rx="2.6" transform="rotate(13 40.7 25)"/>
+  <rect x="24.6" y="16" width="5.4" height="22" rx="2.6" transform="rotate(6 27.3 27)"/>
+  <rect x="34" y="16" width="5.4" height="22" rx="2.6" transform="rotate(-6 36.7 27)"/>
+ </g>
+ <path d="M18 32h28l-3.6 25q-10.4 2.6-20.8 0z" fill="#c0452f"/>
+ <path d="M18 32h28l-.8 6H18.8z" fill="#a63b28"/>
+</symbol>
+
+<symbol id="i-burger" viewBox="0 0 64 64">
+ <path d="M11 28q0-15 21-15t21 15z" fill="#e3c98f"/>
+ <g fill="#f2ecdb"><circle cx="24" cy="20" r="1.5"/><circle cx="32" cy="17.4" r="1.5"/>
+  <circle cx="40" cy="20" r="1.5"/><circle cx="28" cy="24" r="1.3"/><circle cx="37" cy="24" r="1.3"/></g>
+ <path d="M11 29h42q-3 6-8 3.4-4 3.4-8 0-4 3.4-8 0-4 3.4-8 0-4 2.6-10-3.4z" fill="#8fae64"/>
+ <rect x="10" y="34.6" width="44" height="9" rx="4.4" fill="#9c5230"/>
+ <rect x="13" y="45" width="38" height="5" rx="2.4" fill="#e8b64c"/>
+ <path d="M12 51h40q0 7-20 7t-20-7z" fill="#dcbf80"/>
+</symbol>
+
+<symbol id="i-hummus" viewBox="0 0 64 64">
+ <path d="M10 30h44q-2 24-22 24T10 30z" fill="#f2ecdb"/>
+ <path d="M14 32h36q-1.6 12-18 12t-18-12z" fill="#e3c98f"/>
+ <circle cx="32" cy="36" r="5.4" fill="#dcbf80"/>
+ <path d="M32 30.6q5 3 0 7.4" stroke="#c9a227" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+ <g fill="#8fae64"><circle cx="23" cy="35" r="1.7"/><circle cx="41" cy="35" r="1.7"/>
+  <circle cx="32" cy="44" r="1.7"/></g>
+ <path d="M20 22q6-6 12 0t12 0" stroke="#c9a227" stroke-width="1.8" fill="none"
+   stroke-linecap="round" opacity=".55"/>
+</symbol>
+
+<symbol id="i-falafel" viewBox="0 0 64 64">
+ <path d="M9 42h46q-3 12-23 12T9 42z" fill="#f2ecdb"/>
+ <circle cx="22" cy="34" r="9" fill="#8fae64"/>
+ <circle cx="42" cy="34" r="9" fill="#8fae64"/>
+ <circle cx="32" cy="22" r="9.4" fill="#9caf6e"/>
+ <g fill="#7a9552" opacity=".8">
+  <circle cx="19" cy="32" r="1.3"/><circle cx="25" cy="36" r="1.3"/>
+  <circle cx="39" cy="36" r="1.3"/><circle cx="45" cy="32" r="1.3"/>
+  <circle cx="30" cy="20" r="1.3"/><circle cx="35" cy="25" r="1.3"/></g>
+</symbol>
+
+</defs></svg>
 
 <div class="demo">PROPUESTA DE SITIO PARA ARABITO DELUXE · versión de demostración, no es el sitio oficial</div>
 
@@ -372,8 +465,14 @@ Armar mi pedido</button>
 </div>
 </div></section>
 
+<section id="destacados"><div class="wrap">
+<div class="shead rv"><span class="snum">01</span><h2>Los más pedidos</h2></div>
+<p class="sub rv">Lo que más sale del mesón, según sus propios clientes.</p>
+<div class="destacados" id="dest"></div>
+</div></section>
+
 <section id="menu"><div class="wrap">
-<div class="shead rv"><span class="snum">01</span><h2>La carta</h2></div>
+<div class="shead rv"><span class="snum">02</span><h2>La carta completa</h2></div>
 <p class="sub rv">Toca el <b>+</b> para armar tu pedido. Al terminar te lo mandamos escrito por WhatsApp.</p>
 </div>
 <div class="cats"><div class="in" id="cats"></div></div>
@@ -382,7 +481,7 @@ Armar mi pedido</button>
 
 <section id="locales"><div class="wrap">
 <div class="orna rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2 L20 12 L12 22 L4 12 Z"/><circle cx="12" cy="12" r="3"/></svg></div>
-<div class="shead rv"><span class="snum">02</span><h2>Dónde estamos</h2></div>
+<div class="shead rv"><span class="snum">03</span><h2>Dónde estamos</h2></div>
 <p class="sub rv">Dos locales, un solo WhatsApp. Elige arriba desde cuál quieres pedir.</p>
 <div class="locs" id="locs"></div>
 
@@ -433,6 +532,8 @@ var LOCALES = [
 ];
 
 var DESTACADOS = ['Shawarma mixto','Mi deluxe','Duo especial','Falafel','Hummus','Papas deluxe'];
+
+var ILUS = ['i-shawarma','i-shawarma','i-shawarma','i-combo','i-papas','i-burger','i-hummus'];
 
 var CARTA = [
  {c:'Shawarmas especiales', i:[
@@ -510,7 +611,8 @@ function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
       if(it.top) bd += '<span class="bdg top">'+esc(it.top)+'</span>';
       if(it.rec) bd += '<span class="bdg rec">'+esc(it.rec)+'</span>';
       if(bd) bd = '<div class="badges">'+bd+'</div>';
-      return '<div class="it rv" data-id="'+id+'">'
+      var ilu = '<div class="ilu"><svg><use href="#'+(ILUS[gi]||'i-shawarma')+'"/></svg></div>';
+      return '<div class="it rv" data-id="'+id+'">'+ilu
         +'<div class="info">'+bd+'<div class="n">'+esc(it.n)+'</div><div class="d">'+esc(it.d)+'</div></div>'
         +'<div class="der"><div class="p">'+clp(it.p)+'</div>'
         +'<div class="ctl" data-ctl="'+id+'"><button class="add" data-add="'+id+'" aria-label="Agregar">+</button></div>'
@@ -520,6 +622,24 @@ function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
   });
   document.getElementById('cats').innerHTML = cats;
   document.getElementById('carta').innerHTML = carta;
+})();
+
+/* destacados: los tres mas pedidos de su propia ficha */
+var DEST = [
+  {id:'3-0', ilu:'i-combo',    rank:'#1 más pedido'},
+  {id:'0-0', ilu:'i-shawarma', rank:'#2 más pedido'},
+  {id:'3-1', ilu:'i-combo',    rank:'#3 más pedido'}
+];
+(function(){
+  document.getElementById('dest').innerHTML = DEST.map(function(d){
+    var pz = d.id.split('-'), it = CARTA[+pz[0]].i[+pz[1]];
+    return '<div class="dest rv">'
+      +'<div class="art"><span class="rank">'+esc(d.rank)+'</span>'
+      +'<svg><use href="#'+d.ilu+'"/></svg></div>'
+      +'<h4>'+esc(it.n)+'</h4><p>'+esc(it.d)+'</p>'
+      +'<div class="fila"><span class="pr">'+clp(it.p)+'</span>'
+      +'<button class="add" data-add="'+d.id+'" aria-label="Agregar">+</button></div></div>';
+  }).join('');
 })();
 
 /* locales */
