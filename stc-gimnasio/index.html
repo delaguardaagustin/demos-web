@@ -1,0 +1,566 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>STC Gimnasio — Musculación, funcional y clases dirigidas en La Cisterna</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0c0d0f">
+<meta name="description" content="Gimnasio en La Cisterna: musculación, entrenamiento funcional y clases dirigidas. Arma tu plan y escríbenos directo por WhatsApp, sin matrícula.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+ --bg:#0c0d0f;--cd:#15171a;--cd2:#1c1f23;--tx:#f4f6f7;--mut:#98a0a8;
+ --ac:#c8ff2e;--ac2:#4de1ff;--wa:#25d366;--bd:#262a30;
+ --pad:clamp(16px,4.5vw,40px);--fh:'Oswald',Impact,system-ui;--fb:'Inter',system-ui;
+ --barra:0px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--tx);font-family:var(--fb);font-size:16px;line-height:1.6;
+ -webkit-font-smoothing:antialiased;overflow-x:hidden;padding-bottom:var(--barra)}
+h1,h2,h3,.fh{font-family:var(--fh);font-weight:700;letter-spacing:.01em;line-height:1.05;text-transform:uppercase}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 var(--pad)}
+img{max-width:100%}
+
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:98;opacity:.13;mix-blend-mode:overlay;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+
+.pat{position:absolute;inset:0;width:100%;height:100%;color:var(--tx);opacity:.06;pointer-events:none}
+
+.demo{position:relative;z-index:70;background:var(--ac);color:#0c0d0f;text-align:center;
+ font-size:12px;font-weight:700;padding:8px 14px;letter-spacing:.02em}
+
+header{position:sticky;top:0;z-index:60;transition:background .25s,border-color .25s;border-bottom:1px solid transparent}
+header.on{background:#0c0d0fee;backdrop-filter:blur(14px);border-color:var(--bd)}
+.nav{max-width:1120px;margin:0 auto;padding:12px var(--pad);display:flex;align-items:center;gap:16px}
+.logo{font-family:var(--fh);font-size:23px;white-space:nowrap;letter-spacing:.04em}
+.logo b{color:var(--ac);font-weight:700}
+.nav .sp{margin-left:auto}
+.nav a.lk{color:var(--mut);text-decoration:none;font-size:14px;font-weight:500;transition:color .15s}
+.nav a.lk:hover{color:var(--tx)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--ac);color:#0c0d0f;
+ padding:13px 24px;border-radius:10px;font-weight:700;text-decoration:none;font-size:14.5px;border:0;
+ cursor:pointer;font-family:var(--fb);transition:transform .16s,box-shadow .16s}
+.btn:hover{transform:translateY(-2px)}
+.btn.g{background:var(--wa);color:#04301a;box-shadow:0 4px 18px -6px #25d36688}
+.btn.gh{background:transparent;color:var(--tx);border:1px solid var(--bd)}
+.btn.gh:hover{border-color:var(--ac)}
+.btn svg{width:17px;height:17px;fill:currentColor}
+
+.hero{position:relative;overflow:hidden;padding:clamp(50px,9vw,96px) 0 clamp(40px,7vw,72px)}
+.hero::before{content:"";position:absolute;inset:-30% -10% auto -10%;height:130%;pointer-events:none;
+ background:radial-gradient(58% 52% at 20% 14%,#c8ff2e26,transparent 70%),
+            radial-gradient(48% 46% at 88% 4%,#4de1ff1c,transparent 72%)}
+.hgrid{position:relative;display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(28px,5vw,64px);align-items:center}
+.eyebrow{display:inline-block;color:var(--ac2);font-size:12px;font-weight:700;text-transform:uppercase;
+ letter-spacing:.2em;border:1px solid var(--bd);border-radius:999px;padding:6px 15px;margin-bottom:20px;
+ background:#15171ab3}
+h1{font-size:clamp(46px,10vw,96px);letter-spacing:-.01em}
+h1 span{color:var(--ac);display:block}
+.claim{color:var(--mut);font-size:clamp(16.5px,2.1vw,20px);max-width:46ch;margin:20px 0 26px}
+.pill{display:inline-flex;align-items:center;gap:11px;background:var(--cd);border:1px solid var(--bd);
+ border-radius:999px;padding:9px 18px;font-size:14px;margin-bottom:28px}
+.pill .rt{font-family:var(--fh);color:var(--ac);font-size:18px}
+.pill .dv{width:1px;height:16px;background:var(--bd)}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+
+.sello{position:relative;width:min(230px,56vw);aspect-ratio:1;margin-inline:auto}
+.sello .ring{position:absolute;inset:0;animation:spin 24s linear infinite}
+.sello text{font-family:var(--fb);font-size:9.1px;font-weight:700;letter-spacing:.2em;fill:var(--mut);
+ text-transform:uppercase}
+.sello .core{position:absolute;inset:20%;border:1px solid var(--bd);border-radius:50%;display:grid;
+ place-content:center;text-align:center;background:#15171abf}
+.sello .core b{font-family:var(--fh);font-size:clamp(30px,7vw,42px);color:var(--ac);display:block;line-height:1}
+.sello .core span{font-size:10px;color:var(--mut);letter-spacing:.14em;text-transform:uppercase}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.mq{position:relative;border-block:1px solid var(--bd);background:var(--cd);overflow:hidden;padding:14px 0}
+.mq .track{display:flex;width:max-content;animation:slide 30s linear infinite}
+.mq span{font-family:var(--fh);font-size:clamp(16px,2.4vw,23px);opacity:.5;padding:0 26px;white-space:nowrap;
+ display:inline-flex;align-items:center;gap:26px;text-transform:uppercase;letter-spacing:.05em}
+.mq span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--ac)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+section{position:relative;padding:clamp(52px,8vw,96px) 0}
+.shead{display:flex;align-items:baseline;gap:18px;margin-bottom:10px;flex-wrap:wrap}
+.snum{font-family:var(--fh);font-size:13px;color:var(--ac2);letter-spacing:.16em}
+h2{font-size:clamp(30px,5.4vw,50px);letter-spacing:-.01em}
+.sub{color:var(--mut);font-size:15.5px;margin-bottom:clamp(28px,4vw,44px);max-width:58ch}
+
+.cifras{border-block:1px solid var(--bd);background:linear-gradient(180deg,#15171a,#111214)}
+.cifras .in{max-width:1120px;margin:0 auto;padding:clamp(24px,4vw,38px) var(--pad);
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(min(140px,100%),1fr));gap:clamp(18px,3vw,30px)}
+.cifra{text-align:center}
+.cifra b{display:block;font-family:var(--fh);font-size:clamp(30px,5vw,44px);color:var(--ac);line-height:1}
+.cifra span{display:block;color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.16em;
+ font-weight:700;margin-top:9px}
+
+.orna{display:flex;align-items:center;gap:18px;color:var(--bd);padding:6px 0}
+.orna::before,.orna::after{content:"";flex:1;height:1px;
+ background:linear-gradient(90deg,transparent,var(--bd),transparent)}
+.orna svg{width:30px;height:30px;color:var(--ac);opacity:.6;flex:none}
+
+.razones{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))}
+.razon{position:relative;background:linear-gradient(160deg,var(--cd),#121316);border:1px solid var(--bd);
+ border-radius:16px;padding:30px 26px;overflow:hidden;transition:border-color .2s,transform .2s}
+.razon:hover{border-color:var(--ac);transform:translateY(-3px)}
+.razon .ic{width:46px;height:46px;border-radius:12px;background:#c8ff2e18;border:1px solid #c8ff2e3d;
+ display:grid;place-items:center;margin-bottom:16px;color:var(--ac)}
+.razon .ic svg{width:24px;height:24px;fill:currentColor}
+.razon h4{font-family:var(--fh);font-size:20px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.02em}
+.razon p{color:var(--mut);font-size:14.5px}
+
+.clases{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr))}
+.clase{border:1px solid var(--bd);border-radius:14px;padding:22px;background:var(--cd);
+ transition:border-color .2s,transform .2s}
+.clase:hover{border-color:var(--ac2);transform:translateY(-3px)}
+.clase h4{font-family:var(--fh);font-size:19px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:6px}
+.clase .hr{color:var(--ac);font-size:13.5px;font-weight:650;margin-bottom:10px}
+.clase p{color:var(--mut);font-size:13.5px}
+
+/* armador de plan */
+.planes{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));margin-bottom:32px}
+.plan{position:relative;text-align:left;border:1px solid var(--bd);border-radius:16px;padding:22px 20px;
+ background:linear-gradient(158deg,var(--cd),#111316);cursor:pointer;overflow:hidden;
+ transition:border-color .18s,transform .18s,box-shadow .18s;font:inherit;color:var(--tx)}
+.plan:hover{transform:translateY(-3px)}
+.plan.on{border-color:var(--ac);box-shadow:0 0 0 1px var(--ac) inset}
+.plan .dot{position:absolute;top:20px;right:20px;width:20px;height:20px;border-radius:50%;
+ border:2px solid var(--bd);transition:all .18s}
+.plan.on .dot{border-color:var(--ac);background:radial-gradient(circle,var(--ac) 0 5px,transparent 6px)}
+.plan .tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+ background:var(--ac);color:#0c0d0f;border-radius:999px;padding:3px 9px;margin-bottom:10px}
+.plan .n{font-family:var(--fh);font-size:20px;text-transform:uppercase;letter-spacing:.02em;padding-right:28px}
+.plan .p{font-family:var(--fh);font-size:24px;color:var(--ac);margin:6px 0 8px}
+.plan .p small{font-family:var(--fb);font-size:12px;color:var(--mut);font-weight:500}
+.plan .d{color:var(--mut);font-size:13px;line-height:1.5}
+
+.extras{display:grid;gap:10px}
+.extra{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--bd);
+ border-radius:14px;background:var(--cd);transition:border-color .18s}
+.extra.on{border-color:var(--ac2)}
+.extra .info{flex:1;min-width:0}
+.extra .n{font-weight:650;font-size:15px}
+.extra .d{color:var(--mut);font-size:12.5px;margin-top:4px;line-height:1.5}
+.extra .der{display:flex;flex-direction:column;align-items:flex-end;gap:9px;flex:none}
+.extra .p{font-family:var(--fh);color:var(--ac);font-size:16px;white-space:nowrap}
+.tgl{width:38px;height:38px;border-radius:10px;border:1px solid var(--bd);background:var(--cd2);
+ color:var(--tx);font-size:20px;line-height:1;cursor:pointer;display:grid;place-items:center;
+ transition:all .15s;font-family:var(--fb)}
+.tgl:hover{border-color:var(--ac)}
+.extra.on .tgl{background:var(--ac);border-color:var(--ac);color:#0c0d0f}
+
+.info-loc{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr))}
+.box{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:26px}
+.box h4{font-size:11.5px;text-transform:uppercase;letter-spacing:.18em;color:var(--ac2);margin-bottom:14px;
+ font-weight:700;font-family:var(--fb)}
+.box p,.box li{color:var(--mut);font-size:14.5px;list-style:none}
+.box .lnk{color:var(--tx);font-weight:650;text-decoration:none;border-bottom:1px solid var(--ac);
+ padding-bottom:1px;display:inline-block;margin-top:12px;font-size:14px}
+
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:65;background:#0c0d0ff2;backdrop-filter:blur(16px);
+ border-top:1px solid var(--bd);padding:12px var(--pad) calc(12px + env(safe-area-inset-bottom));
+ transform:translateY(120%);transition:transform .28s cubic-bezier(.2,.8,.3,1)}
+.barra.on{transform:none}
+.barra .in{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:14px}
+.barra .res{flex:1;min-width:0}
+.barra .res b{display:block;font-family:var(--fh);font-size:20px;color:var(--ac);line-height:1.2}
+.barra .res span{color:var(--mut);font-size:12.5px}
+.barra .btn{flex:none}
+
+.velo{position:fixed;inset:0;background:#000a;z-index:80;opacity:0;pointer-events:none;transition:opacity .25s}
+.velo.on{opacity:1;pointer-events:auto}
+.panel{position:fixed;right:0;top:0;bottom:0;width:min(430px,100%);z-index:85;background:var(--bg);
+ border-left:1px solid var(--bd);transform:translateX(101%);transition:transform .3s cubic-bezier(.2,.8,.3,1);
+ display:flex;flex-direction:column}
+.panel.on{transform:none}
+.ptop{display:flex;align-items:center;gap:14px;padding:18px 20px;border-bottom:1px solid var(--bd)}
+.ptop h3{font-size:21px;flex:1}
+.cerrar{width:38px;height:38px;border-radius:50%;border:1px solid var(--bd);background:var(--cd);
+ color:var(--tx);font-size:19px;cursor:pointer;flex:none;line-height:1}
+.pbody{flex:1;overflow-y:auto;padding:18px 20px}
+.linea{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--bd)}
+.linea .n{flex:1;min-width:0;font-size:14.5px;font-weight:600}
+.linea .sub{color:var(--mut);font-size:12.5px;margin-top:3px}
+.linea .p{font-family:var(--fh);color:var(--ac);font-size:15.5px;white-space:nowrap}
+.linea .x{border:0;background:none;color:var(--mut);font-size:18px;cursor:pointer;line-height:1;padding:0 2px}
+.campo{margin-top:18px}
+.campo label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--ac2);
+ font-weight:700;margin-bottom:8px}
+.campo input,.campo textarea{width:100%;background:var(--cd);border:1px solid var(--bd);color:var(--tx);
+ border-radius:11px;padding:12px 14px;font:inherit;font-size:15px;min-height:46px}
+.campo textarea{min-height:70px;resize:vertical}
+.opts{display:flex;gap:8px}
+.opts button{flex:1;border:1px solid var(--bd);background:var(--cd);color:var(--mut);font:inherit;
+ font-size:13.5px;font-weight:600;padding:12px;border-radius:11px;cursor:pointer;min-height:46px}
+.opts button.on{background:var(--ac);border-color:var(--ac);color:#0c0d0f}
+.pfoot{border-top:1px solid var(--bd);padding:18px 20px calc(18px + env(safe-area-inset-bottom))}
+.tot{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.tot span{color:var(--mut);font-size:14px}
+.tot b{font-family:var(--fh);font-size:27px;color:var(--ac)}
+.pfoot .btn{width:100%}
+.nota{color:var(--mut);font-size:11.5px;text-align:center;margin-top:11px;line-height:1.5}
+
+footer{border-top:1px solid var(--bd);padding:34px 0 44px;color:var(--mut);font-size:13.5px;
+ line-height:1.85;text-align:center}
+footer b{color:var(--tx);font-weight:650}
+footer .mio{margin-top:20px;font-size:13.5px;padding:11px 20px}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:860px){
+ .hgrid{grid-template-columns:1fr;gap:32px}
+ .sello{order:-1;width:min(180px,46vw)}
+ .nav a.lk{display:none}
+}
+@media(max-width:520px){
+ .nav{gap:10px}
+ .plan .dot{top:16px;right:16px}
+}
+@media(prefers-reduced-motion:reduce){
+ *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+ html{scroll-behavior:auto}}
+</style>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+</head><body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-mancuerna" viewBox="0 0 24 24">
+ <path d="M4 9h2v6H4zM2 10.5h2v3H2zM18 9h2v6h-2zM20 10.5h2v3h-2zM7 11h10v2H7z"/>
+</symbol>
+<symbol id="i-reloj" viewBox="0 0 24 24">
+ <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 10.6 4 2.4-1 1.7-5-3V7h2z"/>
+</symbol>
+<symbol id="i-libre" viewBox="0 0 24 24">
+ <path d="M5 4h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm2.6 4.9L9 7.5 12 10.5 15 7.5l1.4 1.4L13.4 12l3 3L15 16.4 12 13.4 9 16.4 7.6 15l3-3z"/>
+</symbol>
+</defs></svg>
+
+<div class="demo">PROPUESTA DE SITIO PARA STC GIMNASIO · versión de demostración, no es el sitio oficial</div>
+
+<header id="hd"><nav class="nav">
+<span class="logo">STC <b>Gimnasio</b></span>
+<span class="sp"></span>
+<a class="lk" href="#planes">Planes</a>
+<a class="lk" href="#clases">Clases</a>
+<a class="lk" href="#donde">Dónde</a>
+<a class="btn" href="#planes" style="padding:9px 18px;font-size:13.5px">Armar mi plan</a>
+</nav></header>
+
+<div class="hero">
+<svg class="pat" aria-hidden="true"><defs>
+<pattern id="gp" width="40" height="40" patternUnits="userSpaceOnUse">
+<path d="M0 20h40M20 0v40" stroke="currentColor" stroke-width="1" fill="none"/>
+</pattern></defs><rect width="100%" height="100%" fill="url(#gp)"/></svg>
+<div class="wrap hgrid">
+<div>
+<div class="eyebrow">Gimnasio · La Cisterna</div>
+<h1>STC <span>Gimnasio</span></h1>
+<p class="claim">Musculación, funcional y clases dirigidas con profe en el piso. Arma tu plan acá
+y coordina directo por WhatsApp, sin pasar por mesón.</p>
+<div class="pill"><span class="rt">4.9 ★</span><span class="dv"></span><span>134 reseñas en Google</span></div>
+<div class="cta">
+<button class="btn" onclick="document.getElementById('planes').scrollIntoView()">Armar mi plan</button>
+<a class="btn gh" href="#donde">Ver horario y dirección</a>
+</div>
+</div>
+<div class="sello">
+<svg class="ring" viewBox="0 0 200 200" aria-hidden="true">
+<defs><path id="c" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+<text><textPath href="#c">SIN MATRÍCULA · CUPOS POR HORA · SIN MATRÍCULA · CUPOS POR HORA · </textPath></text>
+</svg>
+<div class="core"><b>4.9</b><span>en Google</span></div>
+</div>
+</div>
+</div>
+
+<div class="cifras"><div class="in">
+<div class="cifra"><b>4.9</b><span>promedio Google</span></div>
+<div class="cifra"><b>134</b><span>reseñas</span></div>
+<div class="cifra"><b>20</b><span>cupos por bloque</span></div>
+<div class="cifra"><b>$0</b><span>matrícula</span></div>
+</div></div>
+
+<div class="mq"><div class="track" id="mqt"></div></div>
+
+<section id="porque"><div class="wrap">
+<div class="orna rv"><svg viewBox="0 0 24 24"><use href="#i-mancuerna"/></svg></div>
+<div class="razones">
+<div class="razon rv">
+<div class="ic"><svg viewBox="0 0 24 24"><use href="#i-mancuerna"/></svg></div>
+<h4>Profe en el piso</h4>
+<p>Siempre hay un entrenador disponible para corregirte la técnica. No entrenas solo entre las máquinas.</p>
+</div>
+<div class="razon rv">
+<div class="ic"><svg viewBox="0 0 24 24"><use href="#i-reloj"/></svg></div>
+<h4>Cupos por hora</h4>
+<p>Reservas tu bloque y entrenas sin pelear la máquina. Nada de sala repleta a las 7 de la tarde.</p>
+</div>
+<div class="razon rv">
+<div class="ic"><svg viewBox="0 0 24 24"><use href="#i-libre"/></svg></div>
+<h4>Sin matrícula ni amarres</h4>
+<p>Pagas el plan y listo. Si necesitas parar, congelas hasta 15 días sin costo.</p>
+</div>
+</div>
+</div></section>
+
+<section id="planes"><div class="wrap">
+<div class="shead rv"><span class="snum">01</span><h2>Arma tu plan</h2></div>
+<p class="sub rv">Elige un plan y súmale lo que quieras. Al terminar te lo mandamos escrito por WhatsApp
+para coordinar la inscripción. Precios de ejemplo.</p>
+<div class="planes" id="planes-grid"></div>
+<h3 style="font-size:13px;letter-spacing:.2em;color:var(--ac2);font-family:var(--fb);font-weight:700;margin-bottom:14px">EXTRAS</h3>
+<div class="extras" id="extras-list"></div>
+</div></section>
+
+<section id="clases"><div class="wrap">
+<div class="orna rv"><svg viewBox="0 0 24 24"><use href="#i-reloj"/></svg></div>
+<div class="shead rv"><span class="snum">02</span><h2>Clases de la semana</h2></div>
+<p class="sub rv">Incluidas con el extra de clases dirigidas. Horario de ejemplo.</p>
+<div class="clases">
+<div class="clase rv"><h4>Funcional</h4><div class="hr">Lun · Mié · Vie — 19:00 y 20:00</div><p>Circuito de fuerza y resistencia con implementos. 45 min.</p></div>
+<div class="clase rv"><h4>HIIT quema</h4><div class="hr">Mar · Jue — 19:30</div><p>Intervalos de alta intensidad. Corto y exigente. 30 min.</p></div>
+<div class="clase rv"><h4>Fuerza guiada</h4><div class="hr">Lun a Vie — 18:00</div><p>Trabajo de barra y peso libre con técnica supervisada.</p></div>
+<div class="clase rv"><h4>Movilidad</h4><div class="hr">Sáb — 11:00</div><p>Elongación y trabajo articular para recuperar. 40 min.</p></div>
+</div>
+</div></section>
+
+<section id="donde"><div class="wrap">
+<div class="orna rv"><svg viewBox="0 0 24 24"><use href="#i-mancuerna"/></svg></div>
+<div class="shead rv"><span class="snum">03</span><h2>Dónde y cuándo</h2></div>
+<p class="sub rv">Horario de ejemplo — se ajusta al real del local.</p>
+<div class="info-loc">
+<div class="box rv"><h4>Dirección</h4><p>Jorge Cáceres 11, La Cisterna, Región Metropolitana</p>
+<a class="lnk" href="https://www.google.com/maps/search/STC+Gimnasio+Jorge+C%C3%A1ceres+11+La+Cisterna" target="_blank" rel="noopener">Ver en Google Maps &rarr;</a></div>
+<div class="box rv"><h4>Horario</h4><ul>
+<li>Lunes a viernes 06:00 - 23:00</li>
+<li>Sábado 09:00 - 20:00</li>
+<li>Domingo y festivos 09:00 - 14:00</li></ul></div>
+<div class="box rv"><h4>Contacto</h4><p>WhatsApp +56 9 5450 5074</p><p>Instagram @stc_cl</p>
+<a class="lnk" href="https://www.instagram.com/stc_cl" target="_blank" rel="noopener">Ver Instagram &rarr;</a></div>
+</div>
+</div></section>
+
+<footer><div class="wrap">
+Propuesta de sitio creada por <b>Agustín de la Guarda</b> para STC Gimnasio.<br>
+No es el sitio oficial. El nombre, la dirección y la calificación provienen de su ficha pública de Google Maps.
+Los planes, precios y horarios son un ejemplo.
+<br>
+<a class="btn gh mio" href="https://wa.me/56974479565?text=Hola%20Agust%C3%ADn%2C%20vi%20la%20demo%20de%20STC%20Gimnasio%20y%20quiero%20una%20p%C3%A1gina%20para%20mi%20local" target="_blank" rel="noopener">¿Quieres una para tu local? Escríbeme</a>
+</div></footer>
+
+<div class="barra" id="barra"><div class="in">
+<div class="res"><b id="btot">$0</b><span id="bcnt">Sin plan</span></div>
+<button class="btn g" onclick="abrir()">Ver mi plan</button>
+</div></div>
+
+<div class="velo" id="velo" onclick="cerrar()"></div>
+<aside class="panel" id="panel" aria-label="Tu plan">
+<div class="ptop"><h3>Tu plan</h3><button class="cerrar" onclick="cerrar()" aria-label="Cerrar">&times;</button></div>
+<div class="pbody" id="pbody"></div>
+<div class="pfoot">
+<div class="tot"><span>Total</span><b id="ptot">$0</b></div>
+<button class="btn g" onclick="enviar()" style="width:100%">Enviar por WhatsApp</button>
+<p class="nota">Se abre WhatsApp con tu plan escrito. La inscripción la confirmas ahí con el local.</p>
+</div>
+</aside>
+
+<script>
+/* ------------------------------------------------------------------
+   DATOS — lo único que hay que editar si cambian planes o precios
+------------------------------------------------------------------ */
+var TEL = '56954505074';   // número de ejemplo, se reemplaza por el real del local
+
+var PLANES = [
+ {id:'dia', n:'Pase diario',     p:5000,   mes:'',            d:'Un día completo de acceso libre a toda la sala.'},
+ {id:'mes', n:'Plan mensual',    p:28000,  mes:'',            d:'Acceso libre en todo el horario. Sin matrícula.', tag:'El más pedido'},
+ {id:'tri', n:'Plan trimestral', p:72000,  mes:'$24.000/mes', d:'Tres meses pagados de una vez.'},
+ {id:'sem', n:'Plan semestral',  p:132000, mes:'$22.000/mes', d:'Seis meses. Incluye una evaluación física.', tag:'Mejor precio'},
+ {id:'ano', n:'Plan anual',      p:240000, mes:'$20.000/mes', d:'Doce meses. Congelamiento libre incluido.'}
+];
+
+var EXTRAS = [
+ {id:'clases', n:'Clases dirigidas ilimitadas', p:12000, d:'Funcional, HIIT, fuerza y movilidad durante todo el mes.'},
+ {id:'eval',   n:'Evaluación física + rutina',  p:15000, d:'Medición inicial y plan de entrenamiento personalizado.'},
+ {id:'nutri',  n:'Asesoría nutricional',        p:18000, d:'Pauta de alimentación con control mensual.'},
+ {id:'casill', n:'Arriendo de casillero',       p:6000,  d:'Casillero fijo por el mes.'},
+ {id:'freeze', n:'Congelamiento del plan',      p:0,     d:'Pausa hasta 15 días sin costo si viajas o te lesionas.'}
+];
+
+/* ------------------------------------------------------------------ */
+
+var planSel = 'mes', extras = {}, modo = 'contacto';
+
+function clp(n){ return '$' + n.toLocaleString('es-CL'); }
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+/* marquesina */
+(function(){
+  var pal = ['Musculación','Funcional','Clases dirigidas','Cardio','Peso libre','Evaluación física','Asesoría','Sin contratos'];
+  var una = pal.map(function(x){ return '<span>'+esc(x)+'</span>'; }).join('');
+  document.getElementById('mqt').innerHTML = una + una;
+})();
+
+/* planes */
+function pintaPlanes(){
+  document.getElementById('planes-grid').innerHTML = PLANES.map(function(pl){
+    return '<button class="plan rv'+(pl.id===planSel?' on':'')+'" data-plan="'+pl.id+'">'
+      +'<span class="dot"></span>'
+      +(pl.tag?'<span class="tag">'+esc(pl.tag)+'</span>':'')
+      +'<div class="n">'+esc(pl.n)+'</div>'
+      +'<div class="p">'+clp(pl.p)+(pl.mes?' <small>'+esc(pl.mes)+'</small>':'')+'</div>'
+      +'<div class="d">'+esc(pl.d)+'</div></button>';
+  }).join('');
+}
+function pintaExtras(){
+  document.getElementById('extras-list').innerHTML = EXTRAS.map(function(ex){
+    var on = !!extras[ex.id];
+    return '<div class="extra rv'+(on?' on':'')+'" data-extra="'+ex.id+'">'
+      +'<div class="info"><div class="n">'+esc(ex.n)+'</div><div class="d">'+esc(ex.d)+'</div></div>'
+      +'<div class="der"><div class="p">'+(ex.p?clp(ex.p):'Sin costo')+'</div>'
+      +'<button class="tgl" data-tgl="'+ex.id+'" aria-label="'+(on?'Quitar':'Agregar')+'">'+(on?'✓':'+')+'</button>'
+      +'</div></div>';
+  }).join('');
+}
+pintaPlanes(); pintaExtras();
+
+function plan(){ for(var i=0;i<PLANES.length;i++) if(PLANES[i].id===planSel) return PLANES[i]; }
+function total(){
+  var t = plan().p;
+  for(var k in extras) if(extras[k]){ for(var i=0;i<EXTRAS.length;i++) if(EXTRAS[i].id===k) t += EXTRAS[i].p; }
+  return t;
+}
+function nExtras(){ var c=0; for(var k in extras) if(extras[k]) c++; return c; }
+
+function refresca(){
+  var t = total(), ne = nExtras();
+  document.getElementById('btot').textContent = clp(t);
+  document.getElementById('bcnt').textContent = plan().n + (ne ? ' + ' + ne + (ne===1?' extra':' extras') : '');
+  document.getElementById('ptot').textContent = clp(t);
+  if(document.getElementById('panel').classList.contains('on')) pintaPanel();
+}
+
+/* la barra aparece cuando el usuario llega a la seccion de planes */
+(function(){
+  var barra = document.getElementById('barra');
+  function chequea(){
+    var s = document.getElementById('planes');
+    var visto = window.scrollY + window.innerHeight > s.offsetTop + 160;
+    barra.classList.toggle('on', visto);
+    document.documentElement.style.setProperty('--barra', visto ? '74px' : '0px');
+  }
+  chequea();
+  addEventListener('scroll', chequea, {passive:true});
+  addEventListener('resize', chequea, {passive:true});
+})();
+
+/* seleccion de plan */
+document.getElementById('planes-grid').addEventListener('click', function(e){
+  var b = e.target.closest('[data-plan]'); if(!b) return;
+  planSel = b.dataset.plan;
+  [].forEach.call(this.querySelectorAll('.plan'), function(x){ x.classList.toggle('on', x.dataset.plan===planSel); });
+  refresca();
+});
+
+/* toggles de extras */
+document.getElementById('extras-list').addEventListener('click', function(e){
+  var b = e.target.closest('[data-tgl]'); if(!b) return;
+  var id = b.dataset.tgl;
+  extras[id] = !extras[id];
+  var row = this.querySelector('[data-extra="'+id+'"]');
+  if(row){ row.classList.toggle('on', extras[id]);
+    b.textContent = extras[id] ? '✓' : '+';
+    b.setAttribute('aria-label', extras[id] ? 'Quitar' : 'Agregar'); }
+  refresca();
+});
+
+function pintaPanel(){
+  var b = document.getElementById('pbody'), pl = plan(), h = '';
+  h += '<div class="linea"><div class="n">'+esc(pl.n)
+    +'<div class="sub">'+(pl.mes ? esc(pl.mes) : 'Plan seleccionado')+'</div></div>'
+    +'<div class="p">'+clp(pl.p)+'</div></div>';
+  EXTRAS.forEach(function(ex){
+    if(!extras[ex.id]) return;
+    h += '<div class="linea"><div class="n">'+esc(ex.n)
+      +'<div class="sub">Extra</div></div>'
+      +'<div class="p">'+(ex.p?clp(ex.p):'Sin costo')+'</div>'
+      +'<button class="x" data-quita="'+ex.id+'" aria-label="Quitar">&times;</button></div>';
+  });
+  h += '<div class="campo"><label>¿Cómo seguimos?</label><div class="opts">'
+    +'<button data-modo="contacto"'+(modo==='contacto'?' class="on"':'')+'>Que me contacten</button>'
+    +'<button data-modo="local"'+(modo==='local'?' class="on"':'')+'>Voy a pasar al local</button></div></div>';
+  h += '<div class="campo"><label>Tu nombre</label><input id="nom" placeholder="Para saber quién eres"></div>';
+  h += '<div class="campo"><label>¿Cuándo partirías?</label><input id="ini" placeholder="Esta semana, el lunes, etc."></div>';
+  h += '<div class="campo"><label>Algo más</label><textarea id="obs" placeholder="Objetivo, horario que te acomoda, dudas..."></textarea></div>';
+  b.innerHTML = h;
+}
+
+document.getElementById('pbody').addEventListener('click', function(e){
+  var m = e.target.closest('[data-modo]'), q = e.target.closest('[data-quita]');
+  if(m){ modo = m.dataset.modo; pintaPanel(); }
+  if(q){ extras[q.dataset.quita] = false;
+    var row = document.querySelector('[data-extra="'+q.dataset.quita+'"]');
+    if(row){ row.classList.remove('on');
+      var t = row.querySelector('[data-tgl]'); if(t){ t.textContent='+'; t.setAttribute('aria-label','Agregar'); } }
+    refresca(); }
+});
+
+function abrir(){ pintaPanel(); document.getElementById('panel').classList.add('on');
+  document.getElementById('velo').classList.add('on'); document.body.style.overflow='hidden'; }
+function cerrar(){ document.getElementById('panel').classList.remove('on');
+  document.getElementById('velo').classList.remove('on'); document.body.style.overflow=''; }
+
+function enviar(){
+  var pl = plan();
+  var nom = (document.getElementById('nom')||{}).value || '';
+  var ini = (document.getElementById('ini')||{}).value || '';
+  var obs = (document.getElementById('obs')||{}).value || '';
+
+  var t = '*Solicitud de inscripción — desde la página*\n\n';
+  t += 'Plan: ' + pl.n + '  ' + clp(pl.p) + '\n';
+  var hayEx = false;
+  EXTRAS.forEach(function(ex){
+    if(!extras[ex.id]) return;
+    if(!hayEx){ t += 'Extras:\n'; hayEx = true; }
+    t += '+ ' + ex.n + '  ' + (ex.p?clp(ex.p):'sin costo') + '\n';
+  });
+  t += '\n*Total: ' + clp(total()) + '*\n\n';
+  t += (modo === 'contacto' ? 'Prefiere que lo contacten' : 'Va a pasar al local') + '\n';
+  if(nom) t += 'Nombre: ' + nom + '\n';
+  if(ini) t += 'Partida: ' + ini + '\n';
+  if(obs) t += 'Comentario: ' + obs + '\n';
+
+  window.open('https://wa.me/' + TEL + '?text=' + encodeURIComponent(t), '_blank', 'noopener');
+}
+
+/* cabecera y revelado */
+(function(){
+  var hd = document.getElementById('hd');
+  var onScroll = function(){ hd.classList.toggle('on', window.scrollY > 12); };
+  onScroll(); addEventListener('scroll', onScroll, {passive:true});
+})();
+
+var pend = [], tick = false;
+function revelar(){ pend = [].slice.call(document.querySelectorAll('.rv:not(.in)')); barrido(); }
+function barrido(){
+  tick = false;
+  var lim = innerHeight * 0.92, n = 0;
+  for(var i=0;i<pend.length;i++){
+    if(pend[i] && pend[i].getBoundingClientRect().top < lim){
+      (function(el,d){ setTimeout(function(){ el.classList.add('in'); }, d); })(pend[i], (n++)*55);
+      pend[i] = null;
+    }
+  }
+  pend = pend.filter(Boolean);
+}
+function onS(){ if(!tick){ tick = true; setTimeout(barrido, 60); } }
+addEventListener('scroll', onS, {passive:true});
+addEventListener('resize', onS, {passive:true});
+revelar();
+refresca();
+</script>
+</body></html>

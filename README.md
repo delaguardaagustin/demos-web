@@ -16,6 +16,7 @@ sin página web propia, dependiendo de apps de delivery que se llevan entre 25% 
 | [`la-capital-restobar/`](la-capital-restobar/) | Restobar | Macul |
 | [`big-george/`](big-george/) | Hamburguesas | Puente Alto |
 | [`the-gustapoco/`](the-gustapoco/) | Comida rápida | San Joaquín |
+| [`stc-gimnasio/`](stc-gimnasio/) | Gimnasio, con armador de plan | La Cisterna |
 
 ## Aviso
 
