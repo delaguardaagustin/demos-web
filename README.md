@@ -20,6 +20,7 @@ sin página web propia, dependiendo de apps de delivery que se llevan entre 25% 
 | [`los-negros-sangucheria/`](los-negros-sangucheria/) | Sanguchería, con armador de pedidos | Puente Alto |
 | [`diez-pa-la-una/`](diez-pa-la-una/) | Hamburguesería, con armador de pedidos | Puente Alto |
 | [`pasteleria-wafel/`](pasteleria-wafel/) | Pastelería, con armador de encargos | Puente Alto |
+| [`sushi-rotonda-grecia/`](sushi-rotonda-grecia/) | Sushi, con armador de pedidos | Peñalolén |
 
 ## Aviso
 
