@@ -17,6 +17,9 @@ sin página web propia, dependiendo de apps de delivery que se llevan entre 25% 
 | [`big-george/`](big-george/) | Hamburguesas | Puente Alto |
 | [`the-gustapoco/`](the-gustapoco/) | Comida rápida | San Joaquín |
 | [`stc-gimnasio/`](stc-gimnasio/) | Gimnasio, con armador de plan | La Cisterna |
+| [`los-negros-sangucheria/`](los-negros-sangucheria/) | Sanguchería, con armador de pedidos | Puente Alto |
+| [`diez-pa-la-una/`](diez-pa-la-una/) | Hamburguesería, con armador de pedidos | Puente Alto |
+| [`pasteleria-wafel/`](pasteleria-wafel/) | Pastelería, con armador de encargos | Puente Alto |
 
 ## Aviso
 
