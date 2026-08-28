@@ -24,6 +24,9 @@ sin página web propia, dependiendo de apps de delivery que se llevan entre 25% 
 | [`el-rinconcito-peruano/`](el-rinconcito-peruano/) | Comida peruana, con armador de pedidos | Estación Central |
 | [`la-picada-de-piero/`](la-picada-de-piero/) | Comida peruana, con armador de pedidos | Estación Central |
 | [`pizzeria-colon/`](pizzeria-colon/) | Pizzería, con armador de pedidos | San Bernardo |
+| [`piu-pizzeria/`](piu-pizzeria/) | Pizzería napoletana, con armador de pedidos | Maipú |
+| [`sansu-sushi/`](sansu-sushi/) | Sushi, con armador de pedidos | Maipú |
+| [`oroshi-sushi/`](oroshi-sushi/) | Restaurante japonés, con armador de pedidos | Maipú |
 
 ## Aviso
 
