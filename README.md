@@ -27,6 +27,8 @@ sin página web propia, dependiendo de apps de delivery que se llevan entre 25% 
 | [`piu-pizzeria/`](piu-pizzeria/) | Pizzería napoletana, con armador de pedidos | Maipú |
 | [`sansu-sushi/`](sansu-sushi/) | Sushi, con armador de pedidos | Maipú |
 | [`oroshi-sushi/`](oroshi-sushi/) | Restaurante japonés, con armador de pedidos | Maipú |
+| [`pasteleria-daca/`](pasteleria-daca/) | Pastelería, con armador de encargos | La Florida |
+| [`importadora-anama/`](importadora-anama/) | Ropa por mayor, con armador de cotización | Estación Central |
 
 ## Aviso
 
