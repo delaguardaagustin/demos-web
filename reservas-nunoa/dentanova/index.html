@@ -1,0 +1,200 @@
+<title>Dentanova Reservas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F8F7;
+  --surface:#FFFFFF;
+  --ink:#122B27;
+  --ink-soft:#54746C;
+  --line:#D7E7E2;
+  --accent:#1E8F7A;
+  --accent-ink:#F2FBF8;
+  --navy:#26466B;
+  --chip-bg:#E4F1EC;
+  --shadow: 0 1px 2px rgba(10,30,25,.05), 0 8px 24px -12px rgba(10,30,25,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111C1A; --surface:#172523; --ink:#E6F2EF; --ink-soft:#9FBBB4;
+    --line:#2C433E; --accent:#4FC9AC; --accent-ink:#08211C; --navy:#7CA2CC;
+    --chip-bg:#1D302B; --shadow:0 1px 2px rgba(0,0,0,.35), 0 8px 24px -12px rgba(0,0,0,.55);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111C1A; --surface:#172523; --ink:#E6F2EF; --ink-soft:#9FBBB4;
+  --line:#2C433E; --accent:#4FC9AC; --accent-ink:#08211C; --navy:#7CA2CC;
+  --chip-bg:#1D302B; --shadow:0 1px 2px rgba(0,0,0,.35), 0 8px 24px -12px rgba(0,0,0,.55);
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:'IBM Plex Sans',system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+.wrap{max-width:640px; margin:0 auto; padding:28px 20px 64px}
+.eyebrow{font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); font-weight:700; margin:0 0 10px}
+h1{font-family:'Manrope',sans-serif; font-weight:800; font-size:clamp(30px,7.5vw,42px); line-height:1.06; margin:0 0 12px; text-wrap:balance; letter-spacing:-.01em}
+.badge-row{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px}
+.rating{display:inline-flex; align-items:center; gap:6px; background:var(--chip-bg); border:1px solid var(--line); padding:6px 12px; border-radius:100px; font-size:13px; font-weight:700}
+.rating .stars{color:var(--accent)}
+.tagline{color:var(--ink-soft); font-size:15.5px; line-height:1.55; max-width:46ch; margin:0 0 30px}
+.addr{font-size:13.5px; color:var(--ink-soft); margin-bottom:6px}
+section{margin-top:36px}
+h2{font-family:'Manrope',sans-serif; font-weight:700; font-size:19px; margin:0 0 14px}
+.services{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+@media (max-width:420px){.services{grid-template-columns:1fr}}
+.svc{border:1px solid var(--line); background:var(--surface); border-radius:14px; padding:14px 16px; cursor:pointer; text-align:left; font-family:inherit; color:var(--ink); box-shadow:var(--shadow); transition:transform .1s}
+.svc:hover{transform:translateY(-1px)}
+.svc.selected{border-color:var(--accent); box-shadow:0 0 0 1.5px var(--accent)}
+.svc-name{font-weight:700; font-size:14.5px; margin-bottom:3px; font-family:'Manrope',sans-serif}
+.svc-meta{font-size:12.5px; color:var(--ink-soft)}
+.dates{display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; scrollbar-width:none}
+.dates::-webkit-scrollbar{display:none}
+.date-chip{flex:0 0 auto; border:1px solid var(--line); background:var(--surface); border-radius:12px; padding:10px 14px; text-align:center; cursor:pointer; font-family:inherit; color:var(--ink); min-width:58px}
+.date-chip .dow{display:block; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); margin-bottom:3px}
+.date-chip .num{display:block; font-size:16px; font-weight:700; font-variant-numeric:tabular-nums}
+.date-chip.selected{border-color:var(--accent); background:var(--accent); color:var(--accent-ink)}
+.date-chip.selected .dow{color:var(--accent-ink); opacity:.85}
+.times{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:14px}
+@media (max-width:380px){.times{grid-template-columns:repeat(3,1fr)}}
+.time-chip{border:1px solid var(--line); background:var(--surface); border-radius:10px; padding:9px 4px; font-size:13px; font-weight:700; cursor:pointer; font-family:inherit; color:var(--ink); font-variant-numeric:tabular-nums}
+.time-chip.selected{border-color:var(--accent); background:var(--accent); color:var(--accent-ink)}
+.time-chip.taken{opacity:.35; text-decoration:line-through; cursor:not-allowed}
+.field{margin-top:12px}
+label{display:block; font-size:12.5px; font-weight:700; color:var(--ink-soft); margin-bottom:6px}
+input{width:100%; border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:10px; padding:11px 13px; font-size:14.5px; font-family:inherit}
+input:focus{outline:2px solid var(--accent); outline-offset:1px}
+.cta{margin-top:26px; width:100%; border:none; background:var(--accent); color:var(--accent-ink); font-family:'Manrope',sans-serif; font-weight:800; font-size:15px; padding:15px; border-radius:12px; cursor:pointer}
+.cta:disabled{opacity:.45; cursor:not-allowed}
+.cta:focus-visible{outline:2px solid var(--ink); outline-offset:2px}
+.success{display:none; margin-top:36px; border:1px solid var(--line); background:var(--surface); border-radius:16px; padding:22px; box-shadow:var(--shadow)}
+.success.show{display:block}
+.check{width:38px; height:38px; border-radius:50%; background:var(--navy); color:var(--accent-ink); display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:12px}
+.success h3{font-family:'Manrope',sans-serif; font-weight:800; font-size:18px; margin:0 0 6px}
+.success p{margin:0 0 14px; color:var(--ink-soft); font-size:14px; line-height:1.5}
+.wa-bubble{background:var(--chip-bg); border-radius:12px; padding:12px 14px; font-size:13.5px; line-height:1.5}
+.wa-bubble b{display:block; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); margin-bottom:6px; font-weight:700}
+footer{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-soft); line-height:1.6}
+footer a{color:var(--accent); text-decoration:none; font-weight:700}
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Demo — Sistema de reservas online</p>
+    <h1>Clínica Dentanova</h1>
+    <div class="badge-row">
+      <span class="rating"><span class="stars">★★★★★</span> 5.0 · 88 opiniones en Google</span>
+    </div>
+    <p class="addr">📍 Av. Irarrázaval 2401, of. 611, Ñuñoa</p>
+    <p class="tagline">Así se vería su agenda si los pacientes reservaran solos online, sin que Natalia tenga que coordinar cada hora por teléfono.</p>
+  </header>
+
+  <section>
+    <h2>1. Elige la atención</h2>
+    <div class="services" id="services"></div>
+  </section>
+
+  <section>
+    <h2>2. Elige día y hora</h2>
+    <div class="dates" id="dates"></div>
+    <div class="times" id="times"></div>
+  </section>
+
+  <section>
+    <h2>3. Tus datos</h2>
+    <div class="field"><label for="name">Nombre</label><input id="name" placeholder="Ej: Ricardo Villarroel"></div>
+    <div class="field"><label for="phone">Celular</label><input id="phone" placeholder="+56 9 ...."></div>
+    <button class="cta" id="confirm" disabled>Confirmar reserva</button>
+  </section>
+
+  <div class="success" id="success">
+    <div class="check">✓</div>
+    <h3 id="successTitle">¡Hora reservada!</h3>
+    <p id="successSub"></p>
+    <div class="wa-bubble">
+      <b>WhatsApp automático</b>
+      <span id="waMsg"></span>
+    </div>
+  </div>
+
+  <footer>
+    Demo hecha a medida para Clínica Dentanova por Agustín de la Guarda.<br>
+    Sistemas de reservas, pedidos y POS para negocios en Chile · <a href="https://wa.me/56974749565" target="_blank" rel="noopener">WhatsApp +56 9 7474 9565</a>
+  </footer>
+</div>
+
+<script>
+const services = [
+  {name:"Limpieza dental", meta:"40 min"},
+  {name:"Urgencia dental", meta:"30 min"},
+  {name:"Ortodoncia (control)", meta:"20 min"},
+  {name:"Blanqueamiento", meta:"1 h"},
+];
+const svcWrap = document.getElementById('services');
+let selectedService = null;
+services.forEach((s)=>{
+  const b = document.createElement('button');
+  b.className='svc'; b.type='button';
+  b.innerHTML = `<div class="svc-name">${s.name}</div><div class="svc-meta">${s.meta}</div>`;
+  b.addEventListener('click', ()=>{
+    document.querySelectorAll('.svc').forEach(el=>el.classList.remove('selected'));
+    b.classList.add('selected'); selectedService = s.name; checkReady();
+  });
+  svcWrap.appendChild(b);
+});
+
+const dowNames = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+const dates = [];
+for(let i=1;i<=7;i++){ const d = new Date(); d.setDate(d.getDate()+i); dates.push(d); }
+const dateWrap = document.getElementById('dates');
+let selectedDate = null;
+dates.forEach((d,i)=>{
+  const b = document.createElement('button');
+  b.className='date-chip'; b.type='button';
+  b.innerHTML = `<span class="dow">${dowNames[d.getDay()]}</span><span class="num">${d.getDate()}</span>`;
+  b.addEventListener('click', ()=>{
+    document.querySelectorAll('.date-chip').forEach(el=>el.classList.remove('selected'));
+    b.classList.add('selected'); selectedDate = b; renderTimes();
+  });
+  dateWrap.appendChild(b);
+  if(i===0){ b.click(); }
+});
+
+const allTimes = ['09:00','09:45','10:30','11:15','15:00','15:45','16:30','17:15'];
+const timeWrap = document.getElementById('times');
+let selectedTime = null;
+function renderTimes(){
+  timeWrap.innerHTML=''; selectedTime = null;
+  const taken = new Set();
+  const n = Math.floor(Math.random()*3);
+  while(taken.size<n) taken.add(allTimes[Math.floor(Math.random()*allTimes.length)]);
+  allTimes.forEach(t=>{
+    const b = document.createElement('button');
+    b.type='button'; b.textContent=t;
+    b.className='time-chip'+(taken.has(t)?' taken':'');
+    if(!taken.has(t)){
+      b.addEventListener('click', ()=>{
+        document.querySelectorAll('.time-chip').forEach(el=>el.classList.remove('selected'));
+        b.classList.add('selected'); selectedTime = t; checkReady();
+      });
+    } else { b.disabled = true; }
+    timeWrap.appendChild(b);
+  });
+}
+renderTimes();
+
+const nameInput = document.getElementById('name');
+const phoneInput = document.getElementById('phone');
+const confirmBtn = document.getElementById('confirm');
+function checkReady(){ confirmBtn.disabled = !(selectedService && selectedTime); }
+[nameInput, phoneInput].forEach(el=>el.addEventListener('input', checkReady));
+
+confirmBtn.addEventListener('click', ()=>{
+  const dLabel = selectedDate.querySelector('.num').textContent;
+  const dow = selectedDate.querySelector('.dow').textContent;
+  document.getElementById('successSub').textContent =
+    `${selectedService} · ${dow} ${dLabel} a las ${selectedTime}hs. Sin coordinación manual por teléfono.`;
+  document.getElementById('waMsg').textContent =
+    `Hola ${nameInput.value || ''}! Su hora en Clínica Dentanova quedó confirmada: ${selectedService}, ${dow} ${dLabel} - ${selectedTime}hs. Lo esperamos 🦷`;
+  document.getElementById('success').classList.add('show');
+  document.getElementById('success').scrollIntoView({behavior:'smooth', block:'center'});
+});
+</script>
