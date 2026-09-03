@@ -1,0 +1,139 @@
+<title>Joyas de Amelia Catálogo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF3F0; --surface:#FFFFFF; --ink:#2E1E1B; --ink-soft:#8A6F65;
+  --line:#EFDED8; --accent:#C77A8E; --accent-ink:#FFF7F9; --gold:#B8894A;
+  --chip-bg:#F5E4E8; --shadow:0 1px 2px rgba(40,15,20,.05), 0 10px 28px -14px rgba(40,15,20,.2);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1D1613; --surface:#261C19; --ink:#F4E7E2; --ink-soft:#C4A69C;
+    --line:#3E2C27; --accent:#E39FB0; --accent-ink:#2A0F16; --gold:#D9AD6E;
+    --chip-bg:#312321; --shadow:0 1px 2px rgba(0,0,0,.35), 0 10px 28px -14px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1D1613; --surface:#261C19; --ink:#F4E7E2; --ink-soft:#C4A69C;
+  --line:#3E2C27; --accent:#E39FB0; --accent-ink:#2A0F16; --gold:#D9AD6E;
+  --chip-bg:#312321; --shadow:0 1px 2px rgba(0,0,0,.35), 0 10px 28px -14px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:'Jost',system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+.wrap{max-width:640px; margin:0 auto}
+.hero{
+  background:
+    linear-gradient(180deg, rgba(46,20,25,.15) 0%, var(--bg) 92%),
+    url('hero.jpg') center 30%/cover no-repeat;
+  padding:52px 20px 34px; position:relative}
+.hero-inner{max-width:600px; margin:0 auto}
+.eyebrow{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); font-weight:600; margin:0 0 14px; background:rgba(255,255,255,.75); display:inline-block; padding:4px 10px; border-radius:100px}
+h1{font-family:'Bodoni Moda',serif; font-style:italic; font-weight:600; font-size:clamp(34px,8.5vw,50px); line-height:1.05; margin:14px 0 14px; color:var(--ink); text-wrap:balance; text-shadow:0 2px 18px rgba(255,255,255,.6)}
+.rating{display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.85); border:1px solid var(--line); padding:6px 12px; border-radius:100px; font-size:13px; font-weight:600; margin-bottom:12px}
+.rating .stars{color:var(--gold)}
+.addr{font-size:13.5px; color:var(--ink-soft); margin-bottom:14px}
+.tagline{color:var(--ink-soft); font-size:15.5px; line-height:1.55; max-width:46ch; margin:0 0 22px}
+.hero-cta{display:inline-flex; align-items:center; gap:8px; background:var(--accent); border:none; color:var(--accent-ink); font-family:'Jost',sans-serif; font-weight:600; font-size:14px; padding:12px 22px; border-radius:100px; cursor:pointer; text-decoration:none}
+
+.content{padding:0 20px 64px}
+section{margin-top:38px}
+h2{font-family:'Bodoni Moda',serif; font-style:italic; font-weight:600; font-size:23px; margin:0 0 6px}
+.section-sub{color:var(--ink-soft); font-size:13.5px; margin:0 0 18px}
+
+.catalog{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+@media (max-width:480px){.catalog{grid-template-columns:1fr}}
+.piece{background:var(--surface); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:var(--shadow)}
+.piece img{width:100%; aspect-ratio:1/1; object-fit:cover; display:block}
+.piece-body{padding:14px 16px}
+.piece-name{font-family:'Bodoni Moda',serif; font-weight:600; font-size:16px; margin-bottom:3px}
+.piece-desc{font-size:12.5px; color:var(--ink-soft); line-height:1.4; margin-bottom:12px}
+.piece-cta{display:inline-flex; align-items:center; gap:6px; width:100%; justify-content:center; background:none; border:1.5px solid var(--accent); color:var(--accent); font-family:'Jost',sans-serif; font-weight:600; font-size:12.5px; padding:9px; border-radius:100px; cursor:pointer; text-decoration:none}
+.piece-cta:hover{background:var(--chip-bg)}
+
+.features{display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
+@media (max-width:520px){.features{grid-template-columns:1fr}}
+.feature{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:16px; box-shadow:var(--shadow)}
+.feature .ficon{font-size:19px; display:block; margin-bottom:8px}
+.feature .flabel{font-weight:600; font-size:13.5px; margin-bottom:4px}
+.feature .fdesc{font-size:12.5px; color:var(--ink-soft); line-height:1.45}
+
+.testimonial{background:var(--chip-bg); border-radius:16px; padding:24px; border-left:3px solid var(--accent)}
+.testimonial p{font-family:'Bodoni Moda',serif; font-style:italic; font-weight:500; font-size:18px; line-height:1.5; margin:0 0 10px; color:var(--ink)}
+.testimonial cite{font-size:12.5px; color:var(--ink-soft); font-style:normal; font-weight:600}
+
+.big-cta{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:28px 24px; text-align:center; box-shadow:var(--shadow)}
+.big-cta h3{font-family:'Bodoni Moda',serif; font-style:italic; font-weight:600; font-size:20px; margin:0 0 8px}
+.big-cta p{color:var(--ink-soft); font-size:14px; margin:0 0 18px; line-height:1.5}
+.big-cta a{display:inline-flex; align-items:center; gap:8px; background:var(--accent); color:var(--accent-ink); font-weight:600; font-size:14.5px; padding:13px 26px; border-radius:100px; text-decoration:none}
+
+footer{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-soft); line-height:1.6}
+footer a{color:var(--accent); text-decoration:none; font-weight:600}
+</style>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Demo — Catálogo online con pedidos por WhatsApp</p>
+      <h1>Joyas de Amelia</h1>
+      <div><span class="rating"><span class="stars">★★★★★</span> 5.0 · 20 opiniones en Google</span></div>
+      <p class="addr">📍 Los Peumos Sur 8181, Peñalolén</p>
+      <p class="tagline">Hoy solo se conocen sus piezas si te topas con un stand de feria. Así se vería su catálogo online, con cada pieza lista para consultar por WhatsApp.</p>
+      <a href="#catalogo" class="hero-cta">Ver catálogo ↓</a>
+    </div>
+  </div>
+
+  <div class="content">
+  <section id="catalogo">
+    <h2>Piezas destacadas</h2>
+    <p class="section-sub">Diseños propios, hechos a mano</p>
+    <div class="catalog">
+      <div class="piece">
+        <img src="pieza1.jpg" alt="Aros flor de alambre dorado con piedra rosa">
+        <div class="piece-body">
+          <div class="piece-name">Aros Flor</div>
+          <div class="piece-desc">Alambre bañado en oro, piedra rosa. Pieza única hecha a mano.</div>
+          <a class="piece-cta" href="https://wa.me/56954132275?text=Hola%20Amelia%2C%20vi%20los%20Aros%20Flor%20en%20su%20cat%C3%A1logo%20y%20quer%C3%ADa%20consultar%20precio%20y%20disponibilidad." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        </div>
+      </div>
+      <div class="piece">
+        <img src="pieza2.jpg" alt="Pulsera de perlas con dije de estrella en plata">
+        <div class="piece-body">
+          <div class="piece-name">Pulsera Estrella</div>
+          <div class="piece-desc">Perlas y dije de estrella tejido en alambre plateado, ajustable.</div>
+          <a class="piece-cta" href="https://wa.me/56954132275?text=Hola%20Amelia%2C%20vi%20la%20Pulsera%20Estrella%20en%20su%20cat%C3%A1logo%20y%20quer%C3%ADa%20consultar%20precio%20y%20disponibilidad." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="features">
+      <div class="feature"><span class="ficon">📱</span><div class="flabel">Catálogo siempre visible</div><div class="fdesc">Sus piezas ya no dependen de encontrarla en una feria.</div></div>
+      <div class="feature"><span class="ficon">💬</span><div class="flabel">Consulta directa</div><div class="fdesc">Cada pieza abre un chat de WhatsApp ya redactado.</div></div>
+      <div class="feature"><span class="ficon">✨</span><div class="flabel">Se ve profesional</div><div class="fdesc">Un link para compartir en Instagram y bio.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="testimonial">
+      <p>"Demasiado hermoso y de buena calidad, 100% recomendable, sobretodo para dárselo a un ser querido."</p>
+      <cite>— Benjamín de Santisteban, Google</cite>
+    </div>
+  </section>
+
+  <section>
+    <div class="big-cta">
+      <h3>¿Le gustaría esto para su joyería?</h3>
+      <p>Le armamos un catálogo a medida, con sus propias piezas y su número de WhatsApp.</p>
+      <a href="https://wa.me/56974749565" target="_blank" rel="noopener">Escribir a Agustín →</a>
+    </div>
+  </section>
+
+  <footer>
+    Demo hecha a medida para Joyas de Amelia por Agustín de la Guarda.<br>
+    Sistemas de reservas, pedidos y catálogos online para negocios en Chile · <a href="https://wa.me/56974749565" target="_blank" rel="noopener">WhatsApp +56 9 7474 9565</a>
+  </footer>
+  </div>
+</div>

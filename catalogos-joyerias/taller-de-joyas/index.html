@@ -1,0 +1,155 @@
+<title>Taller de Joyas Catálogo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,500;0,600;1,500&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F1EA; --surface:#FFFFFF; --ink:#241512; --ink-soft:#7A6459;
+  --line:#E6D9C8; --accent:#8A1F2B; --accent-ink:#FBEEEC; --gold:#B08D4F;
+  --chip-bg:#EFE1CF; --shadow:0 1px 2px rgba(30,15,10,.06), 0 10px 28px -14px rgba(30,15,10,.22);
+  --hero-bg:#2B0E12; --hero-ink:#F6E8E4; --hero-soft:#CBA79C;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#181310; --surface:#221A16; --ink:#F1E6DC; --ink-soft:#BBA593;
+    --line:#3A2E24; --accent:#D97584; --accent-ink:#2A0509; --gold:#D3B37B;
+    --chip-bg:#2B2118; --shadow:0 1px 2px rgba(0,0,0,.35), 0 10px 28px -14px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#181310; --surface:#221A16; --ink:#F1E6DC; --ink-soft:#BBA593;
+  --line:#3A2E24; --accent:#D97584; --accent-ink:#2A0509; --gold:#D3B37B;
+  --chip-bg:#2B2118; --shadow:0 1px 2px rgba(0,0,0,.35), 0 10px 28px -14px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:'Lato',system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+.wrap{max-width:640px; margin:0 auto}
+.hero{
+  background:
+    linear-gradient(180deg, rgba(20,5,7,.45) 0%, rgba(20,5,7,.85) 100%),
+    url('hero.jpg') center/cover no-repeat;
+  color:var(--hero-ink); padding:52px 20px 40px; position:relative}
+.hero-inner{max-width:600px; margin:0 auto}
+.eyebrow{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); font-weight:600; margin:0 0 14px}
+h1{font-family:'EB Garamond',serif; font-weight:600; font-size:clamp(32px,8vw,46px); line-height:1.05; margin:0 0 14px; text-wrap:balance}
+.rating{display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); padding:6px 12px; border-radius:100px; font-size:13px; font-weight:600; margin-bottom:12px}
+.rating .stars{color:var(--gold)}
+.addr{font-size:13.5px; color:var(--hero-soft); margin-bottom:14px}
+.tagline{color:var(--hero-soft); font-size:15.5px; line-height:1.55; max-width:46ch; margin:0 0 24px}
+.hero-cta{display:inline-flex; align-items:center; gap:8px; background:var(--accent); border:none; color:var(--accent-ink); font-family:'Lato',sans-serif; font-weight:700; font-size:14px; padding:13px 24px; border-radius:6px; cursor:pointer; text-decoration:none}
+
+.content{padding:0 20px 64px}
+section{margin-top:38px}
+h2{font-family:'EB Garamond',serif; font-weight:600; font-size:24px; margin:0 0 6px}
+.section-sub{color:var(--ink-soft); font-size:13.5px; margin:0 0 18px}
+
+.services{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+@media (max-width:480px){.services{grid-template-columns:1fr}}
+.svc-card{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:18px; box-shadow:var(--shadow)}
+.svc-name{font-family:'EB Garamond',serif; font-weight:600; font-size:18px; margin-bottom:6px}
+.svc-desc{font-size:13px; color:var(--ink-soft); line-height:1.45; margin-bottom:14px}
+.svc-cta{display:inline-flex; align-items:center; gap:6px; width:100%; justify-content:center; background:none; border:1.5px solid var(--accent); color:var(--accent); font-family:'Lato',sans-serif; font-weight:700; font-size:12.5px; padding:9px; border-radius:6px; cursor:pointer; text-decoration:none}
+.svc-cta:hover{background:var(--chip-bg)}
+
+.gallery{border-radius:10px; overflow:hidden; box-shadow:var(--shadow); border:1px solid var(--line)}
+.gallery img{width:100%; display:block}
+.gallery-cap{background:var(--surface); padding:12px 16px; font-size:12.5px; color:var(--ink-soft)}
+
+.features{display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
+@media (max-width:520px){.features{grid-template-columns:1fr}}
+.feature{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px; box-shadow:var(--shadow)}
+.feature .ficon{font-size:19px; display:block; margin-bottom:8px}
+.feature .flabel{font-weight:700; font-size:13.5px; margin-bottom:4px}
+.feature .fdesc{font-size:12.5px; color:var(--ink-soft); line-height:1.45}
+
+.testimonial{background:var(--chip-bg); border-radius:10px; padding:24px; border-left:4px solid var(--accent)}
+.testimonial p{font-family:'EB Garamond',serif; font-style:italic; font-size:19px; line-height:1.5; margin:0 0 10px; color:var(--ink)}
+.testimonial cite{font-size:12.5px; color:var(--ink-soft); font-style:normal; font-weight:700}
+
+.big-cta{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:28px 24px; text-align:center; box-shadow:var(--shadow)}
+.big-cta h3{font-family:'EB Garamond',serif; font-weight:600; font-size:21px; margin:0 0 8px}
+.big-cta p{color:var(--ink-soft); font-size:14px; margin:0 0 18px; line-height:1.5}
+.big-cta a{display:inline-flex; align-items:center; gap:8px; background:var(--accent); color:var(--accent-ink); font-weight:700; font-size:14.5px; padding:13px 26px; border-radius:6px; text-decoration:none}
+
+footer{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-soft); line-height:1.6}
+footer a{color:var(--accent); text-decoration:none; font-weight:700}
+</style>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Demo — Catálogo online con pedidos por WhatsApp</p>
+      <h1>Taller de Joyas</h1>
+      <div><span class="rating"><span class="stars">★★★★★</span> 5.0 · 60 opiniones en Google</span></div>
+      <p class="addr">📍 Merced 832, Santiago Centro</p>
+      <p class="tagline">Juan Zacarías Sánchez, joyero, sin sitio web ni catálogo online. Así se vería su taller mostrando sus reparaciones y piezas, con pedidos directo por WhatsApp.</p>
+      <a href="#servicios" class="hero-cta">Ver servicios ↓</a>
+    </div>
+  </div>
+
+  <div class="content">
+  <section id="servicios">
+    <h2>Servicios del taller</h2>
+    <p class="section-sub">Trabajo artesanal, hecho a mano en Santiago Centro</p>
+    <div class="services">
+      <div class="svc-card">
+        <div class="svc-name">Reparación de joyas</div>
+        <div class="svc-desc">Cadenas, aros y anillos rotos, como nuevos en el día.</div>
+        <a class="svc-cta" href="https://wa.me/56996705706?text=Hola%2C%20tengo%20una%20joya%20para%20reparar%2C%20%C2%BFme%20pueden%20ayudar%3F" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-name">Ajuste de talla</div>
+        <div class="svc-desc">Anillos a la medida exacta de tu dedo, sin esperas.</div>
+        <a class="svc-cta" href="https://wa.me/56996705706?text=Hola%2C%20necesito%20ajustar%20la%20talla%20de%20un%20anillo%2C%20%C2%BFme%20pueden%20ayudar%3F" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-name">Joyas a medida</div>
+        <div class="svc-desc">Piezas de autor en plata y oro, diseñadas contigo.</div>
+        <a class="svc-cta" href="https://wa.me/56996705706?text=Hola%2C%20quiero%20consultar%20por%20una%20joya%20hecha%20a%20medida." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-name">Compra directa</div>
+        <div class="svc-desc">Piezas en plata listas: anillos, aros, pulseras y más.</div>
+        <a class="svc-cta" href="https://wa.me/56996705706?text=Hola%2C%20quer%C3%ADa%20ver%20qu%C3%A9%20piezas%20de%20plata%20tienen%20disponibles." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Nuestras piezas</h2>
+    <p class="section-sub">Vitrina del taller en Merced 832</p>
+    <div class="gallery">
+      <img src="piezas.jpg" alt="Vitrina con anillos, aros, collares y pulseras de plata">
+      <div class="gallery-cap">Anillos, aros, collares y pulseras en plata — hechos y reparados en el taller.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="features">
+      <div class="feature"><span class="ficon">📱</span><div class="flabel">Catálogo siempre visible</div><div class="fdesc">El cliente ve el trabajo antes de ir al local.</div></div>
+      <div class="feature"><span class="ficon">💬</span><div class="flabel">Consulta directa</div><div class="fdesc">Cada servicio abre un chat de WhatsApp ya redactado.</div></div>
+      <div class="feature"><span class="ficon">✨</span><div class="flabel">Se ve profesional</div><div class="fdesc">Un link para compartir y que lo encuentren en Google.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="testimonial">
+      <p>"Quiero recomendar esta joyería por la excelente calidad de sus trabajos de reparación. Se nota el cuidado en los detalles, la prolijidad y el profesionalismo."</p>
+      <cite>— Francisco Javier Delgado Parra, Google</cite>
+    </div>
+  </section>
+
+  <section>
+    <div class="big-cta">
+      <h3>¿Le gustaría esto para su taller?</h3>
+      <p>Le armamos un catálogo a medida, con fotos de sus propias piezas y su número de WhatsApp.</p>
+      <a href="https://wa.me/56974749565" target="_blank" rel="noopener">Escribir a Agustín →</a>
+    </div>
+  </section>
+
+  <footer>
+    Demo hecha a medida para Taller de Joyas por Agustín de la Guarda.<br>
+    Sistemas de reservas, pedidos y catálogos online para negocios en Chile · <a href="https://wa.me/56974749565" target="_blank" rel="noopener">WhatsApp +56 9 7474 9565</a>
+  </footer>
+  </div>
+</div>
