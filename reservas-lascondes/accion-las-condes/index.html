@@ -30,7 +30,11 @@
 }
 body{margin:0; background:var(--bg); color:var(--ink); font-family:'Barlow Condensed',system-ui,sans-serif; -webkit-font-smoothing:antialiased}
 .wrap{max-width:640px; margin:0 auto}
-.hero{background:radial-gradient(120% 100% at 20% -10%, #4a2211 0%, var(--hero-bg) 55%); color:var(--hero-ink); padding:48px 20px 40px; position:relative; overflow:hidden}
+.hero{
+  background:
+    linear-gradient(180deg, rgba(36,18,9,.5) 0%, rgba(36,18,9,.9) 100%),
+    url('hero.jpg') center/cover no-repeat;
+  color:var(--hero-ink); padding:48px 20px 40px; position:relative; overflow:hidden}
 .hero-inner{position:relative; max-width:600px; margin:0 auto}
 .eyebrow{font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:600; margin:0 0 14px; font-family:'Barlow Condensed',sans-serif}
 h1{font-family:'Archivo Black',sans-serif; font-size:clamp(32px,8.5vw,46px); line-height:1.02; margin:0 0 16px; text-wrap:balance}

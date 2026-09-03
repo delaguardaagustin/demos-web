@@ -32,7 +32,11 @@
 }
 body{margin:0; background:var(--bg); color:var(--ink); font-family:'Urbanist',system-ui,sans-serif; -webkit-font-smoothing:antialiased}
 .wrap{max-width:640px; margin:0 auto}
-.hero{background:linear-gradient(150deg, var(--hero-a) 0%, var(--hero-b) 100%); padding:52px 20px 42px; position:relative; overflow:hidden}
+.hero{
+  background:
+    linear-gradient(150deg, color-mix(in srgb, var(--hero-a) 78%, transparent) 0%, color-mix(in srgb, var(--hero-b) 85%, transparent) 100%),
+    url('hero.jpg') center/cover no-repeat;
+  padding:52px 20px 42px; position:relative; overflow:hidden}
 .hero::before{content:""; position:absolute; width:340px; height:340px; border-radius:50%; border:1px solid color-mix(in srgb, var(--ink) 12%, transparent); top:-120px; right:-140px}
 .hero::after{content:""; position:absolute; width:220px; height:220px; border-radius:50%; border:1px solid color-mix(in srgb, var(--ink) 10%, transparent); bottom:-90px; left:-70px}
 .hero-inner{position:relative; max-width:600px; margin:0 auto}

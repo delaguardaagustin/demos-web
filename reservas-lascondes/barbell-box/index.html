@@ -30,10 +30,11 @@
 }
 body{margin:0; background:var(--bg); color:var(--ink); font-family:'Barlow',system-ui,sans-serif; -webkit-font-smoothing:antialiased}
 .wrap{max-width:640px; margin:0 auto}
-.hero{background:var(--hero-bg); color:var(--hero-ink); padding:48px 20px 40px; position:relative; overflow:hidden}
-.hero::before{content:""; position:absolute; inset:0; background:
-  repeating-linear-gradient(135deg, rgba(232,185,58,.05) 0 2px, transparent 2px 26px);
-  pointer-events:none}
+.hero{
+  background:
+    linear-gradient(180deg, rgba(23,19,15,.55) 0%, rgba(23,19,15,.88) 100%),
+    url('hero.jpg') center/cover no-repeat;
+  color:var(--hero-ink); padding:48px 20px 40px; position:relative; overflow:hidden}
 .hero-inner{position:relative; max-width:600px; margin:0 auto}
 .eyebrow{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:700; margin:0 0 14px}
 h1{font-family:'Anton',sans-serif; font-weight:400; font-size:clamp(42px,12vw,64px); line-height:.92; margin:0 0 16px; text-transform:uppercase; letter-spacing:.005em; text-wrap:balance}
