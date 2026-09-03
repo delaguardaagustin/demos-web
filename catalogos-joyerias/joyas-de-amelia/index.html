@@ -68,6 +68,20 @@ h2{font-family:'Bodoni Moda',serif; font-style:italic; font-weight:600; font-siz
 .big-cta p{color:var(--ink-soft); font-size:14px; margin:0 0 18px; line-height:1.5}
 .big-cta a{display:inline-flex; align-items:center; gap:8px; background:var(--accent); color:var(--accent-ink); font-weight:600; font-size:14.5px; padding:13px 26px; border-radius:100px; text-decoration:none}
 
+.about{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px 26px; box-shadow:var(--shadow)}
+.about p{color:var(--ink-soft); font-size:14.5px; line-height:1.65; margin:0}
+.about p+p{margin-top:10px}
+
+.contact-card{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:26px; box-shadow:var(--shadow)}
+.contact-row{display:flex; gap:14px; align-items:flex-start; padding:12px 0; border-bottom:1px solid var(--line)}
+.contact-row:last-child{border-bottom:none; padding-bottom:0}
+.contact-row:first-child{padding-top:0}
+.contact-icon{flex:none; width:36px; height:36px; border-radius:50%; background:var(--chip-bg); display:flex; align-items:center; justify-content:center; font-size:16px}
+.contact-label{font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); font-weight:600; margin-bottom:2px}
+.contact-value{font-size:14.5px; font-weight:500}
+.contact-value a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line)}
+.contact-value a:hover{color:var(--accent); border-color:var(--accent)}
+
 footer{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-soft); line-height:1.6}
 footer a{color:var(--accent); text-decoration:none; font-weight:600}
 </style>
@@ -85,6 +99,12 @@ footer a{color:var(--accent); text-decoration:none; font-weight:600}
   </div>
 
   <div class="content">
+  <section>
+    <div class="about">
+      <p>Amelia diseña y arma cada pieza a mano, en alambre y plata, muchas veces junto a sus propias clientas. Hoy se le encuentra en ferias de diseño y por Instagram — sin un lugar único donde ver todo su trabajo junto.</p>
+    </div>
+  </section>
+
   <section id="catalogo">
     <h2>Piezas destacadas</h2>
     <p class="section-sub">Diseños propios, hechos a mano</p>
@@ -120,6 +140,41 @@ footer a{color:var(--accent); text-decoration:none; font-weight:600}
     <div class="testimonial">
       <p>"Demasiado hermoso y de buena calidad, 100% recomendable, sobretodo para dárselo a un ser querido."</p>
       <cite>— Benjamín de Santisteban, Google</cite>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contacto</h2>
+    <p class="section-sub">Así se vería toda su información en un solo lugar</p>
+    <div class="contact-card">
+      <div class="contact-row">
+        <div class="contact-icon">💬</div>
+        <div>
+          <div class="contact-label">WhatsApp</div>
+          <div class="contact-value"><a href="https://wa.me/56954132275" target="_blank" rel="noopener">+56 9 5413 2275</a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Ubicación</div>
+          <div class="contact-value"><a href="https://www.google.com/maps?q=Los+Peumos+Sur+8181+Peñalolén" target="_blank" rel="noopener">Los Peumos Sur 8181, Peñalolén — Cómo llegar</a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">📷</div>
+        <div>
+          <div class="contact-label">Instagram</div>
+          <div class="contact-value"><a href="https://www.instagram.com/joyasdeamelia/" target="_blank" rel="noopener">@joyasdeamelia</a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">⭐</div>
+        <div>
+          <div class="contact-label">Reseñas</div>
+          <div class="contact-value">5.0 · 20 opiniones en Google</div>
+        </div>
+      </div>
     </div>
   </section>
 
