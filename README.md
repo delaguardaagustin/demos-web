@@ -47,6 +47,8 @@ enlazado desde el `index.html` de la raíz.
 | [`oroshi-sushi/`](oroshi-sushi/) | Restaurante japonés, con armador de pedidos | Maipú |
 | [`pasteleria-daca/`](pasteleria-daca/) | Pastelería, con armador de encargos | La Florida |
 | [`importadora-anama/`](importadora-anama/) | Ropa por mayor, con armador de cotización | Estación Central |
+| [`ferremarket-sanmiguel/`](ferremarket-sanmiguel/) | Ferretería | San Miguel |
+| [`quincalleria-canada/`](quincalleria-canada/) | Ferretería | Santiago Centro |
 
 ## Aviso
 
