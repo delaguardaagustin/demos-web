@@ -1,9 +1,27 @@
-# Demos de sitios web — Santiago sur
+# Demos para negocios — Santiago
 
-Propuestas de diseño para locales de barrio que hoy solo existen en Google Maps:
-sin página web propia, dependiendo de apps de delivery que se llevan entre 25% y 30% de cada venta.
+Propuestas de sitio web, sistema de reservas y catálogo online para negocios que hoy
+solo existen en Google Maps. Todo directo al WhatsApp del local, sin comisiones ni
+mensualidad de plataforma.
 
-**Ver las demos:** https://delaguardaagustin.github.io/demos-web/
+**Ver todas las demos:** https://delaguardaagustin.github.io/demos-web/
+
+## Estructura del repo
+
+- **Sitios web** (`/`, carpetas sueltas en la raíz) — locales de Santiago sur, con menú y
+  armador de pedido por WhatsApp. Ver tabla abajo.
+- **Sistemas de reservas** (`reservas-<comuna>/`) — peluquerías, barberías, clínicas y
+  gimnasios. Reserva de hora online con recordatorio automático.
+  - [`reservas-nunoa/`](reservas-nunoa/) — Ñuñoa
+  - [`reservas-providencia/`](reservas-providencia/) — Providencia
+  - [`reservas-lascondes/`](reservas-lascondes/) — Las Condes
+- **Catálogos online** (`catalogos-joyerias/`) — joyerías sin página web, catálogo de
+  piezas reales con pedido por WhatsApp.
+
+Cada carpeta de categoría tiene su propio `index.html` como mini-galería, y todo está
+enlazado desde el `index.html` de la raíz.
+
+## Sitios web — tabla completa
 
 | Demo | Rubro | Zona |
 |---|---|---|
