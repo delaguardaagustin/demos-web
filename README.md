@@ -49,6 +49,7 @@ enlazado desde el `index.html` de la raíz.
 | [`importadora-anama/`](importadora-anama/) | Ropa por mayor, con armador de cotización | Estación Central |
 | [`ferremarket-sanmiguel/`](ferremarket-sanmiguel/) | Ferretería | San Miguel |
 | [`quincalleria-canada/`](quincalleria-canada/) | Ferretería | Santiago Centro |
+| [`poesia-de-sabor/`](poesia-de-sabor/) | Restaurante familiar | Valparaíso |
 
 ## Aviso
 

@@ -1,0 +1,284 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Poesía de Sabor — Restaurante familiar en Valparaíso</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#151013">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,700;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+ --bg:#181113;--cd:#241a1c;--tx:#fbf1e8;--mut:#c2a89c;--ac:#e0483a;--ac2:#f2b134;--bd:#3a2a28;
+ --g1:#e0483a33;--g2:#f2b13422;--fh:'Fraunces', Georgia, serif;--fb:'Manrope', system-ui;--fw:700;
+ --pad:clamp(20px,5vw,40px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--tx);font-family:var(--fb);font-size:16px;line-height:1.65;
+ -webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.fh{font-family:var(--fh);font-weight:var(--fw);letter-spacing:-.01em;line-height:1.05}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 var(--pad)}
+
+.demo{position:relative;z-index:80;background:var(--ac2);color:#241a05;text-align:center;
+ font-size:12px;font-weight:700;padding:8px 14px;letter-spacing:.03em}
+
+header{position:sticky;top:0;z-index:70;transition:background .25s,border-color .25s,backdrop-filter .25s;
+ border-bottom:1px solid transparent}
+header.on{background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);border-color:var(--bd)}
+.nav{max-width:1120px;margin:0 auto;padding:14px var(--pad);display:flex;align-items:center;gap:22px}
+.logo{font-family:var(--fh);font-size:20px;letter-spacing:.01em}
+.nav .sp{margin-left:auto}
+.nav a.lk{color:var(--mut);text-decoration:none;font-size:14px;font-weight:500;transition:color .15s}
+.nav a.lk:hover{color:var(--tx)}
+
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--ac);color:#fff;padding:13px 24px;
+ border-radius:999px;font-weight:700;text-decoration:none;font-size:14.5px;transition:transform .16s,box-shadow .16s;
+ box-shadow:0 4px 18px -6px var(--ac)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px -8px var(--ac)}
+.btn.g{background:#25d366;color:#04301a;box-shadow:0 4px 18px -6px #25d36688}
+.btn.g:hover{box-shadow:0 10px 26px -8px #25d366aa}
+.btn.gh{background:transparent;color:var(--tx);border:1px solid var(--bd);box-shadow:none}
+.btn.gh:hover{border-color:var(--ac2);box-shadow:none}
+.btn svg{width:17px;height:17px;fill:currentColor}
+
+/* hero con foto real */
+.hero{position:relative;overflow:hidden;padding:clamp(56px,10vw,104px) 0 clamp(48px,8vw,88px)}
+.hero::before{content:"";position:absolute;inset:0;
+ background:
+   linear-gradient(100deg, rgba(24,17,19,.94) 0%, rgba(24,17,19,.8) 42%, rgba(24,17,19,.4) 75%, rgba(24,17,19,.15) 100%),
+   url('hero.jpg') center 55%/cover no-repeat;
+ z-index:0}
+.hgrid{position:relative;z-index:1;display:grid;grid-template-columns:1.35fr .65fr;gap:clamp(28px,5vw,64px);align-items:center}
+.eyebrow{display:inline-block;color:var(--ac2);font-size:12px;font-weight:700;text-transform:uppercase;
+ letter-spacing:.2em;border:1px solid var(--bd);border-radius:999px;padding:6px 15px;margin-bottom:22px;
+ background:color-mix(in srgb,var(--cd) 70%,transparent)}
+h1{font-size:clamp(40px,8.5vw,80px);letter-spacing:-.02em;text-wrap:balance;font-style:italic}
+.claim{color:var(--mut);font-size:clamp(16.5px,2.1vw,20px);max-width:44ch;margin:22px 0 28px}
+.pill{display:inline-flex;align-items:center;gap:11px;background:var(--cd);border:1px solid var(--bd);
+ border-radius:999px;padding:9px 18px;font-size:14px;margin-bottom:30px}
+.pill .rt{font-family:var(--fh);color:var(--ac2);font-size:17px}
+.pill .dv{width:1px;height:16px;background:var(--bd)}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+
+.foto-mini{position:relative;z-index:1;width:min(240px,58vw);aspect-ratio:3/4;margin-inline:auto;
+ border-radius:20px;overflow:hidden;border:1px solid var(--bd);box-shadow:0 20px 50px -20px rgba(0,0,0,.6)}
+.foto-mini img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* marquesina */
+.mq{position:relative;border-block:1px solid var(--bd);background:var(--cd);overflow:hidden;
+ padding:15px 0;margin-top:clamp(40px,6vw,72px)}
+.mq .track{display:flex;gap:0;width:max-content;animation:slide 34s linear infinite}
+.mq span{font-family:var(--fh);font-size:clamp(17px,2.4vw,24px);color:var(--tx);opacity:.5;
+ padding:0 28px;white-space:nowrap;display:inline-flex;align-items:center;gap:28px}
+.mq span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--ac)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* secciones */
+section{position:relative;padding:clamp(60px,9vw,110px) 0}
+.shead{display:flex;align-items:baseline;gap:18px;margin-bottom:12px;flex-wrap:wrap}
+.snum{font-family:var(--fh);font-size:13px;color:var(--ac);letter-spacing:.16em}
+h2{font-size:clamp(30px,5.4vw,50px);letter-spacing:-.025em}
+.sub{color:var(--mut);font-size:15.5px;margin-bottom:clamp(34px,5vw,54px);max-width:56ch}
+
+/* galeria de platos */
+.platos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:clamp(34px,5vw,52px)}
+@media(max-width:700px){.platos{grid-template-columns:1fr 1fr}}
+.plato{border-radius:16px;overflow:hidden;border:1px solid var(--bd);position:relative;aspect-ratio:4/5}
+.plato img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.plato:hover img{transform:scale(1.06)}
+.plato .cap{position:absolute;left:0;right:0;bottom:0;padding:14px 14px 12px;
+ background:linear-gradient(0deg, rgba(10,7,8,.92) 0%, transparent 100%);font-size:13.5px;font-weight:600}
+
+/* menu */
+.cat{margin-bottom:clamp(34px,5vw,52px)}
+.cat h3{font-size:12.5px;text-transform:uppercase;letter-spacing:.2em;color:var(--ac2);
+ font-family:var(--fb);font-weight:700;display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.cat h3::after{content:"";flex:1;height:1px;background:var(--bd)}
+.items{display:grid;gap:2px}
+.it{display:flex;align-items:baseline;gap:14px;padding:15px 18px;border-radius:10px;
+ transition:background .18s,transform .18s}
+.it:hover{background:var(--cd);transform:translateX(4px)}
+.it .n{font-weight:650;font-size:16px;white-space:nowrap}
+.it .d{color:var(--mut);font-size:13.5px;flex-shrink:1;min-width:0}
+.it .ln{flex:1;min-width:18px;border-bottom:1px dotted var(--bd);transform:translateY(-4px)}
+.it .p{font-family:var(--fh);color:var(--ac2);font-size:17px;white-space:nowrap}
+
+/* pasos */
+.pasos{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr))}
+.paso{position:relative;background:var(--cd);border:1px solid var(--bd);border-radius:16px;
+ padding:30px 26px 26px;overflow:hidden;transition:border-color .2s,transform .2s}
+.paso:hover{border-color:var(--ac);transform:translateY(-3px)}
+.paso .gh{position:absolute;top:-14px;right:8px;font-family:var(--fh);font-size:92px;color:var(--tx);
+ opacity:.05;line-height:1}
+.paso h4{font-size:17.5px;margin-bottom:8px;font-weight:700;position:relative}
+.paso p{color:var(--mut);font-size:14.5px;position:relative}
+
+/* info */
+.info{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(265px,100%),1fr))}
+.box{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:28px}
+.box h4{font-size:11.5px;text-transform:uppercase;letter-spacing:.18em;color:var(--ac2);
+ margin-bottom:14px;font-weight:700}
+.box p,.box li{color:var(--mut);font-size:14.5px;list-style:none}
+.box .lnk{color:var(--tx);font-weight:650;text-decoration:none;border-bottom:1px solid var(--ac);
+ padding-bottom:1px;display:inline-block;margin-top:12px;font-size:14px}
+
+/* cierre */
+.cierre{position:relative;overflow:hidden;text-align:center;border:1px solid var(--bd);border-radius:24px;
+ padding:clamp(48px,8vw,84px) 26px;background:var(--cd)}
+.cierre::before{content:"";position:absolute;inset:0;
+ background:radial-gradient(60% 90% at 50% 0%,var(--g1),transparent 70%)}
+.cierre>*{position:relative}
+.cierre h2{margin-bottom:14px}
+.cierre p{color:var(--mut);margin:0 auto 30px;max-width:44ch}
+
+footer{border-top:1px solid var(--bd);margin-top:clamp(60px,9vw,110px);padding:40px 0 50px;
+ color:var(--mut);font-size:13.5px;line-height:1.85;text-align:center}
+footer .autor b{color:var(--tx);font-weight:650}
+footer .mio{margin-top:20px;font-size:13.5px;padding:11px 20px}
+
+.float{position:fixed;right:18px;bottom:18px;z-index:75;background:#25d366;color:#04301a;width:58px;height:58px;
+ border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 28px rgba(0,0,0,.5);text-decoration:none;
+ transition:transform .18s}
+.float:hover{transform:scale(1.07)}
+.float svg{width:30px;height:30px;fill:currentColor}
+
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:860px){
+ .hgrid{grid-template-columns:1fr;gap:34px}
+ .foto-mini{order:-1;width:min(190px,48vw)}
+ .nav a.lk{display:none}
+}
+@media(max-width:560px){
+ .it{flex-wrap:wrap;gap:6px 12px}
+ .it .ln{display:none}
+ .it .d{width:100%;order:3}
+ .it .p{margin-left:auto}
+}
+@media(prefers-reduced-motion:reduce){
+ *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+ html{scroll-behavior:auto}
+}
+</style>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+</head><body>
+
+<div class="demo">SITIO DE DEMOSTRACIÓN · propuesta de diseño, no es el sitio oficial de Poesía de Sabor</div>
+
+<header id="hd"><nav class="nav">
+<span class="logo">Poesía de Sabor</span>
+<span class="sp"></span>
+<a class="lk" href="#menu">Menú</a>
+<a class="lk" href="#pedir">Cómo pedir</a>
+<a class="lk" href="#info">Dónde</a>
+<a class="btn g" href="https://wa.me/56991643409?text=Hola!%20Quiero%20hacer%20una%20reserva%20o%20consultar%20el%20men%C3%BA" target="_blank" rel="noopener">Reservar</a>
+</nav></header>
+
+<div class="hero">
+<div class="wrap hgrid">
+<div>
+<div class="eyebrow">Restaurante familiar · Cerro Alegre, Valparaíso</div>
+<h1>Poesía de Sabor</h1>
+<p class="claim">Caldillo de congrio, chupe de jaiba y sabor de casa en una terraza que es puro Valparaíso.</p>
+<div class="pill"><span class="rt">4.8 ★</span><span class="dv"></span><span>385 reseñas en Google</span></div>
+<div class="cta">
+<a class="btn g" href="https://wa.me/56991643409?text=Hola!%20Quiero%20hacer%20una%20reserva%20o%20consultar%20el%20men%C3%BA" target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.1c-.25.69-1.43 1.32-2 1.41-.51.07-1.16.1-1.87-.12-.43-.14-.98-.33-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.15-.2-1.21-1.6-1.21-3.06s.77-2.17 1.04-2.47c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.33-.3.5-.15.17-.32.39-.45.52-.15.14-.3.3-.13.6.18.3.77 1.27 1.65 2.05 1.13 1.01 2.08 1.32 2.38 1.47.29.15.47.13.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.72-.17 1.41z"/></svg>
+Reservar por WhatsApp</a>
+<a class="btn gh" href="#menu">Ver el menú</a>
+</div>
+</div>
+<div class="foto-mini"><img src="plato1.jpg" alt="Chupe de jaiba gratinado, plato destacado de Poesía de Sabor" loading="eager"></div>
+</div>
+</div>
+
+<div class="mq"><div class="track"><span>Caldillo de congrio</span><span>Chupe de jaiba</span><span>Ceviche</span><span>Terraza familiar</span><span>Cerro Alegre</span><span>Caldillo de congrio</span><span>Chupe de jaiba</span><span>Ceviche</span><span>Terraza familiar</span><span>Cerro Alegre</span></div></div>
+
+<section id="menu"><div class="wrap">
+<div class="shead rv"><span class="snum">01</span><h2>La carta</h2></div>
+<p class="sub rv">Platos y precios de ejemplo, tomados de lo que más piden los comensales — se reemplazan por los suyos reales.</p>
+<div class="platos">
+<div class="plato rv"><img src="plato1.jpg" alt="Chupe de jaiba gratinado"><div class="cap">Chupe de jaiba</div></div>
+<div class="plato rv"><img src="plato2.jpg" alt="Filete de pescado a la plancha con papas fritas"><div class="cap">Filete a la plancha</div></div>
+<div class="plato rv"><img src="plato3.jpg" alt="Pechuga a las finas hierbas con papas fritas"><div class="cap">A las finas hierbas</div></div>
+</div>
+<div class="cat"><h3 class="rv">Entradas y sopas</h3><div class="items">
+<div class="it rv"><span class="n">Caldillo de congrio</span><span class="d">El clásico porteño, receta de la casa</span><span class="ln"></span><span class="p">$8.900</span></div>
+<div class="it rv"><span class="n">Chupe de jaiba</span><span class="d">Gratinado, en olla de greda</span><span class="ln"></span><span class="p">$9.900</span></div>
+<div class="it rv"><span class="n">Ceviche de salmón</span><span class="d">Cítrico, cilantro y cebolla morada</span><span class="ln"></span><span class="p">$8.500</span></div>
+</div></div>
+<div class="cat"><h3 class="rv">Fondos</h3><div class="items">
+<div class="it rv"><span class="n">Filete a la plancha</span><span class="d">Con papas fritas caseras</span><span class="ln"></span><span class="p">$12.900</span></div>
+<div class="it rv"><span class="n">Pechuga a las finas hierbas</span><span class="d">Con papas fritas y ensalada</span><span class="ln"></span><span class="p">$10.900</span></div>
+<div class="it rv"><span class="n">Carne a la cacerola</span><span class="d">Guiso de la casa, porción generosa</span><span class="ln"></span><span class="p">$11.900</span></div>
+</div></div>
+<div class="cat"><h3 class="rv">Para beber</h3><div class="items">
+<div class="it rv"><span class="n">Jarra de sangría</span><span class="d">De la casa</span><span class="ln"></span><span class="p">$9.900</span></div>
+<div class="it rv"><span class="n">Jugo natural</span><span class="d">Fruta de estación</span><span class="ln"></span><span class="p">$2.900</span></div>
+</div></div>
+</div></section>
+
+<section id="pedir"><div class="wrap">
+<div class="shead rv"><span class="snum">02</span><h2>Cómo reservar</h2></div>
+<p class="sub rv">Directo a la mesa, sin plataformas de por medio.</p>
+<div class="pasos">
+<div class="paso rv"><span class="gh">1</span><h4>Escribe por WhatsApp</h4><p>Cuéntanos día, hora y cuántos son — Paula y Diego responden directo.</p></div>
+<div class="paso rv"><span class="gh">2</span><h4>Confirman la mesa</h4><p>Te avisan si hay disponibilidad en la terraza o el salón.</p></div>
+<div class="paso rv"><span class="gh">3</span><h4>Llegas y disfrutas</h4><p>Mesa lista, sin esperas ni comisión de por medio.</p></div>
+</div>
+</div></section>
+
+<section id="info"><div class="wrap">
+<div class="shead rv"><span class="snum">03</span><h2>Dónde y cuándo</h2></div>
+<p class="sub rv">Horario de ejemplo — se ajusta al real.</p>
+<div class="info">
+<div class="box rv"><h4>Dirección</h4><p>Monte Alegre 181, Cerro Alegre, Valparaíso</p><a class="lnk" href="https://www.google.com/maps/search/Monte+Alegre+181+Valparaíso" target="_blank" rel="noopener">Ver en Google Maps &rarr;</a></div>
+<div class="box rv"><h4>Horario</h4><ul><li>Martes a domingo 12:30 - 19:00</li><li>Lunes cerrado</li></ul></div>
+<div class="box rv"><h4>Reservas</h4><p>WhatsApp +56 9 9164 3409</p><a class="lnk" href="https://wa.me/56991643409?text=Hola!%20Quiero%20hacer%20una%20reserva%20o%20consultar%20el%20men%C3%BA" target="_blank" rel="noopener">Escribir ahora &rarr;</a></div>
+</div>
+</div></section>
+
+<div class="wrap"><div class="cierre rv">
+<h2>¿Reservamos tu mesa?</h2>
+<p>Directo a la terraza, sin intermediarios.</p>
+<a class="btn g" href="https://wa.me/56991643409?text=Hola!%20Quiero%20hacer%20una%20reserva%20o%20consultar%20el%20men%C3%BA" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+</div></div>
+
+<footer><div class="wrap">
+<p class="autor">Sitio de demostración creado por <b>Agustín de la Guarda</b> como propuesta para Poesía de Sabor.<br>
+No es el sitio oficial del local. Nombre, dirección, fotos y calificación provienen de su ficha pública de Google Maps.</p>
+<a class="btn gh mio" href="https://wa.me/56974749565?text=Hola%20Agust%C3%ADn%2C%20vi%20la%20demo%20de%20Poes%C3%ADa%20de%20Sabor%20y%20quiero%20una%20p%C3%A1gina%20para%20mi%20restaurante" target="_blank" rel="noopener">¿Quieres una para tu restaurante? Escríbeme</a>
+</div></footer>
+
+<a class="float" href="https://wa.me/56991643409?text=Hola!%20Quiero%20hacer%20una%20reserva%20o%20consultar%20el%20men%C3%BA" target="_blank" rel="noopener" aria-label="Reservar por WhatsApp">
+<svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.1c-.25.69-1.43 1.32-2 1.41-.51.07-1.16.1-1.87-.12-.43-.14-.98-.33-1.69-.63-2.98-1.29-4.93-4.29-5.08-4.49-.15-.2-1.21-1.6-1.21-3.06s.77-2.17 1.04-2.47c.27-.3.59-.37.79-.37h.57c.18.01.43-.07.67.51.25.6.84 2.05.92 2.2.07.15.12.32.02.52-.1.2-.15.33-.3.5-.15.17-.32.39-.45.52-.15.14-.3.3-.13.6.18.3.77 1.27 1.65 2.05 1.13 1.01 2.08 1.32 2.38 1.47.29.15.47.13.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.72-.17 1.41z"/></svg>
+</a>
+
+<script>
+(function(){
+  var hd=document.getElementById('hd');
+  var onScroll=function(){hd.classList.toggle('on',window.scrollY>12)};
+  onScroll();addEventListener('scroll',onScroll,{passive:true});
+
+  var pend=[].slice.call(document.querySelectorAll('.rv')),tick=false;
+  function sweep(){
+    tick=false;
+    var lim=innerHeight*0.92,n=0;
+    for(var i=0;i<pend.length;i++){
+      if(pend[i].getBoundingClientRect().top<lim){
+        (function(el,d){setTimeout(function(){el.classList.add('in')},d)})(pend[i],(n++)*70);
+        pend[i]=null;
+      }
+    }
+    pend=pend.filter(Boolean);
+    if(!pend.length)removeEventListener('scroll',onS);
+  }
+  function onS(){if(!tick){tick=true;setTimeout(sweep,60)}}
+  addEventListener('scroll',onS,{passive:true});
+  addEventListener('resize',onS,{passive:true});
+  sweep();
+})();
+</script>
+</body></html>
