@@ -50,6 +50,9 @@ enlazado desde el `index.html` de la raíz.
 | [`ferremarket-sanmiguel/`](ferremarket-sanmiguel/) | Ferretería | San Miguel |
 | [`quincalleria-canada/`](quincalleria-canada/) | Ferretería | Santiago Centro |
 | [`poesia-de-sabor/`](poesia-de-sabor/) | Restaurante familiar | Valparaíso |
+| [`la-posada-valparaiso/`](la-posada-valparaiso/) | Parrilla / fuente de soda | Valparaíso |
+| [`don-ostion/`](don-ostion/) | Marisquería | La Serena |
+| [`el-corralero/`](el-corralero/) | Parrilla | Temuco |
 
 ## Aviso
 
