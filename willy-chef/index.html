@@ -1,0 +1,1114 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Willy Chef &mdash; Pedidos</title>
+<meta name="description" content="Propuesta de sitio de pedidos para Willy Chef Resto Bar (El Bosque, Santiago): carta completa y carrito que envía el pedido directo a su WhatsApp.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..900&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+  :root{
+    --bg:#FBF3E7;
+    --surface:#FFFFFF;
+    --surface-2:#F3E3C8;
+    --ink:#2B1810;
+    --ink-muted:#7A5F49;
+    --accent:#C33F26;
+    --accent-ink:#FFF6EA;
+    --gold:#E3A63C;
+    --gold-ink:#2B1810;
+    --line:#E6D3AE;
+    --shadow: 0 12px 30px -14px rgba(43,24,16,0.35);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1B140F;
+      --surface:#241B14;
+      --surface-2:#2E2116;
+      --ink:#F4E9D8;
+      --ink-muted:#C2A98A;
+      --accent:#E85A3B;
+      --accent-ink:#241408;
+      --gold:#F0B750;
+      --gold-ink:#241408;
+      --line:#3B2C1E;
+      --shadow: 0 12px 30px -14px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1B140F;
+    --surface:#241B14;
+    --surface-2:#2E2116;
+    --ink:#F4E9D8;
+    --ink-muted:#C2A98A;
+    --accent:#E85A3B;
+    --accent-ink:#241408;
+    --gold:#F0B750;
+    --gold-ink:#241408;
+    --line:#3B2C1E;
+    --shadow: 0 12px 30px -14px rgba(0,0,0,0.6);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Work Sans', system-ui, sans-serif;
+    line-height:1.45;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', Georgia, serif;
+    text-wrap:balance;
+    letter-spacing:-0.01em;
+  }
+  .mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+  a{color:inherit;}
+  button{font-family:inherit;}
+  ::selection{ background:var(--gold); color:var(--gold-ink); }
+  :focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    padding:1.5rem 1.25rem 1.1rem;
+    max-width:880px; margin:0 auto;
+  }
+  .brand-row{ display:flex; align-items:flex-end; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+  .brand h1{ font-size:clamp(1.8rem,5vw,2.6rem); font-weight:700; margin:0; }
+  .brand p{ margin:.2rem 0 0; color:var(--ink-muted); font-size:.95rem; }
+  .brand-mark{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:2.6rem; height:2.6rem; border-radius:50%;
+    background:var(--accent); color:var(--accent-ink);
+    font-family:'Fraunces',serif; font-weight:800; font-size:1.15rem;
+    margin-right:.65rem; flex:none;
+  }
+  .brand-title{ display:flex; align-items:center; }
+  .history-link{
+    border:1px solid var(--line); background:var(--surface); color:var(--ink-muted);
+    padding:.45rem .8rem; border-radius:999px; font-size:.82rem; cursor:pointer;
+    white-space:nowrap;
+  }
+  .history-link:hover{ color:var(--ink); border-color:var(--accent); }
+
+  .search-row{ margin-top:1.1rem; }
+  .search-row input{
+    width:100%; padding:.75rem 1rem; border-radius:12px;
+    border:1px solid var(--line); background:var(--surface); color:var(--ink);
+    font-size:.95rem;
+  }
+  .search-row input::placeholder{ color:var(--ink-muted); }
+
+  /* ---------- tab nav ---------- */
+  .tabnav-wrap{
+    position:sticky; top:0; z-index:20;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    padding-bottom:.6rem;
+  }
+  .tabnav{
+    max-width:880px; margin:0 auto; padding:.6rem 1.25rem 0;
+    display:flex; gap:.5rem; overflow-x:auto; scrollbar-width:none;
+  }
+  .tabnav::-webkit-scrollbar{ display:none; }
+  .tab{
+    flex:none; padding:.5rem .95rem; border-radius:999px;
+    border:1px solid var(--line); background:var(--surface); color:var(--ink-muted);
+    font-size:.85rem; font-weight:600; cursor:pointer; white-space:nowrap;
+    transition:background .15s, color .15s, border-color .15s;
+  }
+  .tab.active{ background:var(--accent); border-color:var(--accent); color:var(--accent-ink); }
+
+  /* ---------- content ---------- */
+  main{ max-width:880px; margin:0 auto; padding:1.5rem 1.25rem 7rem; }
+  .category{ margin-bottom:2.6rem; scroll-margin-top:5.2rem; }
+  .category > h2{
+    font-size:1.55rem; margin:0 0 1rem;
+  }
+  .group-title{
+    display:inline-block; background:var(--gold); color:var(--gold-ink);
+    font-family:'Fraunces',serif; font-weight:700; font-size:.78rem;
+    text-transform:uppercase; letter-spacing:.08em;
+    padding:.3rem .75rem; border-radius:6px;
+    margin:1.4rem 0 .7rem;
+  }
+  .group-title:first-child{ margin-top:0; }
+
+  .item-row{
+    display:flex; gap:1rem; align-items:flex-start; justify-content:space-between;
+    padding:.85rem 0; border-bottom:1px solid var(--line);
+  }
+  .item-row:last-child{ border-bottom:none; }
+  .item-main{ flex:1 1 auto; min-width:0; }
+  .item-name{ font-weight:600; font-size:.98rem; }
+  .item-desc{ color:var(--ink-muted); font-size:.83rem; margin-top:.2rem; }
+  .item-side{ flex:none; display:flex; flex-direction:column; align-items:flex-end; gap:.4rem; }
+  .item-price{ font-size:.92rem; white-space:nowrap; }
+
+  .add-btn{
+    border:1px solid var(--accent); background:transparent; color:var(--accent);
+    border-radius:999px; padding:.32rem .85rem; font-size:.8rem; font-weight:600;
+    cursor:pointer; transition:background .15s,color .15s;
+  }
+  .add-btn:hover{ background:var(--accent); color:var(--accent-ink); }
+
+  .stepper{
+    display:flex; align-items:center; gap:.55rem;
+    border:1px solid var(--accent); border-radius:999px; padding:.15rem .3rem;
+  }
+  .stepper button{
+    width:1.5rem; height:1.5rem; border-radius:50%; border:none;
+    background:var(--accent); color:var(--accent-ink); font-size:1rem; line-height:1;
+    cursor:pointer; display:flex; align-items:center; justify-content:center;
+  }
+  .stepper span{ min-width:1.1rem; text-align:center; font-weight:600; font-size:.85rem; }
+
+  .empty-msg{ color:var(--ink-muted); text-align:center; padding:3rem 1rem; font-size:.95rem; }
+
+  /* ---------- floating cart ---------- */
+  .cart-fab{
+    position:fixed; left:50%; transform:translateX(-50%); bottom:1.1rem; z-index:30;
+    background:var(--accent); color:var(--accent-ink);
+    border:none; border-radius:999px; padding:.85rem 1.4rem;
+    display:flex; align-items:center; gap:.7rem;
+    box-shadow:var(--shadow); cursor:pointer; font-weight:600; font-size:.92rem;
+    max-width:calc(100% - 2rem);
+  }
+  .cart-fab .count{
+    background:var(--accent-ink); color:var(--accent);
+    border-radius:50%; width:1.5rem; height:1.5rem; font-size:.78rem;
+    display:flex; align-items:center; justify-content:center; font-weight:700;
+  }
+
+  /* ---------- overlay / drawer / modal shared ---------- */
+  .overlay{
+    position:fixed; inset:0; background:rgba(20,12,7,.5);
+    display:flex; justify-content:flex-end; z-index:50;
+  }
+  .overlay.center{ justify-content:center; align-items:center; padding:1rem; }
+  .hidden{ display:none !important; }
+
+  .drawer{
+    width:min(420px,100%); height:100%; background:var(--surface);
+    display:flex; flex-direction:column; box-shadow:var(--shadow);
+  }
+  .drawer-head{
+    padding:1.2rem 1.3rem; border-bottom:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .drawer-head h2{ margin:0; font-size:1.3rem; }
+  .icon-btn{
+    background:none; border:none; color:var(--ink-muted); font-size:1.4rem; cursor:pointer;
+    line-height:1; padding:.2rem;
+  }
+  .icon-btn:hover{ color:var(--ink); }
+  .drawer-body{ flex:1; overflow-y:auto; padding:1rem 1.3rem; }
+  .drawer-foot{ padding:1.1rem 1.3rem 1.3rem; border-top:1px solid var(--line); }
+
+  .cart-line{
+    display:flex; justify-content:space-between; align-items:center;
+    gap:.8rem; padding:.7rem 0; border-bottom:1px solid var(--line);
+  }
+  .cart-line-name{ font-weight:600; font-size:.92rem; }
+  .cart-line-price{ color:var(--ink-muted); font-size:.8rem; margin-top:.1rem; }
+  .cart-line-remove{ background:none; border:none; color:var(--ink-muted); cursor:pointer; font-size:.78rem; text-decoration:underline; margin-top:.3rem; padding:0;}
+
+  .totals-row{ display:flex; justify-content:space-between; font-size:.92rem; padding:.2rem 0; color:var(--ink-muted); }
+  .totals-row.grand{ font-size:1.15rem; font-weight:700; color:var(--ink); padding-top:.6rem; }
+
+  .btn-primary{
+    width:100%; background:var(--accent); color:var(--accent-ink); border:none;
+    padding:.9rem 1rem; border-radius:12px; font-weight:700; font-size:.98rem; cursor:pointer;
+  }
+  .btn-primary:disabled{ opacity:.5; cursor:not-allowed; }
+  .btn-secondary{
+    width:100%; background:transparent; color:var(--ink); border:1px solid var(--line);
+    padding:.85rem 1rem; border-radius:12px; font-weight:600; font-size:.92rem; cursor:pointer;
+    margin-top:.6rem;
+  }
+  .btn-secondary:hover{ border-color:var(--accent); color:var(--accent); }
+
+  /* ---------- checkout modal ---------- */
+  .modal{
+    width:min(480px,100%); max-height:92vh; overflow-y:auto;
+    background:var(--surface); border-radius:18px; box-shadow:var(--shadow);
+    padding:1.5rem;
+  }
+  .modal h2{ margin:0 0 .3rem; font-size:1.4rem; }
+  .modal .sub{ color:var(--ink-muted); font-size:.88rem; margin-bottom:1.2rem; }
+  label{ display:block; font-size:.82rem; font-weight:600; margin:1rem 0 .35rem; }
+  label:first-of-type{ margin-top:0; }
+  input[type=text], textarea{
+    width:100%; padding:.7rem .85rem; border-radius:10px; border:1px solid var(--line);
+    background:var(--surface-2); color:var(--ink); font-size:.92rem; font-family:inherit;
+  }
+  textarea{ resize:vertical; min-height:4rem; }
+  .pill-group{ display:flex; gap:.5rem; flex-wrap:wrap; }
+  .pill-choice{
+    padding:.5rem .95rem; border-radius:999px; border:1px solid var(--line);
+    background:var(--surface-2); color:var(--ink-muted); font-size:.85rem; cursor:pointer; font-weight:600;
+  }
+  .pill-choice.active{ background:var(--accent); border-color:var(--accent); color:var(--accent-ink); }
+
+  .order-recap{
+    background:var(--surface-2); border-radius:12px; padding:.9rem 1rem; margin-top:1.2rem;
+    font-size:.85rem;
+  }
+  .order-recap .r-line{ display:flex; justify-content:space-between; padding:.15rem 0; }
+  .order-recap .r-line.muted{ color:var(--ink-muted); }
+
+  .confirm-code{
+    font-family:'IBM Plex Mono',monospace; background:var(--surface-2);
+    display:inline-block; padding:.3rem .7rem; border-radius:8px; font-weight:600;
+    letter-spacing:.03em; margin-top:.3rem;
+  }
+
+  .history-item{
+    border-bottom:1px solid var(--line); padding:.8rem 0; font-size:.85rem;
+  }
+  .history-item:last-child{ border-bottom:none; }
+  .history-item .h-top{ display:flex; justify-content:space-between; font-weight:600; }
+  .history-item .h-meta{ color:var(--ink-muted); font-size:.78rem; margin-top:.15rem; }
+
+  footer{
+    max-width:880px; margin:0 auto; padding:1rem 1.25rem 3rem;
+    color:var(--ink-muted); font-size:.78rem; text-align:center;
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .tab, .add-btn, .btn-secondary, .cart-fab{ transition-duration:.15s; }
+  }
+
+  .demo-banner{
+    background:var(--gold); color:var(--gold-ink); text-align:center;
+    font-size:.7rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+    padding:.55rem .75rem;
+  }
+  .footer-cta{
+    display:inline-block; margin-top:1rem; background:var(--accent); color:var(--accent-ink);
+    text-decoration:none; font-weight:700; font-size:.82rem; padding:.6rem 1.1rem; border-radius:999px;
+  }
+  .footer-cta:hover{ opacity:.9; }
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Propuesta de sitio para Willy Chef &middot; versi&oacute;n de demostraci&oacute;n, no es el sitio oficial</div>
+
+<div class="topbar">
+  <div class="brand-row">
+    <div class="brand-title">
+      <span class="brand-mark">WC</span>
+      <div class="brand">
+        <h1>Willy Chef</h1>
+        <p>Resto Bar &middot; cocina peruana e internacional &middot; pedidos organizados por WhatsApp</p>
+      </div>
+    </div>
+    <button class="history-link" id="historyBtn" type="button">Mis pedidos</button>
+  </div>
+  <div class="search-row">
+    <input type="text" id="searchInput" placeholder="Buscar en la carta (ej: ceviche, pisco sour, lomo saltado)&hellip;" autocomplete="off">
+  </div>
+</div>
+
+<div class="tabnav-wrap">
+  <nav class="tabnav" id="tabnav"></nav>
+</div>
+
+<main id="menuRoot"></main>
+
+<button class="cart-fab hidden" id="cartFab" type="button">
+  <span class="count" id="cartCount">0</span>
+  <span id="cartFabLabel">Ver pedido</span>
+</button>
+
+<!-- CART DRAWER -->
+<div class="overlay hidden" id="cartOverlay">
+  <div class="drawer">
+    <div class="drawer-head">
+      <h2>Tu pedido</h2>
+      <button class="icon-btn" id="closeCart" aria-label="Cerrar">&times;</button>
+    </div>
+    <div class="drawer-body" id="cartBody"></div>
+    <div class="drawer-foot" id="cartFoot"></div>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="overlay center hidden" id="checkoutOverlay">
+  <div class="modal" id="checkoutModal"></div>
+</div>
+
+<!-- HISTORY MODAL -->
+<div class="overlay center hidden" id="historyOverlay">
+  <div class="modal" id="historyModal"></div>
+</div>
+
+<footer>
+  Propuesta de sitio creada por <b>Agust&iacute;n de la Guarda</b> para Willy Chef Resto Bar.<br>
+  No es el sitio oficial. El nombre, la direcci&oacute;n y la calificaci&oacute;n provienen de su ficha p&uacute;blica de Google Maps.
+  La carta y los precios corresponden a su carta f&iacute;sica y pueden variar respecto al valor vigente en el local.
+  <br>
+  <a class="footer-cta" href="https://wa.me/56974479565?text=Hola%20Agust%C3%ADn%2C%20vi%20la%20demo%20de%20Willy%20Chef%20y%20quiero%20una%20p%C3%A1gina%20para%20mi%20local" target="_blank" rel="noopener">&iquest;Quieres una para tu local? Escr&iacute;beme</a>
+</footer>
+
+<script>
+/* ===================== DATA ===================== */
+const MENU = [
+  {id:'entradas', label:'Entradas', groups:[
+    {title:'Frías', items:[
+      {n:'Papas a la huancaína', d:'Papas al vapor bañadas en fina crema a base de ají amarillo, queso de cabra, galletas, maní y aliños peruanos.', p:5900},
+      {n:'Causa rellena de atún', d:'Papa prensada aliñada en ají amarillo y limón peruano, rellena con atún, mayonesa, palta y huevo duro.', p:9900},
+      {n:'Pulpo al olivo', d:'Láminas de pulpo aliñadas en aceite de oliva y limón, bañadas con fina salsa huancaína.', p:9900},
+      {n:'Yucas a la huancaína', d:'Yucas fritas con salsa huancaína.', p:5900},
+      {n:'Causa rellena de pollo', d:'Papa prensada aliñada en ají amarillo y limón peruano, rellena con pollo, mayonesa, palta y huevo duro.', p:9900},
+      {n:'Causa vegetariana', d:'Papa aliñada en aceite de oliva y limón con champiñones y verduras al vapor, palta y huevo duro.', p:9900},
+      {n:'Causa rellena de pulpo o camarones', d:'Papa prensada aliñada en ají amarillo y limón peruano, rellena con pulpo al olivo o camarones, palta y huevo duro.', p:10900},
+      {n:'Causa rellena de jaiba', d:'Papa prensada aliñada en ají amarillo y limón peruano, rellena con jaiba en mayonesa, palta y huevo duro.', p:11900},
+    ]},
+    {title:'Calientes', items:[
+      {n:'Brochetas de pollo', d:'Dos brochetas de pechuga a la parrilla con aliños peruanos, ensalada criolla y papas doradas.', p:9900},
+      {n:'Brochetas de carne', d:'Dos brochetas de filete de vacuno a la parrilla con aliños peruanos, ensalada criolla y papas doradas.', p:9900},
+      {n:'Brochetas mixtas', d:'Una brocheta de carne y pollo y otra de pescado y camarones.', p:10900},
+      {n:'Chicharrón de pollo', d:'Tiras de pechuga aliñadas al estilo peruano, enharinadas y fritas, con ensalada criolla y salsa tártara.', p:8900},
+      {n:'Chicharrón de pescado', d:'Bastones de pescado aliñados al estilo peruano, enharinados y fritos, con ensalada criolla y salsa tártara.', p:9500},
+      {n:'Chicharrón de calamar', d:'Anillos de calamar aliñados al estilo peruano, enharinados y fritos, con ensalada criolla y salsa tártara.', p:9500},
+      {n:'Chicharrón mixto', d:'Pescado, camarón, calamar y pulpo aliñados al estilo peruano, enharinados y fritos.', p:9900},
+      {n:'Chicharrón de camarones', d:'Camarones ecuatorianos aliñados al estilo peruano, enharinados y fritos, con ensalada criolla y salsa tártara.', p:10900},
+      {n:'Camarones a la milanesa', d:'Camarones ecuatorianos grandes enharinados y apanados en pan rallado, con ensalada criolla y salsa tártara.', p:10900},
+      {n:'Parrillada mixta para 2 personas', d:'Selección de brochetas y chicharrones para compartir.', p:16900},
+    ]},
+  ]},
+  {id:'ceviches', label:'Ceviches y Tiraditos', groups:[{items:[
+    {n:'Ceviche de pescado', d:'Cubos de tilapia marinados en limón peruano, ajo, jengibre, apio y aliños peruanos y cebolla morada. Con choclo y camote.', p:9900},
+    {n:'Ceviche mixto', d:'Tilapia y mariscos seleccionados marinados en limón peruano y aliños peruanos. Con choclo y camote.', p:10500},
+    {n:'Ceviche de reineta', d:'Cubos de reineta marinados en limón peruano y aliños peruanos. Con choclo y camote.', p:10900},
+    {n:'Ceviche de salmón', d:'Cubos de salmón marinados en limón peruano y aliños peruanos. Con choclo y camote.', p:11500},
+    {n:'Ceviche mixto de reineta', d:'Reineta y mariscos seleccionados marinados en limón peruano y aliños peruanos. Con choclo y camote.', p:10900},
+    {n:'Ceviche de ostiones', d:'13 ostiones marinados en limón peruano y aliños peruanos. Con choclo y camote glaseado.', p:12900},
+    {n:'Ceviche de ostiones a la piedra', d:'13 ostiones flambeados en vodka, con choclo peruano y cebolla morada.', p:12900},
+    {n:'Ceviche de camarones', d:'12 camarones ecuatorianos cocidos marinados en limón peruano y aliños peruanos. Con choclo y camote glaseado.', p:10500},
+    {n:'Ceviche de camarones a la piedra (caliente)', d:'Camarones ecuatorianos 36/40 flameados en vodka, ají amarillo y cebolla morada. Con choclo y camote.', p:11900},
+    {n:'Ceviche de camarón cointreau (caliente)', d:'Camarones ecuatorianos grandes flameados en licor de naranja y cebolla morada. Con choclo y camote.', p:12900},
+    {n:'Ceviche especial', d:'Reineta, camarón, calamar y ostiones marinados en limón y aliños peruanos y cebolla morada. Con choclo y camote.', p:11900},
+    {n:'Ceviche tropical de camarones', d:'Camarones ecuatorianos, mango y palta en cubos, cebolla morada, pimentón, aceite de oliva y leche de tigre.', p:12900},
+    {n:'Ceviche oriental', d:'Salmón y camarón marinados en limón, jengibre, apio y aceite de sésamo, sésamo tostado, cebolla morada y galleta de arroz.', p:12900},
+    {n:'Ceviche mexicano', d:'Pescado, tomate sin piel y palta marinados en limón con aceite de oliva, jengibre, apio y aliños peruanos. Con choclo y camote.', p:11900},
+    {n:'Ceviche ecuatoriano', d:'13 camarones cocidos marinados en limón, jugo de naranja, aceite de oliva, pimentón, tomate en cubos y cebolla morada.', p:11900},
+    {n:'Ceviche thai', d:'Reineta y camarones cocidos, pimentón, sésamo, en leche de tigre thai (limón, aliños peruanos y leche de coco).', p:12900},
+    {n:'Ceviche frito', d:'Ceviche de pescado con camarones, enharinado y apanado en panko, con choclo, camote glaseado y shot de leche de tigre.', p:14900},
+    {n:'Tiradito de pescado', d:'Tiras de filete marinadas en limón peruano, ajo, jengibre y apio.', p:9900},
+    {n:'Tiradito en crema de ají o rocoto', d:'Tiras de filete marinadas en limón, ajo, jengibre y apio, en crema de rocoto o ají amarillo.', p:10900},
+    {n:'Tiradito en dos cremas', d:'Tiras de filete marinadas en limón y aliños peruanos, en crema de rocoto y ají amarillo.', p:10900},
+    {n:'Tiradito especial', d:'Tiras de filete marinadas en limón y aliños peruanos, con camarones y láminas de pulpo.', p:10900},
+  ]}]},
+  {id:'sopas', label:'Sopas', groups:[{items:[
+    {n:'Chupe de pescado', d:'Cubos de pescado en aderezo de ají panca, leche evaporada, arroz y huevo frito a la inglesa.', p:9900},
+    {n:'Parihuela de pescado', d:'Cubos de pescado en aderezo de ají panca y crema de leche.', p:10500},
+    {n:'Dieta de pollo', d:'Sopa liviana con trozos de pechuga, arveja, zanahoria y fideos cabello de ángel.', p:8500},
+    {n:'Sopa criolla', d:'Trozos de vacuno aderezados en cebolla y ají panca, con arvejas, fideo cabello de ángel y leche evaporada.', p:9900},
+    {n:'Chupe de pescado y mariscos', d:'Pescado, camarón, calamar y pulpo en aderezo de ají panca, arroz y huevo frito a la inglesa.', p:10500},
+    {n:'Parihuela de pescado y mariscos', d:'Pescado, camarón, calamar y pulpo en aderezo de ají panca y crema de leche.', p:10500},
+    {n:'Consomé de pescado y mariscos', d:'Sopa liviana con vino blanco y cebolla morada en pluma.', p:10500},
+    {n:'Chupe de camarones', d:'Camarones 36/40 en aderezo de ají panca, leche evaporada, arroz y huevo frito a la inglesa.', p:10500},
+  ]}]},
+  {id:'ensaladas', label:'Ensaladas', groups:[{items:[
+    {n:'Ensalada de palmito', p:3000},
+    {n:'Ensalada de lechuga', p:3000},
+    {n:'Ensalada de tomate', p:3000},
+    {n:'Ensalada de palta', p:3500},
+    {n:'Ensalada mixta grande', d:'Lechuga, tomate, palta, zanahoria rayada, cebolla morada y palmitos.', p:4900},
+    {n:'Ensalada palmito, palta y espárrago', p:6900},
+    {n:'Salpicón de pollo', d:'Pechuga al vapor, lechuga, palta y tomate en cubos, aliñados en aceite de oliva y aliños peruanos.', p:7900},
+    {n:'Ensalada César', d:'Lechugas surtidas, crutones, queso parmesano rallado y pechuga al vapor, en vinagreta de anchoas.', p:7900},
+    {n:'Ensalada de pulpo', d:'Láminas de pulpo, papas al vapor en cubos, palta y pimentón, aliñado en aceite de oliva y mayonesa.', p:10500},
+    {n:'Salpicón de camarones', d:'Camarones ecuatorianos al vapor, lechuga, palta y tomate en cubos aliñados en aceite de oliva.', p:10500},
+    {n:'Ensalada especial', d:'Lechugas surtidas, tomate, palta, champiñones y camarones ecuatorianos grandes.', p:10500},
+    {n:'Ensalada de mariscos', d:'Camarón, calamar, pulpo, champiñones, apio y aliños peruanos, limón de pica.', p:10500},
+  ]}]},
+  {id:'carnes', label:'Carnes y Pollos', groups:[{items:[
+    {n:'Arroz chaufa de pollo', d:'Cubos de pechuga salteados al jengibre y salsa de soya, arroz, tortilla de huevo y cebollín.', p:10500},
+    {n:'Ají de gallina', d:'Finas tiras de pechuga al vapor en salsa a base de ají amarillo, leche, galletas de soda, crema de leche y nuez moscada.', p:10500},
+    {n:'Pechuga de pollo a la plancha', d:'Con arroz, ensalada o papas fritas.', p:9500},
+    {n:'Milanesa de pollo con papas fritas', d:'Pechuga aliñada al estilo peruano, apanada en pan rallado y frita.', p:10900},
+    {n:'Pollo saltado', d:'Bastones de pechuga salteados en cebolla morada, pimentón, zapallo italiano y tomate, flameados al vino blanco, vinagre y salsa de soya.', p:10900},
+    {n:'Pollo en salsa de champiñones', d:'Pechuga a la plancha bañada en salsa de champiñones flameados al coñac. Con arroz blanco.', p:10900},
+    {n:'Lomo saltado', d:'Bastones de lomo salteados en cebolla morada, pimentón y tomate, flameados al vino blanco, vinagre y salsa de soya, con papas fritas.', p:10900},
+    {n:'Filete saltado', d:'Bastones de filete salteados en cebolla morada, pimentón y tomate, flameados al vino blanco, vinagre y salsa de soya, con papas fritas.', p:11900},
+    {n:'Pollo al cazador', d:'Pechuga a la plancha bañada en salsa de champiñones flameados al coñac, panceta de tocino, aceitunas verdes y salsa madera. Con arroz blanco.', p:11900},
+    {n:'Tacu tacu de lomo', d:'Porotos aliñados y arroz dorados en aceite de oliva, acompañados del clásico lomo saltado.', p:11900},
+    {n:'Seco de vacuno', d:'Vacuno macerado y cocido en chicha de jora, vino blanco, cerveza y aliños peruanos. Con porotos y arroz blanco.', p:10900},
+    {n:'Lomo mignón', d:'Medallón a la plancha bañado en salsa madera (demi-glace). Con arroz blanco.', p:10900},
+    {n:'Filete mignón', d:'Medallón a la plancha bañado en salsa madera (demi-glace). Con arroz blanco.', p:12900},
+    {n:'Lomo en salsa de mariscos', d:'Medallón a la plancha bañado en salsa de coral de camarones, arvejas y mariscos surtidos. Con arroz blanco.', p:10900},
+    {n:'Filete en salsa de mariscos', d:'Medallón a la plancha bañado en salsa de coral de camarones, arvejas y mariscos surtidos. Con arroz blanco.', p:12900},
+    {n:'Lomo mar y tierra', d:'Medallón a la plancha bañado en salsa de coral con camarones ecuatorianos 26/30.', p:10900},
+    {n:'Filete mar y tierra', d:'Medallón a la plancha bañado en salsa de coral con camarones ecuatorianos 26/30.', p:12900},
+    {n:'Lomo 4 quesos', d:'Dos medallones a la plancha en fina salsa de queso roquefort, parmesano y mozzarella, con espagueti salteado en aceite de oliva y ajo.', p:10900},
+    {n:'Filete 4 quesos', d:'Dos medallones a la plancha en fina salsa de queso roquefort, parmesano y mozzarella, con espagueti salteado en aceite de oliva y ajo.', p:12900},
+    {n:'Lomo pimienta', d:'Medallón a la plancha bañado en fina salsa de pimienta verde. Con arroz blanco.', p:10900},
+    {n:'Filete pimienta', d:'Medallón a la plancha bañado en fina salsa de pimienta verde. Con arroz blanco.', p:12900},
+    {n:'Lomo choclo y tocino', d:'Medallón a la plancha bañado en salsa de choclo con tocino en salsa blanca. Con arroz blanco.', p:10900},
+    {n:'Filete choclo y tocino', d:'Medallón a la plancha bañado en salsa de choclo con tocino en salsa blanca. Con arroz blanco.', p:12900},
+    {n:'Filete parís', d:'Medallón envuelto en tocino, bañado en fina salsa de mostaza. Con panaché de verduras.', p:13900},
+  ]}]},
+  {id:'pescados', label:'Pescados', groups:[{items:[
+    {n:'Tilapia a la plancha', d:'Filete 220g a la plancha, con arroz blanco.', p:8900},
+    {n:'Reineta a la plancha', d:'Filete 220g a la plancha, con arroz blanco.', p:9900},
+    {n:'Atún o salmón a la plancha', d:'Filete 220g a la plancha, con arroz blanco.', p:10900},
+    {n:'Tilapia frita', d:'Filete 220g enharinado y frito, con arroz, ensalada o papas fritas.', p:8900},
+    {n:'Reineta frita', d:'Filete 220g enharinado y frito, con arroz, ensalada o papas fritas.', p:9900},
+    {n:'Atún o salmón frito', d:'Filete 220g enharinado y frito, con arroz, ensalada o papas fritas.', p:10900},
+    {n:'Tilapia a la chorrillana', d:'A la plancha con encebollado, tomate y pimentón, flameado con vino blanco, vinagre y ají panca.', p:10500},
+    {n:'Reineta a la chorrillana', d:'A la plancha con encebollado, tomate y pimentón, flameado con vino blanco, vinagre y ají panca.', p:10900},
+    {n:'Atún o salmón a la chorrillana', d:'A la plancha con encebollado, tomate y pimentón, flameado con vino blanco, vinagre y ají panca.', p:11900},
+    {n:'Tilapia a lo macho', d:'A la plancha bañado en salsa de coral de camarones y mariscos surtidos. Con arroz blanco.', p:10900},
+    {n:'Reineta a lo macho', d:'A la plancha bañado en salsa de coral de camarones y mariscos surtidos. Con arroz blanco.', p:11900},
+    {n:'Atún o salmón a lo macho', d:'A la plancha bañado en salsa de coral de camarones y mariscos surtidos. Con arroz blanco.', p:12900},
+    {n:'Tilapia a la normanda', d:'A la plancha en salsa de champiñones con láminas de pulpo y camarón, manzana verde flameada en licor de anís.', p:10900},
+    {n:'Reineta a la normanda', d:'A la plancha en salsa de champiñones con láminas de pulpo y camarón, manzana verde flameada en licor de anís.', p:11900},
+    {n:'Atún o salmón a la normanda', d:'A la plancha en salsa de champiñones con láminas de pulpo y camarón, manzana verde flameada en licor de anís.', p:12900},
+    {n:'Tilapia pimienta verde', d:'A la plancha en fina salsa de pimienta verde con camarón y pulpo. Con arroz blanco.', p:10900},
+    {n:'Reineta pimienta verde', d:'A la plancha en fina salsa de pimienta verde con camarón y pulpo. Con arroz blanco.', p:11900},
+    {n:'Atún o salmón pimienta verde', d:'A la plancha en fina salsa de pimienta verde con camarón y pulpo. Con arroz blanco.', p:12900},
+    {n:'Tilapia salsa de mango', d:'A la plancha con fina salsa de mango y camarones ecuatorianos al estilo peruano.', p:10900},
+    {n:'Reineta salsa de mango', d:'A la plancha con fina salsa de mango y camarones ecuatorianos al estilo peruano.', p:11900},
+    {n:'Atún o salmón salsa de mango', d:'A la plancha con fina salsa de mango y camarones ecuatorianos al estilo peruano.', p:12900},
+    {n:'Tilapia en maracuyá', d:'A la plancha en fina salsa de estragón y pulpa de maracuyá. Con arroz blanco.', p:10900},
+    {n:'Reineta en maracuyá', d:'A la plancha en fina salsa de estragón y pulpa de maracuyá. Con arroz blanco.', p:11900},
+    {n:'Atún o salmón en maracuyá', d:'A la plancha en fina salsa de estragón y pulpa de maracuyá. Con arroz blanco.', p:12900},
+  ]}]},
+  {id:'mariscos', label:'Mariscos', groups:[{items:[
+    {n:'Arroz chaufa de mariscos', d:'Mariscos surtidos salteados al jengibre y salsa de soya, arroz, tortilla de huevo y cebollín.', p:10900},
+    {n:'Arroz con mariscos', d:'Mariscos surtidos flambeados en vino blanco, ají panca y aliños peruanos, envueltos en arroz. Con salsa criolla.', p:10900},
+    {n:'Arroz con camarones', d:'Camarones ecuatorianos grandes flambeados en vino blanco, ají panca y aliños peruanos, envueltos en arroz. Con salsa criolla.', p:10900},
+    {n:'Arroz risoto de camarones', d:'Camarones flambeados en mantequilla, coñac y azafrán, con crema de leche, queso parmesano y arroz.', p:10900},
+    {n:'Picante de camarones', d:'Camarones grandes en crema de coral de camarones, queso parmesano y pan rallado. Con arroz blanco.', p:11500},
+    {n:'Camarones tumbesinos', d:'Camarones grandes salteados en cebolla, tomate y pimentón. Con arroz y papas fritas.', p:11900},
+    {n:'Tacutacu de mariscos', d:'Arroz y frejoles envueltos y dorados en aceite de oliva, bañados con mariscos en salsa de coral de camarones.', p:11900},
+  ]}]},
+  {id:'pastas', label:'Pastas', groups:[{items:[
+    {n:'Espagueti saltado de pollo', d:'Trozos de pechuga flambeados al vino blanco, vinagre, cebolla morada, pimentón y salsa de soya.', p:9500},
+    {n:'Espagueti en salsa blanca con champiñones', d:'Champiñones flambeados al coñac, nuez moscada y crema de leche. Con arroz blanco.', p:9500},
+    {n:'Espagueti mediterráneo', d:'Cebolla morada, champiñones, brócoli, pimentón, zapallo italiano y aceitunas verdes salteados en mantequilla y flambeados al coñac.', p:8500},
+    {n:'Espagueti saltado de carne', d:'Trozos de vacuno flambeados al vino blanco, vinagre, cebolla morada, pimentón y salsa de soya.', p:9900},
+    {n:'Espagueti a la huancaína', d:'Crema huancaína con queso de cabra, ají amarillo y aliños peruanos.', p:6900},
+    {n:'Espagueti en salsa de mariscos', d:'Envuelto en camarones 36/40, calamar y pulpo, en salsa de coral, queso parmesano y crema de leche.', p:10500},
+    {n:'Espagueti saltado de mariscos', d:'Envuelto en camarón, calamar y pulpo, flambeado al vino blanco, vinagre, cebolla morada, pimentón y salsa de soya.', p:10500},
+    {n:'Espagueti a la huancaína con milanesa', d:'Milanesa de pechuga sobre espagueti a la crema huancaína, queso de cabra y aliños peruanos.', p:10900},
+  ]}]},
+  {id:'fastfood', label:'Fast Food', groups:[
+    {title:'Fajitas y Completos', items:[
+      {n:'Fajita vegetariana', p:5000},
+      {n:'Fajita de pollo', p:5500},
+      {n:'Fajita broaster', p:6500},
+      {n:'Aritos de cebolla', p:3500},
+      {n:'Aritos con papas', p:4900},
+      {n:'Completo', p:1800},
+      {n:'Italiano', p:1900},
+      {n:'As italiano', p:3500},
+      {n:'Pop corn solo', p:3500},
+      {n:'Pop corn con papas', p:4500},
+      {n:'4 empanaditas', p:2000},
+      {n:'4 empanaditas con papa', p:2900},
+      {n:'Leche de tigre', p:4500},
+      {n:'Mini ceviche', p:4500},
+      {n:'Shot de leche de tigre', p:2500},
+    ]},
+    {title:'Salchipapas y Broaster', items:[
+      {n:'Salchipapa', p:3000},
+      {n:'Salchipapa especial', p:3900},
+      {n:'Salchibroaster', p:4900},
+      {n:'Pollo broaster solo', p:2500},
+      {n:'Pechuga broaster', p:4900},
+      {n:'Willychef broaster', p:4900},
+      {n:'Pollo broaster con papas', p:4500},
+      {n:'Pollo broaster con chaufa', p:5000},
+      {n:'Mostrito', p:6900},
+      {n:'Menú broaster', p:6500},
+      {n:'Pop corn dulce', p:4000},
+      {n:'Pop corn con papas fritas', p:4500},
+    ]},
+    {title:'Chorrillanas', items:[
+      {n:'Chorrillana chica', p:7900},
+      {n:'Chorrillana grande', p:15000},
+      {n:'Chorrillana familiar', p:20000},
+    ]},
+    {title:'Churrascos', items:[
+      {n:'Churrasco simple', p:3900},
+      {n:'Churrasco completo', p:4500},
+      {n:'Churrasco italiano', p:4500},
+      {n:'Churrasco barros luco', p:4900},
+      {n:'Churrasco especial', p:5900},
+    ]},
+    {title:'Hamburguesas', items:[
+      {n:'Hamburguesa simple', p:3900},
+      {n:'Italian burger', p:4500},
+      {n:'Cheese burger', p:4500},
+      {n:'Double burger', p:5900},
+      {n:'Willychef burger', p:5500},
+    ]},
+    {title:'Mechadas', items:[
+      {n:'Mechada simple', p:3900},
+      {n:'Mechada italiano', p:4500},
+      {n:'Mechada barros luco', p:4500},
+      {n:'Mechada willy chef', p:5900},
+    ]},
+    {title:'Papas Fritas', items:[
+      {n:'Papas fritas chica', p:2000},
+      {n:'Papas fritas mediana', p:3000},
+      {n:'Papas fritas grande', p:5000},
+    ]},
+  ]},
+  {id:'postres', label:'Postres y Café', groups:[{items:[
+    {n:'Crema volteada', p:3900},
+    {n:'Torta tres leches', p:3500},
+    {n:'Suspiro limeño', p:3500},
+    {n:'Torta maracuyá', p:3500},
+    {n:'Brownie de chocolate', p:3500},
+    {n:'Nescafé', p:1000},
+    {n:'Agua de hierbas', p:1000},
+    {n:'Mate de coca', p:1500},
+    {n:'Café en grano italiano', p:2900},
+    {n:'Capuchino', p:3900},
+    {n:'Mocachino', p:4500},
+  ]}]},
+  {id:'bebidas', label:'Bebidas sin Alcohol', groups:[
+    {title:'Jugos Tropicales', items:[
+      {n:'Jugo de chicha morada', p:2900},{n:'Jugo de mango', p:2900},{n:'Jugo de frutilla', p:2900},
+      {n:'Jugo de piña', p:2900},{n:'Jugo de frambuesa', p:2900},{n:'Jugo de guayaba', p:2900},
+      {n:'Jugo de tamarindo', p:2900},{n:'Jugo de tomate de árbol', p:2900},{n:'Jugo de guanábana', p:2900},
+      {n:'Jugo de lulo', p:2900},{n:'Jugo de papaya', p:2900},{n:'Jugo de mandarina', p:2900},
+      {n:'Jugo de maracuyá', p:3500},{n:'Jugo de lúcuma', p:3500},{n:'Jugo maracumango', p:3500},
+      {n:'Jugo mix (2 o más sabores)', p:3500},{n:'Jugo de lulo con leche', p:3500},
+      {n:'Jugo de mango con leche', p:3500},{n:'Jugo de frutilla con leche', p:3500},
+      {n:'Jugo de lúcuma con leche', p:3900},{n:'Jugo de piña con leche de coco', p:3900},
+      {n:'Jugo de mango con leche de coco', p:3900},
+    ]},
+    {title:'Limonadas', items:[
+      {n:'Mimonada de chicha morada', d:'Maíz morado hervido, canela, clavo de olor y limón.', p:2900},
+      {n:'Limonada clásica', p:2900},
+      {n:'Limonada frozen', d:'Limón, jarabe y mucho hielo.', p:3200},
+      {n:'Limonada de maracuyá', p:3500},
+      {n:'Limonada menta frutilla', p:3500},
+      {n:'Limonada menta frambuesa', p:3500},
+      {n:'Limonada de mango', p:3500},
+      {n:'Limonada de menta', p:3500},
+      {n:'Limonada de menta y jengibre', p:3500},
+      {n:'Limonada de menta, jengibre y frutilla', p:3500},
+      {n:'Limonada de piña y jengibre', p:3500},
+      {n:'Limonada brasileña', d:'Limón, leche condensada y jarabe de goma.', p:3500},
+      {n:'Limonada de café', d:'Café, limón y leche condensada.', p:3500},
+      {n:'Limonada zanahoria naranja', p:3500},
+      {n:'Limonada 3 leches', p:3900},
+      {n:'Limonada alemana', d:'Limón, mango y leche condensada.', p:3500},
+      {n:'Limonada suiza', d:'Limón, avena, leche condensada y jarabe de goma.', p:3900},
+      {n:'Limonada energética', d:'Limón, zanahoria, betarraga, naranja, plátano, leche condensada y vainilla.', p:4500},
+      {n:'Árbol de limonadas (1 a 8 tipos)', p:19900},
+      {n:'Árbol de limonadas (2 a 12 tipos)', p:29900},
+    ]},
+    {title:'Bebidas y Aguas', items:[
+      {n:'Bebida express', p:1000},{n:'Agua mineral', p:1600},{n:'Bebida en lata', p:1800},
+      {n:'Néctar chico', p:1800},{n:'Inca Kola chica', p:2500},{n:'Guaraná chica', p:2500},
+      {n:'Bebida 1.2L', p:3500},{n:'Néctar 1.2L', p:3500},{n:'Inca Kola 1.2L', p:3900},
+      {n:'Bebida 1.5L', p:3900},{n:'Energética Monster', p:3500},{n:'Energética Red Bull', p:3500},
+    ]},
+  ]},
+  {id:'cervezas', label:'Cervezas', groups:[{items:[
+    {n:'Lata chica', p:1800},
+    {n:'Corona 330ml', p:2500},{n:'Heineken 330ml', p:2500},{n:'Sol 330ml', p:2500},
+    {n:'Royal 330ml', p:2500},{n:'Cusqueña 330ml', p:2500},{n:'Cusqueña negra 330ml', p:2900},
+    {n:'Miller 355ml', p:2900},{n:'Michelada o chelada', p:3500},
+    {n:'Austral Patagonia lata 470ml', p:3600},{n:'Kunstmann Miel 330ml', p:3600},
+    {n:'Austral lager 330ml', p:3600},{n:'Austral Calafate 330ml', p:3600},
+    {n:'Kunstmann Torovayo', p:3600},{n:'Sol 650ml', p:3900},{n:'Royal 650ml', p:3900},
+    {n:'Heineken 650ml', p:3900},{n:'Corona 620ml', p:3900},{n:'Michelada Clamato', p:3900},
+    {n:'Mojito Corona', p:6900},{n:'Michelada con ceviche de camarones', p:8900},
+  ]}]},
+  {id:'vinos', label:'Vinos', groups:[
+    {title:'Carmenère', items:[
+      {n:'Carmen Clásico', p:6500},{n:'120 Tres Medallas', p:6500},
+      {n:'Misiones de Rengo Varietal', p:6900},{n:'Emiliana Reserva', p:9900},
+      {n:'Cono Sur Bicicletas', p:9900},{n:'Misiones de Rengo Reserva', p:10900},
+      {n:'Casillero del Diablo', p:10900},
+    ]},
+    {title:'Sauvignon Blanc', items:[
+      {n:'Carmen Rosé', p:6500},{n:'120 Tres Medallas Chardonnay', p:6500},
+      {n:'120 Tres Medallas', p:6500},{n:'Carmen Clásico', p:6500},
+      {n:'Misiones de Rengo Varietal', p:6900},{n:'120 Tres Medallas Late Harvest', p:8900},
+      {n:'Casillero del Diablo', p:10900},
+    ]},
+    {title:'Cabernet Sauvignon', items:[
+      {n:'Gato Premium', p:4900},{n:'Carmen Clásico', p:6500},{n:'Pinot Undurraga', p:6900},
+      {n:'120 Tres Medallas', p:6500},{n:'Misiones de Rengo Varietal', p:6900},
+      {n:'Misiones de Rengo Reserva', p:9900},{n:'Emiliana Reserva', p:9900},
+      {n:'Cono Sur Bicicletas', p:9900},{n:'Casillero del Diablo', p:10900},
+      {n:'Casillero del Diablo Reserva Privada', p:15900},
+      {n:'Misiones de Rengo Gran Reserva Cuvée', p:15900},
+      {n:'Misiones de Rengo Gran Reserva Black', p:15900},
+      {n:'Marqués de Casa Concha', p:22900},
+    ]},
+    {title:'Merlot', items:[
+      {n:'Carmen Clásico', p:6500},{n:'120 Tres Medallas', p:6500},
+      {n:'Misiones de Rengo Varietal', p:6900},{n:'Emiliana Reserva', p:9900},
+      {n:'Cono Sur Bicicletas', p:9900},{n:'Misiones de Rengo Reserva', p:10900},
+      {n:'Casillero del Diablo', p:10900},
+    ]},
+    {title:'Ensambles y Más', items:[
+      {n:'Misiones de Rengo Reserva Cabernet Sauvignon-Syrah', p:10900},
+    ]},
+  ]},
+  {id:'tragos', label:'Cócteles y Tragos', groups:[
+    {title:'Cócteles de Autor', items:[
+      {n:'Crazy Sour', d:'Macerado especial, limón, goma y angostura.', p:6900},
+      {n:'Ceviche Sour', d:'Pisco macerado de ají limo, limón, cilantro y goma.', p:6900},
+      {n:'Crazy Chilcano', d:'Macerado especial, limón, goma, angostura y ginger ale.', p:6900},
+      {n:'Mariquiña', d:'Pulpa de maracuyá, cachaça, amaretto, limón machacado y goma.', p:6900},
+      {n:'Hot Orgasm', d:'Café caliente, crema irlandesa, kalúa, vodka, amaretto y licor de avellanas.', p:7900},
+      {n:'Tinto di Rous', d:'Licor de frambuesa di amore, vino tinto, goma y sprite.', p:7900},
+      {n:'Bendito Wily', d:'Vino tinto, licor de frambuesa di amore, licor de naranja, goma y jugo cítrico.', p:7900},
+      {n:'Invierno sin Culpa', d:'Café caliente, brandy, bourbon y limón, flambeado.', p:7900},
+      {n:'Maldito Willy', d:'Amaretto Disaronno, licor de frambuesa, vodka, gin, ron, tequila, licor de naranja, limón y jugo cítrico.', p:8900},
+      {n:'Árbol de mojitos sabores (12 unidades)', d:'2 clásico, 2 maracuyá, 2 frambuesa, 2 mango, 2 mora y 2 blue.', p:49900},
+      {n:'Árbol de mojitos clásicos', p:44900},
+      {n:'Árbol de cócteles vuelta al mundo', d:'Cócteles clásicos de 11 países del mundo.', p:49900},
+    ]},
+    {title:'Cócteles Clásicos', items:[
+      {n:'Espresso Tonic', d:'Amaretto, café expreso y tónica.', p:5900},
+      {n:'Bloody Mary', d:'Vodka, limón, jugo de tomate, salsa inglesa, tabasco y pimienta.', p:5900},
+      {n:'Ramazzotti Spritz', d:'Ramazzotti, espumante, soda y naranja.', p:5900},
+      {n:'Piña Colada', d:'Ron blanco, jugo de piña, crema de coco y leche condensada.', p:4900},
+      {n:'Airedale', d:'Aperol, bourbon, goma y naranja.', p:6900},
+      {n:'Caipirinha sabores', p:6900},
+      {n:'Caipiroska sabores', d:'Vodka, limón, goma y pulpa de fruta.', p:6900},
+      {n:'Jagermojito', d:'Jägermeister, hojas de menta, limón, goma y soda.', p:6900},
+      {n:'Long Island Ice Tea', d:'Vodka, gin, ron, tequila, licor de naranja, limón y bebida cola.', p:6900},
+      {n:'Cheeky Negroni', d:'Gin, vermouth blanco, limoncello y naranja.', p:7900},
+      {n:'Sweetheart', d:'Aperol, vodka, limoncello, jugo de arándanos y limón.', p:7900},
+      {n:'Fresh Martini', d:'Vodka, licor de frambuesa y limón.', p:5900},
+      {n:'Blue Kamikaze', d:'Vodka, blue curaçao y limón.', p:4900},
+      {n:'Margarita', d:'Tequila, licor de naranja y limón.', p:4900},
+      {n:'Negroni', d:'Gin, campari y vermouth.', p:4900},
+      {n:'Old Fashioned', d:'Bourbon, bíter, goma y hielo.', p:4900},
+      {n:'Queen Mother', d:'Gin, vermut, aperol y ron.', p:4900},
+      {n:'Chilcano de fruta', d:'Pisco, pulpa de fruta, limón, amargo de angostura y ginger ale.', p:5900},
+      {n:'Aperol Spritz', d:'Aperol, espumante, soda y naranja.', p:5900},
+      {n:'Tropical Gin', d:'Gin, limón, pulpa de maracuyá y energética.', p:5900},
+      {n:'Caipiriña', d:'Cachaça, limón y goma.', p:5900},
+      {n:'Mojito de sabores', d:'Ron blanco, pulpa de fruta, goma, limón y menta.', p:5900},
+      {n:'Mojito Blue', d:'Ron blanco, blue curaçao, limón, menta y goma.', p:5900},
+      {n:'Americano', d:'Campari, vermouth dulce y soda.', p:4500},
+      {n:'Tom Collins', d:'Gin, limón, goma y soda.', p:4500},
+      {n:'Martini', d:'Vermouth, gin y aceitunas verdes.', p:4500},
+      {n:'Chilcano de pisco tradicional', d:'Pisco peruano, limón, angostura y ginger ale.', p:4900},
+      {n:'Gin Fizz', d:'Gin, goma, limón y soda.', p:4900},
+      {n:'Vodka Martini', d:'Vodka, vermouth seco y aceitunas verdes.', p:4900},
+      {n:'Daiquiri sabores', d:'Ron blanco, limón y fruta a elección.', p:4900},
+      {n:'Caipiroska', d:'Vodka, limón y goma.', p:4900},
+      {n:'Mojito clásico', d:'Ron blanco, limón, goma y hojas de menta.', p:4900},
+      {n:'Kamikaze', d:'Vodka, licor de naranja y limón.', p:4900},
+    ]},
+    {title:'Sour', items:[
+      {n:'Pisco sour peruano tradicional', p:4900},
+      {n:'Mango sour', p:5900},{n:'Maracuyá sour', p:5900},{n:'Menta sour', p:5900},
+      {n:'Albahaca sour', p:5900},{n:'Macerado sour', p:5900},{n:'Fernet sour', p:5900},
+      {n:'Ramazzotti sour', p:5900},{n:'Chardonnay sour', p:5900},{n:'Amaretto sour', p:5900},
+      {n:'Whisky sour', p:5900},
+      {n:'Pisco sour Catedral', p:8500},{n:'Macerado sour Catedral', p:9500},
+      {n:'Pisco sour Vaticano 500ml', p:11900},{n:'Pisco sour Basílica 1L', p:19000},
+      {n:'Portón sour', p:10900},{n:'Portón sour Catedral', p:19900},
+    ]},
+    {title:'Limonadas con Alcohol', items:[
+      {n:'Shandy', d:'Limón, cerveza, sprite y hielo.', p:3500},
+      {n:'Limonada eléctrica', d:'Limón, vodka, licor de naranja blue, jarabe de goma y sprite.', p:3900},
+      {n:'Limonada mojito', d:'Limón, hojas de menta, jarabe de goma y ron blanco.', p:3900},
+      {n:'Limonada fernet', d:'Limón, jarabe de goma, fernet y agua con gas.', p:3900},
+      {n:'Limonada cielo rojo', d:'Limón, frutilla, leche evaporada, leche condensada, granadina y ron blanco.', p:4500},
+      {n:'Blue limonade', d:'Limón, hojas de menta, licor de naranja blue, jarabe de goma y ron blanco.', p:4500},
+    ]},
+    {title:'Cortos', items:[
+      {n:'Ron Havana Club añejo especial', p:2900},
+      {n:'Shot de tequila', p:2900},
+      {n:'Pisco Alto del Carmen', p:2900},
+      {n:'Pisco Mistral 35° o 40°', p:3500},
+      {n:'Whisky Johnnie Walker Red Label', p:3900},
+      {n:'Pisco peruano Tabernero puro', p:4500},
+      {n:'Pisco peruano 4 Gallos puro', p:4500},
+      {n:'Whisky Jack Daniel N°7', p:6500},
+      {n:'Whisky Jack Daniel Apple', p:6500},
+      {n:'Whisky Jack Daniel Honey', p:6500},
+      {n:'Whisky Johnnie Walker Black Label', p:6500},
+      {n:'Whisky Chivas 12 años', p:7500},
+      {n:'Pisco peruano 4 Gallos mosto verde', p:9900},
+      {n:'Pisco peruano Tabernero mosto verde', p:4500},
+      {n:'Pisco Portón mosto verde', p:9900},
+    ]},
+    {title:'Bajativos y Digestivos', items:[
+      {n:'Araucano', p:2900},
+      {n:'La Cucaracha', d:'Kalúa, tequila y Bacardí dorado.', p:3900},
+      {n:'Jägermeister', p:4900},
+      {n:'B-52', d:'Kalúa, Baileys y licor de naranja.', p:4900},
+      {n:'Baileys', p:5900},{n:'Amaretto Disaronno', p:5900},
+      {n:'Ruso Blanco', d:'Vodka, kalúa, leche evaporada y hielo.', p:5900},
+      {n:'Ruso Negro', d:'Vodka, kalúa y hielo.', p:5900},
+      {n:'Orgasmo', d:'Baileys, amaretto y kalúa.', p:5900},
+      {n:'Orgasmo múltiple', d:'Baileys, vodka, amaretto, kalúa y Frangelico.', p:6900},
+    ]},
+  ]},
+];
+
+/* ===================== STATE ===================== */
+const CART_KEY = 'wc_cart_v1';
+const HIST_KEY = 'wc_orders_v1';
+// WhatsApp público de Willy Chef (El Bosque, Santiago), según su ficha de Google Maps.
+const WHATSAPP_NUMBER = '56987514928';
+
+let cart = loadCart();
+function loadCart(){ try{ return JSON.parse(localStorage.getItem(CART_KEY)) || {}; }catch(e){ return {}; } }
+function saveCart(){ try{ localStorage.setItem(CART_KEY, JSON.stringify(cart)); }catch(e){} }
+function loadHistory(){ try{ return JSON.parse(localStorage.getItem(HIST_KEY)) || []; }catch(e){ return []; } }
+function saveHistoryEntry(entry){
+  const h = loadHistory(); h.unshift(entry);
+  try{ localStorage.setItem(HIST_KEY, JSON.stringify(h.slice(0,20))); }catch(e){}
+}
+
+function clp(n){ return '$' + n.toLocaleString('es-CL'); }
+function keyFor(catId,name){ return catId + '::' + name; }
+
+/* ===================== RENDER MENU ===================== */
+const root = document.getElementById('menuRoot');
+const tabnav = document.getElementById('tabnav');
+
+MENU.forEach(cat=>{
+  const tab = document.createElement('button');
+  tab.className='tab'; tab.type='button'; tab.textContent=cat.label; tab.dataset.cat=cat.id;
+  tab.addEventListener('click', ()=>{
+    document.getElementById('sec-'+cat.id).scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  tabnav.appendChild(tab);
+
+  const section = document.createElement('section');
+  section.className='category'; section.id='sec-'+cat.id;
+  const h2 = document.createElement('h2'); h2.textContent = cat.label;
+  section.appendChild(h2);
+
+  cat.groups.forEach(group=>{
+    if(group.title){
+      const gt = document.createElement('div'); gt.className='group-title'; gt.textContent=group.title;
+      section.appendChild(gt);
+    }
+    group.items.forEach(item=>{
+      section.appendChild(renderItemRow(cat.id, item));
+    });
+  });
+  root.appendChild(section);
+});
+
+function renderItemRow(catId, item){
+  const row = document.createElement('div');
+  row.className='item-row';
+  row.dataset.name = item.n.toLowerCase();
+  const k = keyFor(catId,item.n);
+
+  const main = document.createElement('div'); main.className='item-main';
+  const nm = document.createElement('div'); nm.className='item-name'; nm.textContent=item.n;
+  main.appendChild(nm);
+  if(item.d){ const ds=document.createElement('div'); ds.className='item-desc'; ds.textContent=item.d; main.appendChild(ds); }
+
+  const side = document.createElement('div'); side.className='item-side';
+  const pr = document.createElement('div'); pr.className='item-price mono'; pr.textContent=clp(item.p);
+  side.appendChild(pr);
+
+  const ctrl = document.createElement('div');
+  ctrl.dataset.ctrl = k;
+  side.appendChild(ctrl);
+  renderCtrl(ctrl, catId, item);
+
+  row.appendChild(main); row.appendChild(side);
+  return row;
+}
+
+function renderCtrl(el, catId, item){
+  const k = keyFor(catId,item.n);
+  const qty = cart[k] ? cart[k].qty : 0;
+  el.innerHTML='';
+  if(qty<=0){
+    const btn=document.createElement('button');
+    btn.className='add-btn'; btn.type='button'; btn.textContent='Agregar';
+    btn.addEventListener('click', ()=>changeQty(catId,item,1));
+    el.appendChild(btn);
+  }else{
+    const wrap=document.createElement('div'); wrap.className='stepper';
+    const minus=document.createElement('button'); minus.type='button'; minus.textContent='−';
+    minus.setAttribute('aria-label','Quitar uno de '+item.n);
+    minus.addEventListener('click', ()=>changeQty(catId,item,-1));
+    const span=document.createElement('span'); span.textContent=qty;
+    const plus=document.createElement('button'); plus.type='button'; plus.textContent='+';
+    plus.setAttribute('aria-label','Agregar uno de '+item.n);
+    plus.addEventListener('click', ()=>changeQty(catId,item,1));
+    wrap.appendChild(minus); wrap.appendChild(span); wrap.appendChild(plus);
+    el.appendChild(wrap);
+  }
+}
+
+function changeQty(catId,item,delta){
+  const k = keyFor(catId,item.n);
+  const cur = cart[k] ? cart[k].qty : 0;
+  const next = Math.max(0, cur+delta);
+  if(next===0){ delete cart[k]; }
+  else{ cart[k] = {name:item.n, price:item.p, cat:catId, qty:next}; }
+  saveCart();
+  const ctrlEl = document.querySelector('[data-ctrl="'+CSS.escape(k)+'"]');
+  if(ctrlEl) renderCtrl(ctrlEl, catId, item);
+  updateFab();
+}
+
+/* ===================== SEARCH ===================== */
+document.getElementById('searchInput').addEventListener('input', (e)=>{
+  const q = e.target.value.trim().toLowerCase();
+  document.querySelectorAll('.item-row').forEach(row=>{
+    row.style.display = (!q || row.dataset.name.includes(q)) ? '' : 'none';
+  });
+  document.querySelectorAll('.category').forEach(sec=>{
+    const anyVisible = Array.from(sec.querySelectorAll('.item-row')).some(r=>r.style.display!=='none');
+    sec.style.display = (!q || anyVisible) ? '' : 'none';
+  });
+});
+
+/* ===================== CART FAB / DRAWER ===================== */
+const cartFab = document.getElementById('cartFab');
+const cartOverlay = document.getElementById('cartOverlay');
+const cartBody = document.getElementById('cartBody');
+const cartFoot = document.getElementById('cartFoot');
+
+function cartTotals(){
+  let count=0, total=0;
+  Object.values(cart).forEach(l=>{ count+=l.qty; total+=l.qty*l.price; });
+  return {count,total};
+}
+
+function updateFab(){
+  const {count,total} = cartTotals();
+  if(count===0){ cartFab.classList.add('hidden'); }
+  else{
+    cartFab.classList.remove('hidden');
+    document.getElementById('cartCount').textContent = count;
+    document.getElementById('cartFabLabel').textContent = 'Ver pedido · ' + clp(total);
+  }
+  if(!cartOverlay.classList.contains('hidden')) renderCartDrawer();
+}
+
+function renderCartDrawer(){
+  cartBody.innerHTML='';
+  const lines = Object.entries(cart);
+  if(lines.length===0){
+    cartBody.innerHTML = '<div class="empty-msg">Tu pedido está vacío.<br>Agrega platos desde la carta.</div>';
+    cartFoot.innerHTML=''; return;
+  }
+  lines.forEach(([k,l])=>{
+    const row=document.createElement('div'); row.className='cart-line';
+    const left=document.createElement('div');
+    left.innerHTML = '<div class="cart-line-name">'+l.qty+'&times; '+escapeHtml(l.name)+'</div>'+
+      '<div class="cart-line-price mono">'+clp(l.price)+' c/u &middot; '+clp(l.price*l.qty)+'</div>'+
+      '<button class="cart-line-remove" type="button">Quitar</button>';
+    left.querySelector('.cart-line-remove').addEventListener('click', ()=>{
+      delete cart[k]; saveCart(); updateFab();
+    });
+    row.appendChild(left);
+    cartBody.appendChild(row);
+  });
+  const {total} = cartTotals();
+  cartFoot.innerHTML = '<div class="totals-row grand"><span>Total</span><span class="mono">'+clp(total)+'</span></div>';
+  const goBtn = document.createElement('button');
+  goBtn.className='btn-primary'; goBtn.type='button'; goBtn.textContent='Continuar pedido';
+  goBtn.style.marginTop='.8rem';
+  goBtn.addEventListener('click', openCheckout);
+  cartFoot.appendChild(goBtn);
+}
+
+function escapeHtml(s){
+  return s.replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+cartFab.addEventListener('click', ()=>{ renderCartDrawer(); cartOverlay.classList.remove('hidden'); });
+document.getElementById('closeCart').addEventListener('click', ()=> cartOverlay.classList.add('hidden'));
+cartOverlay.addEventListener('click', (e)=>{ if(e.target===cartOverlay) cartOverlay.classList.add('hidden'); });
+
+/* ===================== CHECKOUT ===================== */
+const checkoutOverlay = document.getElementById('checkoutOverlay');
+const checkoutModal = document.getElementById('checkoutModal');
+let orderType = 'Retiro en local';
+
+function openCheckout(){
+  cartOverlay.classList.add('hidden');
+  const {total} = cartTotals();
+  const lines = Object.values(cart);
+  checkoutModal.innerHTML =
+    '<h2>Completa tu pedido</h2>'+
+    '<p class="sub">Revisamos que quede todo bien anotado antes de enviarlo.</p>'+
+    '<label for="ckName">Tu nombre</label>'+
+    '<input type="text" id="ckName" placeholder="¿A nombre de quién?">'+
+    '<label>Tipo de pedido</label>'+
+    '<div class="pill-group" id="typeGroup"></div>'+
+    '<label id="ckWhereLabel" for="ckWhere">Referencia (opcional)</label>'+
+    '<input type="text" id="ckWhere" placeholder="Ej: retiro 20:30">'+
+    '<label for="ckNotes">Notas (opcional)</label>'+
+    '<textarea id="ckNotes" placeholder="Sin cebolla, ají aparte, etc."></textarea>'+
+    '<div class="order-recap" id="ckRecap"></div>'+
+    (WHATSAPP_NUMBER
+      ? '<button class="btn-primary" id="ckWa" type="button" style="margin-top:1.2rem;">Enviar pedido por WhatsApp</button>'+
+        '<button class="btn-secondary" id="ckCopy" type="button">Copiar pedido</button>'
+      : '<button class="btn-primary" id="ckSend" type="button" style="margin-top:1.2rem;">Compartir pedido</button>'+
+        '<button class="btn-secondary" id="ckCopy" type="button">Copiar pedido</button>')+
+    '<button class="btn-secondary" id="ckCancel" type="button">Volver al pedido</button>';
+
+  const recap = document.getElementById('ckRecap');
+  let recapHtml = lines.map(l=>'<div class="r-line"><span>'+l.qty+'&times; '+escapeHtml(l.name)+'</span><span class="mono">'+clp(l.price*l.qty)+'</span></div>').join('');
+  recapHtml += '<div class="r-line muted" style="margin-top:.4rem; border-top:1px dashed var(--line); padding-top:.5rem;"><span>Total</span><span class="mono" style="color:var(--ink); font-weight:700;">'+clp(total)+'</span></div>';
+  recap.innerHTML = recapHtml;
+
+  const typeGroup = document.getElementById('typeGroup');
+  ['Retiro en local','Delivery','Mesa'].forEach(t=>{
+    const p=document.createElement('button'); p.type='button'; p.className='pill-choice'+(t===orderType?' active':'');
+    p.textContent=t;
+    p.addEventListener('click', ()=>{
+      orderType=t;
+      typeGroup.querySelectorAll('.pill-choice').forEach(x=>x.classList.remove('active'));
+      p.classList.add('active');
+      const label=document.getElementById('ckWhereLabel');
+      const where=document.getElementById('ckWhere');
+      if(t==='Delivery'){ label.textContent='Dirección de entrega'; where.placeholder='Calle, número, referencia'; }
+      else if(t==='Mesa'){ label.textContent='N° de mesa'; where.placeholder='Ej: mesa 5'; }
+      else{ label.textContent='Referencia (opcional)'; where.placeholder='Ej: retiro 20:30'; }
+    });
+    typeGroup.appendChild(p);
+  });
+
+  document.getElementById('ckCancel').addEventListener('click', ()=>{ checkoutOverlay.classList.add('hidden'); cartOverlay.classList.remove('hidden'); renderCartDrawer(); });
+  document.getElementById('ckCopy').addEventListener('click', ()=>submitOrder('copy'));
+  if(WHATSAPP_NUMBER) document.getElementById('ckWa').addEventListener('click', ()=>submitOrder('wa'));
+  else document.getElementById('ckSend').addEventListener('click', ()=>submitOrder('share'));
+
+  checkoutOverlay.classList.remove('hidden');
+}
+
+function buildOrderCode(){
+  const d = new Date();
+  const pad=n=>String(n).padStart(2,'0');
+  return 'WC-'+String(d.getFullYear()).slice(2)+pad(d.getMonth()+1)+pad(d.getDate())+'-'+pad(d.getHours())+pad(d.getMinutes());
+}
+
+function buildOrderText(name, where, notes, code){
+  const {total} = cartTotals();
+  const lines = Object.values(cart);
+  let txt = 'PEDIDO WILLY CHEF ('+code+')\n';
+  txt += 'Cliente: '+(name||'-')+'\n';
+  txt += 'Tipo: '+orderType+(where?(' - '+where):'')+'\n';
+  txt += '--------------------\n';
+  lines.forEach(l=>{ txt += l.qty+'x '+l.name+' - '+clp(l.price*l.qty)+'\n'; });
+  txt += '--------------------\n';
+  txt += 'TOTAL: '+clp(total)+'\n';
+  if(notes) txt += 'Notas: '+notes+'\n';
+  return txt;
+}
+
+function submitOrder(mode){
+  const name = document.getElementById('ckName').value.trim();
+  const where = document.getElementById('ckWhere').value.trim();
+  const notes = document.getElementById('ckNotes').value.trim();
+  if(!name){ document.getElementById('ckName').focus(); return; }
+  if(orderType!=='Retiro en local' && !where){ document.getElementById('ckWhere').focus(); return; }
+
+  const code = buildOrderCode();
+  const text = buildOrderText(name, where, notes, code);
+  const {total} = cartTotals();
+
+  if(mode==='wa' && WHATSAPP_NUMBER){
+    window.open('https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(text), '_blank');
+  }else if(mode==='share' && navigator.share){
+    navigator.share({title:'Pedido Willy Chef', text:text}).catch(()=>{});
+  }else{
+    copyToClipboard(text);
+  }
+
+  saveHistoryEntry({code, name, type:orderType, where, total, date:new Date().toISOString(), items:Object.values(cart)});
+  showConfirmation(code, mode);
+  cart = {}; saveCart(); updateFab();
+  document.querySelectorAll('[data-ctrl]').forEach(el=>{
+    const [catId,...rest] = el.dataset.ctrl.split('::');
+    const name2 = rest.join('::');
+    const cat = MENU.find(c=>c.id===catId);
+    if(!cat) return;
+    let found=null;
+    cat.groups.forEach(g=>g.items.forEach(it=>{ if(it.n===name2) found=it; }));
+    if(found) renderCtrl(el, catId, found);
+  });
+}
+
+function copyToClipboard(text){
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).catch(()=>{});
+  }else{
+    const ta=document.createElement('textarea'); ta.value=text; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand('copy'); }catch(e){} document.body.removeChild(ta);
+  }
+}
+
+function showConfirmation(code, mode){
+  let msg;
+  if(mode==='wa') msg = 'Se abrió WhatsApp con tu pedido listo para enviar.';
+  else if(mode==='share') msg = 'Se abrió el panel para compartir tu pedido. Si no pasó nada, usa "Copiar pedido" y pégalo en WhatsApp.';
+  else msg = 'Copiamos tu pedido. Pégalo (Ctrl+V o mantén presionado y pegar) en tu chat de WhatsApp con el local.';
+  checkoutModal.innerHTML =
+    '<h2>&iexcl;Pedido listo!</h2>'+
+    '<p class="sub">'+msg+'</p>'+
+    '<div class="confirm-code">'+code+'</div>'+
+    '<p class="sub" style="margin-top:1rem;">Guardamos este pedido en <strong>Mis pedidos</strong> en este dispositivo.</p>'+
+    '<button class="btn-primary" id="ckDone" type="button" style="margin-top:1rem;">Listo</button>';
+  document.getElementById('ckDone').addEventListener('click', ()=> checkoutOverlay.classList.add('hidden'));
+}
+
+checkoutOverlay.addEventListener('click', (e)=>{ if(e.target===checkoutOverlay) checkoutOverlay.classList.add('hidden'); });
+
+/* ===================== HISTORY ===================== */
+const historyOverlay = document.getElementById('historyOverlay');
+const historyModal = document.getElementById('historyModal');
+document.getElementById('historyBtn').addEventListener('click', ()=>{
+  const hist = loadHistory();
+  let body;
+  if(hist.length===0){
+    body = '<p class="sub">Aún no has hecho pedidos desde este dispositivo.</p>';
+  }else{
+    body = hist.map(h=>{
+      const d = new Date(h.date);
+      const fecha = d.toLocaleDateString('es-CL')+' '+d.toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit'});
+      return '<div class="history-item"><div class="h-top"><span>'+h.code+'</span><span class="mono">'+clp(h.total)+'</span></div>'+
+        '<div class="h-meta">'+fecha+' &middot; '+h.type+(h.where?(' &middot; '+escapeHtml(h.where)):'')+' &middot; '+h.items.reduce((a,i)=>a+i.qty,0)+' productos</div></div>';
+    }).join('');
+  }
+  historyModal.innerHTML = '<h2>Mis pedidos</h2><p class="sub">Historial guardado en este dispositivo.</p>'+body+
+    '<button class="btn-secondary" id="histClose" type="button">Cerrar</button>';
+  document.getElementById('histClose').addEventListener('click', ()=> historyOverlay.classList.add('hidden'));
+  historyOverlay.classList.remove('hidden');
+});
+historyOverlay.addEventListener('click', (e)=>{ if(e.target===historyOverlay) historyOverlay.classList.add('hidden'); });
+
+/* ===================== SCROLLSPY ===================== */
+const sections = MENU.map(c=>document.getElementById('sec-'+c.id));
+const tabs = Array.from(tabnav.children);
+const spy = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const id = entry.target.id.replace('sec-','');
+      tabs.forEach(t=>t.classList.toggle('active', t.dataset.cat===id));
+    }
+  });
+}, {rootMargin:'-45% 0px -50% 0px'});
+sections.forEach(s=>spy.observe(s));
+
+updateFab();
+</script>
+</body>
+</html>
