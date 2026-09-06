@@ -1,0 +1,178 @@
+<title>EIN Accesorios Catálogo</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f1420; --surface:#171e2e; --ink:#eef2f8; --ink-soft:#95a2b8;
+  --line:#293346; --accent:#4fd1c5; --accent-ink:#062723; --gold:#f2b134;
+  --chip-bg:#1e2740; --shadow:0 1px 2px rgba(0,0,0,.35), 0 10px 28px -14px rgba(0,0,0,.55);
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#F6F8FB; --surface:#FFFFFF; --ink:#131A26; --ink-soft:#5C6B82;
+    --line:#E3E9F2; --accent:#0E9488; --accent-ink:#FFFFFF; --gold:#B9821E;
+    --chip-bg:#EAF6F4; --shadow:0 1px 2px rgba(20,30,45,.05), 0 10px 28px -14px rgba(20,30,45,.15);
+  }
+}
+:root[data-theme="light"]{
+  --bg:#F6F8FB; --surface:#FFFFFF; --ink:#131A26; --ink-soft:#5C6B82;
+  --line:#E3E9F2; --accent:#0E9488; --accent-ink:#FFFFFF; --gold:#B9821E;
+  --chip-bg:#EAF6F4; --shadow:0 1px 2px rgba(20,30,45,.05), 0 10px 28px -14px rgba(20,30,45,.15);
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:'Manrope',system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+.wrap{max-width:640px; margin:0 auto}
+.hero{padding:52px 20px 34px; position:relative; overflow:hidden}
+.hero::before{content:''; position:absolute; inset:-8px; background:url('hero.jpg') center 40%/cover no-repeat; filter:blur(7px) brightness(.55); transform:scale(1.05); z-index:0}
+.hero::after{content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(6,10,18,.4) 0%, rgba(6,10,18,.6) 55%, var(--bg) 97%); z-index:1}
+.hero-inner{max-width:600px; margin:0 auto; position:relative; z-index:2}
+.eyebrow{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#062723; font-weight:700; margin:0 0 14px; background:var(--accent); display:inline-block; padding:5px 12px; border-radius:100px}
+h1{font-family:'Sora',sans-serif; font-weight:800; font-size:clamp(32px,8vw,46px); line-height:1.08; margin:14px 0 14px; color:#fff; text-shadow:0 2px 18px rgba(0,0,0,.6)}
+.rating{display:inline-flex; align-items:center; gap:6px; background:rgba(0,0,0,.45); border:1px solid rgba(255,255,255,.15); padding:6px 12px; border-radius:100px; font-size:13px; font-weight:600; margin-bottom:12px; color:#fff}
+.rating .stars{color:var(--gold)}
+.addr{font-size:13.5px; color:#dbe4f0; margin-bottom:14px}
+.tagline{color:#dbe4f0; font-size:15.5px; line-height:1.55; max-width:46ch; margin:0 0 22px}
+.hero-cta{display:inline-flex; align-items:center; gap:8px; background:var(--accent); border:none; color:var(--accent-ink); font-family:'Manrope',sans-serif; font-weight:700; font-size:14px; padding:12px 22px; border-radius:100px; cursor:pointer; text-decoration:none}
+
+.content{padding:0 20px 64px}
+section{margin-top:38px}
+h2{font-family:'Sora',sans-serif; font-weight:800; font-size:22px; margin:0 0 6px}
+.section-sub{color:var(--ink-soft); font-size:13.5px; margin:0 0 18px}
+
+.catalog{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+@media (max-width:480px){.catalog{grid-template-columns:1fr}}
+.piece{background:var(--surface); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:var(--shadow)}
+.piece img{width:100%; aspect-ratio:4/3; object-fit:cover; display:block}
+.piece-body{padding:14px 16px}
+.piece-name{font-family:'Sora',sans-serif; font-weight:700; font-size:16px; margin-bottom:3px}
+.piece-desc{font-size:12.5px; color:var(--ink-soft); line-height:1.4; margin-bottom:12px}
+.piece-cta{display:inline-flex; align-items:center; gap:6px; width:100%; justify-content:center; background:none; border:1.5px solid var(--accent); color:var(--accent); font-family:'Manrope',sans-serif; font-weight:700; font-size:12.5px; padding:9px; border-radius:100px; cursor:pointer; text-decoration:none}
+.piece-cta:hover{background:var(--chip-bg)}
+
+.features{display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
+@media (max-width:520px){.features{grid-template-columns:1fr}}
+.feature{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:16px; box-shadow:var(--shadow)}
+.feature .ficon{font-size:19px; display:block; margin-bottom:8px}
+.feature .flabel{font-weight:700; font-size:13.5px; margin-bottom:4px}
+.feature .fdesc{font-size:12.5px; color:var(--ink-soft); line-height:1.45}
+
+.about{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:24px 26px; box-shadow:var(--shadow)}
+.about p{color:var(--ink-soft); font-size:14.5px; line-height:1.65; margin:0}
+.about p+p{margin-top:10px}
+.about strong{color:var(--ink)}
+
+.big-cta{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:28px 24px; text-align:center; box-shadow:var(--shadow)}
+.big-cta h3{font-family:'Sora',sans-serif; font-weight:800; font-size:19px; margin:0 0 8px}
+.big-cta p{color:var(--ink-soft); font-size:14px; margin:0 0 18px; line-height:1.5}
+.big-cta a{display:inline-flex; align-items:center; gap:8px; background:var(--accent); color:var(--accent-ink); font-weight:700; font-size:14.5px; padding:13px 26px; border-radius:100px; text-decoration:none}
+
+.contact-card{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:26px; box-shadow:var(--shadow)}
+.contact-row{display:flex; gap:14px; align-items:flex-start; padding:12px 0; border-bottom:1px solid var(--line)}
+.contact-row:last-child{border-bottom:none; padding-bottom:0}
+.contact-row:first-child{padding-top:0}
+.contact-icon{flex:none; width:36px; height:36px; border-radius:50%; background:var(--chip-bg); display:flex; align-items:center; justify-content:center; font-size:16px}
+.contact-label{font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); font-weight:700; margin-bottom:2px}
+.contact-value{font-size:14.5px; font-weight:500}
+.contact-value a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line)}
+.contact-value a:hover{color:var(--accent); border-color:var(--accent)}
+
+footer{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-soft); line-height:1.6}
+footer a{color:var(--accent); text-decoration:none; font-weight:700}
+</style>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Demo — Catálogo online con pedidos por WhatsApp</p>
+      <h1>EIN Accesorios</h1>
+      <div><span class="rating"><span class="stars">★★★★★</span> 5.0 en Google</span></div>
+      <p class="addr">📍 Paseo Estado 215, Galería Plaza de las Agustinas, Santiago Centro</p>
+      <p class="tagline">Hoy solo se les encuentra pasando por la galería. Así se vería su catálogo online, con cada línea de productos a un clic de WhatsApp.</p>
+      <a href="#catalogo" class="hero-cta">Ver catálogo ↓</a>
+    </div>
+  </div>
+
+  <div class="content">
+  <section>
+    <div class="about">
+      <p><strong>EIN Accesorios</strong> vende fundas, cargadores, audífonos y láminas de hidrogel para celular, además de servicio de fotocopias, impresiones y plastificados — todo en un kiosko dentro de la Galería Plaza de las Agustinas.</p>
+      <p>Hoy solo tienen su ficha de Google Maps: sin catálogo de productos ni forma de consultar precios antes de ir.</p>
+    </div>
+  </section>
+
+  <section id="catalogo">
+    <h2>Lo que venden</h2>
+    <p class="section-sub">Categorías principales del local</p>
+    <div class="catalog">
+      <div class="piece">
+        <img src="foto2.jpg" alt="Audífonos y cargadores en exhibición">
+        <div class="piece-body">
+          <div class="piece-name">Audífonos y cargadores</div>
+          <div class="piece-desc">Cables, cargadores rápidos, audífonos con cable y bluetooth.</div>
+          <a class="piece-cta" href="https://wa.me/56981640022?text=Hola%2C%20quer%C3%ADa%20consultar%20por%20audífonos%20y%20cargadores." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        </div>
+      </div>
+      <div class="piece">
+        <img src="hero.jpg" alt="Local EIN Accesorios en la galería">
+        <div class="piece-body">
+          <div class="piece-name">Láminas de hidrogel</div>
+          <div class="piece-desc">Instalación al instante desde $4.900.</div>
+          <a class="piece-cta" href="https://wa.me/56981640022?text=Hola%2C%20quer%C3%ADa%20consultar%20por%20una%20l%C3%A1mina%20de%20hidrogel." target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="features">
+      <div class="feature"><span class="ficon">📱</span><div class="flabel">Catálogo siempre visible</div><div class="fdesc">Ya no depende de pasar por la galería para ver qué tienen.</div></div>
+      <div class="feature"><span class="ficon">💬</span><div class="flabel">Consulta directa</div><div class="fdesc">Cada categoría abre un chat de WhatsApp ya redactado.</div></div>
+      <div class="feature"><span class="ficon">🖨️</span><div class="flabel">Todos los servicios</div><div class="fdesc">Fotocopias, impresiones y plastificados en un solo lugar.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contacto</h2>
+    <p class="section-sub">Así se vería toda su información en un solo lugar</p>
+    <div class="contact-card">
+      <div class="contact-row">
+        <div class="contact-icon">💬</div>
+        <div>
+          <div class="contact-label">WhatsApp</div>
+          <div class="contact-value"><a href="https://wa.me/56981640022" target="_blank" rel="noopener">+56 9 8164 0022</a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Ubicación</div>
+          <div class="contact-value"><a href="https://www.google.com/maps/search/Paseo+Estado+215+Santiago" target="_blank" rel="noopener">Paseo Estado 215, Santiago Centro — Cómo llegar</a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon">🖨️</div>
+        <div>
+          <div class="contact-label">Servicios</div>
+          <div class="contact-value">Fotocopias, impresiones y plastificados</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="big-cta">
+      <h3>¿Le gustaría esto para su local?</h3>
+      <p>Le armamos un catálogo a medida, con sus propios productos y su número de WhatsApp.</p>
+      <a href="https://wa.me/56974749565?text=Hola%20Agust%C3%ADn%2C%20vi%20la%20demo%20de%20EIN%20Accesorios%20y%20quiero%20una%20p%C3%A1gina%20para%20mi%20local" target="_blank" rel="noopener">Escribir a Agustín →</a>
+    </div>
+  </section>
+
+  <footer>
+    Demo hecha a medida para EIN Accesorios por Agustín de la Guarda. No es el sitio oficial del negocio; los precios y categorías se tomaron de su ficha pública de Google Maps.<br>
+    Sistemas de reservas, pedidos y catálogos online para negocios en Chile · <a href="https://wa.me/56974749565" target="_blank" rel="noopener">WhatsApp +56 9 7474 9565</a>
+  </footer>
+  </div>
+</div>

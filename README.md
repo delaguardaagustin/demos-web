@@ -15,8 +15,8 @@ mensualidad de plataforma.
   - [`reservas-nunoa/`](reservas-nunoa/) — Ñuñoa
   - [`reservas-providencia/`](reservas-providencia/) — Providencia
   - [`reservas-lascondes/`](reservas-lascondes/) — Las Condes
-- **Catálogos online** (`catalogos-joyerias/`) — joyerías sin página web, catálogo de
-  piezas reales con pedido por WhatsApp.
+- **Catálogos online** (`catalogos-joyerias/`, `catalogos-varios/`) — negocios sin página web,
+  catálogo de productos reales con pedido por WhatsApp.
 
 Cada carpeta de categoría tiene su propio `index.html` como mini-galería, y todo está
 enlazado desde el `index.html` de la raíz.
@@ -53,6 +53,11 @@ enlazado desde el `index.html` de la raíz.
 | [`la-posada-valparaiso/`](la-posada-valparaiso/) | Parrilla / fuente de soda | Valparaíso |
 | [`don-ostion/`](don-ostion/) | Marisquería | La Serena |
 | [`el-corralero/`](el-corralero/) | Parrilla | Temuco |
+| [`willy-chef/`](willy-chef/) | Comida peruana, con armador de pedidos | El Bosque |
+| [`fogon-del-lenador/`](fogon-del-lenador/) | Parrilla | Puerto Montt |
+| [`el-bosque-cocina-bar/`](el-bosque-cocina-bar/) | Cocina & Bar | Puerto Montt |
+| [`namaskar-rancagua/`](namaskar-rancagua/) | Comida rápida | Rancagua |
+| [`royal-burger/`](royal-burger/) | Comida rápida | Rancagua |
 
 ## Aviso
 
