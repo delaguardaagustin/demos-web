@@ -634,6 +634,19 @@ Si no te convence, no pagas nada.</p>
 Desarrollo web · Santiago, Chile
 </div></footer>
 
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script>
+(function(){
+  if (window.anime && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    anime.set('.hero .eyebrow, .hero h1, .hero .lead, .hero .aviso', {opacity:0, translateY:18});
+    anime.timeline({easing:'easeOutQuad'})
+      .add({targets:'.hero .eyebrow', opacity:[0,1], translateY:[18,0], duration:520})
+      .add({targets:'.hero h1', opacity:[0,1], translateY:[18,0], duration:640}, '-=320')
+      .add({targets:'.hero .lead', opacity:[0,1], translateY:[18,0], duration:560}, '-=380')
+      .add({targets:'.hero .aviso', opacity:[0,1], translateY:[18,0], duration:560}, '-=340');
+  }
+})();
+</script>
 <script>
 (function(){
   var pend=[].slice.call(document.querySelectorAll('.rv')),tick=false;
