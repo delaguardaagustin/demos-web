@@ -58,6 +58,8 @@ enlazado desde el `index.html` de la raíz.
 | [`el-bosque-cocina-bar/`](el-bosque-cocina-bar/) | Cocina & Bar | Puerto Montt |
 | [`namaskar-rancagua/`](namaskar-rancagua/) | Comida rápida | Rancagua |
 | [`royal-burger/`](royal-burger/) | Comida rápida | Rancagua |
+| [`fusion-wong/`](fusion-wong/) | Chifa (comida china) | Los Olivos, Lima (Perú) |
+| [`causay-mar/`](causay-mar/) | Cebichería | Comas, Lima (Perú) |
 
 ## Aviso
 
