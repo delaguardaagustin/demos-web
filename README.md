@@ -60,6 +60,10 @@ enlazado desde el `index.html` de la raíz.
 | [`royal-burger/`](royal-burger/) | Comida rápida | Rancagua |
 | [`fusion-wong/`](fusion-wong/) | Chifa (comida china) | Los Olivos, Lima (Perú) |
 | [`causay-mar/`](causay-mar/) | Cebichería | Comas, Lima (Perú) |
+| [`salon-sergio/`](salon-sergio/) | Salón de belleza | Talca |
+| [`pawsitive-osorno/`](pawsitive-osorno/) | Veterinaria 24/7 | Osorno |
+| [`hausbrot/`](hausbrot/) | Panadería alemana | Chillán |
+| [`progym/`](progym/) | Gimnasio | Los Ángeles |
 
 ## Aviso
 
