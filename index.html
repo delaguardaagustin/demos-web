@@ -24,7 +24,12 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opa
 .hero{position:relative;overflow:hidden;padding:clamp(70px,12vw,130px) 0 clamp(40px,6vw,64px)}
 .hero::before{content:"";position:absolute;inset:-40% -10% auto -10%;height:130%;pointer-events:none;
  background:radial-gradient(55% 50% at 20% 15%,#25d3662e,transparent 70%),
-            radial-gradient(50% 45% at 85% 5%,#e8c5471f,transparent 72%)}
+            radial-gradient(50% 45% at 85% 5%,#e8c5471f,transparent 72%);
+ animation:heroGlow 14s ease-in-out infinite alternate}
+@keyframes heroGlow{
+ 0%{transform:translate(0,0) scale(1)}
+ 100%{transform:translate(2.5%,-2%) scale(1.08)}
+}
 .hero .pat{position:absolute;inset:0;width:100%;height:100%;color:var(--tx);opacity:.05;pointer-events:none}
 .hero>*{position:relative}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--ac2);font-size:12px;font-weight:700;
@@ -60,7 +65,7 @@ h2{font-size:clamp(27px,4.6vw,42px)}
 .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(268px,100%),1fr))}
 a.card{position:relative;overflow:hidden;background:var(--cd);border:1px solid var(--bd);border-radius:18px;
  padding:28px 26px 24px;text-decoration:none;display:flex;flex-direction:column;min-height:212px;
- transition:border-color .2s,transform .2s,background .2s}
+ transition:border-color .2s,transform .15s ease-out,background .2s;will-change:transform}
 a.card::before{content:"";position:absolute;inset:0;opacity:0;transition:opacity .25s;
  background:radial-gradient(80% 70% at 50% 0%,var(--gl),transparent 70%)}
 a.card:hover{border-color:var(--gl2);transform:translateY(-4px);background:var(--cd2)}
@@ -101,8 +106,12 @@ a.card:hover .go span{transform:translateX(4px)}
 .ctabtns svg{width:24px;height:24px;flex:none;fill:currentColor}
 .ctabtns span{display:flex;flex-direction:column;line-height:1.3;min-width:0;overflow-wrap:anywhere}
 .ctabtns small{font-size:11px;text-transform:uppercase;letter-spacing:.14em;opacity:.72;font-weight:700}
-.bwa{background:var(--ac);color:#04301a;box-shadow:0 6px 22px -8px var(--ac)}
-.bwa:hover{box-shadow:0 12px 30px -10px var(--ac)}
+.bwa{background:var(--ac);color:#04301a;box-shadow:0 6px 22px -8px var(--ac);animation:bwaPulse 2.6s ease-in-out infinite}
+.bwa:hover{box-shadow:0 12px 30px -10px var(--ac);animation-play-state:paused}
+@keyframes bwaPulse{
+ 0%,100%{box-shadow:0 6px 22px -8px var(--ac)}
+ 50%{box-shadow:0 6px 30px -4px var(--ac)}
+}
 .bml{background:transparent;color:var(--tx);border:1px solid var(--bd)}
 .bml:hover{border-color:var(--ac2)}
 @media(max-width:760px){.cta{grid-template-columns:1fr}}
@@ -112,6 +121,7 @@ footer b{color:var(--tx);font-family:var(--fh);font-size:16px;display:block;marg
 
 .rv{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
 .rv.in{opacity:1;transform:none}
+html.anime-driven .rv{transition:none}
 @media(prefers-reduced-motion:reduce){
  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
  html{scroll-behavior:auto}}
@@ -637,35 +647,103 @@ Desarrollo web · Santiago, Chile
 <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
 <script>
 (function(){
-  if (window.anime && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    anime.set('.hero .eyebrow, .hero h1, .hero .lead, .hero .aviso', {opacity:0, translateY:18});
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasAnime = !!window.anime;
+  if (hasAnime && !reduce) document.documentElement.classList.add('anime-driven');
+
+  /* ---- 1. Entrada del hero ---- */
+  if (hasAnime && !reduce) {
     anime.timeline({easing:'easeOutQuad'})
       .add({targets:'.hero .eyebrow', opacity:[0,1], translateY:[18,0], duration:520})
       .add({targets:'.hero h1', opacity:[0,1], translateY:[18,0], duration:640}, '-=320')
       .add({targets:'.hero .lead', opacity:[0,1], translateY:[18,0], duration:560}, '-=380')
       .add({targets:'.hero .aviso', opacity:[0,1], translateY:[18,0], duration:560}, '-=340');
   }
+
+  /* ---- 2. Revelado escalonado por sección al hacer scroll ---- */
+  var items = [].slice.call(document.querySelectorAll('.rv'));
+  if (reduce || !window.IntersectionObserver) {
+    items.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var groups = new Map();
+    items.forEach(function(el){
+      var key = el.closest('section') || document.body;
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(el);
+    });
+
+    var done = new Set();
+    function reveal(key){
+      if (done.has(key)) return;
+      done.add(key);
+      var group = groups.get(key);
+      if (hasAnime) {
+        anime({
+          targets: group,
+          opacity: [0,1],
+          translateY: [20,0],
+          scale: [0.97,1],
+          duration: 650,
+          delay: anime.stagger(55),
+          easing: 'easeOutCubic'
+        });
+      } else {
+        group.forEach(function(el,i){
+          setTimeout(function(){ el.classList.add('in') }, i*70);
+        });
+      }
+      group.forEach(function(el){ el.classList.add('in'); });
+    }
+
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          io.unobserve(entry.target);
+          reveal(entry.target);
+        }
+      });
+    }, {threshold:0.08, rootMargin:'0px 0px -60px 0px'});
+
+    groups.forEach(function(_, key){ io.observe(key); });
+
+    /* Red de seguridad: si el navegador no dispara IntersectionObserver
+       (o una sección queda a medio revelar), forzamos todo visible. */
+    setTimeout(function(){
+      groups.forEach(function(_, key){ reveal(key); });
+    }, 2500);
+  }
+
+  /* Red de seguridad final: si anime.js quedó a medio tween (p.ej. la
+     pestaña estuvo en segundo plano y requestAnimationFrame se pausó),
+     forzamos el estado final visible a mano. Nunca debe quedar contenido
+     invisible. */
+  setTimeout(function(){
+    var all = document.querySelectorAll('.hero .eyebrow, .hero h1, .hero .lead, .hero .aviso, .rv');
+    [].slice.call(all).forEach(function(el){
+      if (parseFloat(getComputedStyle(el).opacity) < 0.99) {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      }
+    });
+  }, 4000);
 })();
 </script>
 <script>
 (function(){
-  var pend=[].slice.call(document.querySelectorAll('.rv')),tick=false;
-  function sweep(){
-    tick=false;
-    var lim=innerHeight*0.92,n=0;
-    for(var i=0;i<pend.length;i++){
-      if(pend[i].getBoundingClientRect().top<lim){
-        (function(el,d){setTimeout(function(){el.classList.add('in')},d)})(pend[i],(n++)*70);
-        pend[i]=null;
-      }
-    }
-    pend=pend.filter(Boolean);
-    if(!pend.length)removeEventListener('scroll',onS);
-  }
-  function onS(){if(!tick){tick=true;setTimeout(sweep,60)}}
-  addEventListener('scroll',onS,{passive:true});
-  addEventListener('resize',onS,{passive:true});
-  sweep();
+  /* ---- 3. Tarjetas: leve inclinación 3D siguiendo el mouse ---- */
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (matchMedia('(hover: none)').matches) return;
+  [].slice.call(document.querySelectorAll('a.card')).forEach(function(card){
+    var rect=null;
+    card.addEventListener('mouseenter', function(){ rect = card.getBoundingClientRect(); });
+    card.addEventListener('mousemove', function(e){
+      if(!rect) rect = card.getBoundingClientRect();
+      var px=(e.clientX-rect.left)/rect.width, py=(e.clientY-rect.top)/rect.height;
+      var rx=(0.5-py)*8, ry=(px-0.5)*8;
+      card.style.transform='perspective(700px) translateY(-4px) rotateX('+rx+'deg) rotateY('+ry+'deg)';
+    });
+    card.addEventListener('mouseleave', function(){ card.style.transform=''; rect=null; });
+  });
 })();
 </script>
 </body></html>
